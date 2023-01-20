@@ -5,7 +5,7 @@ RewriteEngine On
 
 
 
-RewriteBase /truelysell-web/
+RewriteBase /mfs/
 
 
 
@@ -21,6 +21,6 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 
 
-RewriteRule . /truelysell-web/index.php [L]
+RewriteRule . /mfs/index.php [L]
 
 
