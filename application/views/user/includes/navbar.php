@@ -101,6 +101,12 @@ $google_analytics_code = $this->db->get_where('system_settings', array('key'=>'g
                                             <li><a href="<?php echo $menu->link; ?>"><?php echo $menu->label; ?></a></li>
                                         <?php } }
                                     } ?>
+                                     <li><a href="">Home</a></li>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Services</a></li>
+                        <li><a href="">Apply for Job</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">Blog</a></li> 
                                      <?php 
                                 $lang_val = ($this->session->userdata('user_select_language'))?$this->session->userdata('user_select_language'):'en';
                                 $this->db->where('language_value', $lang_val);
@@ -166,7 +172,7 @@ $google_analytics_code = $this->db->get_where('system_settings', array('key'=>'g
                             </li>
                         <?php } */ ?> 
                         <?php if($header_settings->language_option == 1) { ?>
-                        <li class="has-submenu">
+                       <!-- <li class="has-submenu">
                             <a href="javascript:;"><?php echo $lang; ?><i class="fas fa-chevron-down"></i></a>
                             <ul class="submenu lang-blk">
                                 <?php foreach ($active_language as $active) { ?>
@@ -182,7 +188,7 @@ $google_analytics_code = $this->db->get_where('system_settings', array('key'=>'g
                                             <?php echo ($active['language']); ?></a></li>
                                 <?php } ?>
                             </ul>
-                        </li>
+                        </li>  -->
                     <?php } ?>
                 
                         <?php

@@ -165,7 +165,7 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
                         <ul id="searchResult"></ul>
 
                          <?php if($banner_showhide->popular_search == 1)  { ?> 
-
+                           
                         <div class="search-cat">
 
                             <i class="fas fa-circle"></i>
@@ -221,9 +221,9 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
                         <div class="heading">
 
                         <?php foreach ($home_featured_language as $featured_language) { ?>
-                            <h2><?php echo(!empty($featured_language['title']))?($featured_language['title']) : 'Featured Categories';  ?></h2>
+                            <h2>Our professional expertise</h2>
 
-                            <span><?php echo(!empty($featured_language['content']))?($featured_language['content']) : 'Search From Featured Categories';  ?></span>
+                            <span>What Do You Need To Find?</span>
                         <?php } ?>
 
                         </div>
@@ -234,9 +234,11 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                         <div class="viewall">
 
-                            <h4><a href="<?php echo base_url(); ?>all-categories"><?php echo (!empty($user_language[$user_selected]['lg_View_All'])) ? $user_language[$user_selected]['lg_View_All'] : $default_language['en']['lg_View_All']; ?> <i class="fas fa-angle-right"></i></a></h4>
+                            <span>Professional expertise</span>
 
-                            <span><?php echo (!empty($user_language[$user_selected]['lg_Featured_Categories'])) ? $user_language[$user_selected]['lg_Featured_Categories'] : $default_language['en']['lg_Featured_Categories']; ?></span>
+                            <!-- <h4><a href="<?php echo base_url(); ?>all-categories"><?php echo (!empty($user_language[$user_selected]['lg_View_All'])) ? $user_language[$user_selected]['lg_View_All'] : $default_language['en']['lg_View_All']; ?> <i class="fas fa-angle-right"></i></a></h4>
+
+                            <span><?php echo (!empty($user_language[$user_selected]['lg_Featured_Categories'])) ? $user_language[$user_selected]['lg_Featured_Categories'] : $default_language['en']['lg_Featured_Categories']; ?></span> -->
 
                         </div>
 
@@ -295,16 +297,17 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
                                         ?>
 
                                             <div class="cate-title">
+                                               
 
                                                 <h3><span><i class="fas fa-circle"></i> <?php echo $cat_name->category_name; ?></span></h3>
 
                                             </div>
 
-                                            <div class="cate-count">
+                                            <!-- <div class="cate-count">
 
                                                 <i class="fas fa-clone"></i> <?php echo $crows['category_count']; ?>
 
-                                            </div>
+                                            </div> -->
 
                                         </div>
 
@@ -381,10 +384,10 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
                     <div class="col-md-6">
 
                         <div class="viewall">
+                        <span>Featured Services</span>
+                            <!-- <h4><a href="<?php echo base_url(); ?>all-services"><?php echo (!empty($user_language[$user_selected]['lg_View_All'])) ? $user_language[$user_selected]['lg_View_All'] : $default_language['en']['lg_View_All']; ?> <i class="fas fa-angle-right"></i></a></h4>
 
-                            <h4><a href="<?php echo base_url(); ?>all-services"><?php echo (!empty($user_language[$user_selected]['lg_View_All'])) ? $user_language[$user_selected]['lg_View_All'] : $default_language['en']['lg_View_All']; ?> <i class="fas fa-angle-right"></i></a></h4>
-
-                            <span><?php echo (!empty($user_language[$user_selected]['lg_newest_services'])) ? $user_language[$user_selected]['lg_newest_services'] : 'Newested Services'; ?></span>
+                            <span><?php echo (!empty($user_language[$user_selected]['lg_newest_services'])) ? $user_language[$user_selected]['lg_newest_services'] : 'Newested Services'; ?></span> -->
 
                         </div>
 
@@ -508,7 +511,7 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                                             <div class="service-user">
 
-                                                <!-- <a href="#"> -->
+                                             
 
                                                     <?php  if ($provider_details['profile_img'] != '' && (@getimagesize(base_url().$provider_details['profile_img']))) { ?>
 
@@ -522,7 +525,7 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
         <?php } ?>
 
-                                                <!-- </a> -->
+                                              
 
                                                 <span class="service-price"><?php echo currency_conversion($user_currency_code) . $service_amount; ?></span>
 
@@ -610,22 +613,16 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
 
 
-                                            <div class="row">
-
-                                                <?php if ($this->session->userdata('id') != '') {
-
-                                                    ?>
-
-                                                    <span class="col ser-contact"><i class="fas fa-phone mr-1"></i> <span>xxxxxxxx<?= rand(00, 99) ?></span></span>
-
-                                                <?php } else { ?>
-
-                                                    <span class="col ser-contact"><i class="fas fa-phone mr-1"></i> <span>xxxxxxxx<?= rand(00, 99) ?></span></span>
-
-        <?php } ?>
-
-                                                <span class="col ser-location"><span><?php echo ucfirst($nrows['service_location']); ?></span> <i class="fas fa-map-marker-alt ml-1"></i></span>
-
+                                        <div class="row">
+                                                <span class="col ser-contact">
+                      <i class="fas fa-phone mr-1"></i>
+                      <span><a href="tel:+971-581329990">+971-581329990</a></span>
+                                                </span>
+                                                <span class="col ser-location">
+                      <div class="blog-read-more">
+                            <a href=""> Book Now<i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
+                    </span>
                                             </div>
 
                                         </div>
@@ -990,316 +987,7 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
 <?php  }  ?>
 
-<?php  if(settingValue('top_rating_showhide') == 1) { ?>
 
-<section class="popular-services">
-
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-lg-12">
-
-                <div class="row">
-
-                    <div class="col-md-6">
-
-                        <div class="heading">
-
-                        <?php foreach ($home_featured_ser_language as $featured_ser_language) { ?>
-                            <h2><?php echo(!empty($featured_ser_language['title']))?($featured_ser_language['title']) : 'Featured Services';  ?></h2>
-
-                            <span><?php echo(!empty($featured_ser_language['content']))?($featured_ser_language['content']) : 'Featured Service Contents';  ?></span>
-                        <?php } ?>
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-
-                        <div class="viewall">
-
-                            <h4><a href="<?php echo base_url(); ?>featured-services"><?php echo (!empty($user_language[$user_selected]['lg_View_All'])) ? $user_language[$user_selected]['lg_View_All'] : $default_language['en']['lg_View_All']; ?> <i class="fas fa-angle-right"></i></a></h4>
-
-                            <span><?php echo (!empty($user_language[$user_selected]['lg_features_services'])) ? $user_language[$user_selected]['lg_features_services'] : $default_language['en']['lg_features_services']; ?></span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="service-carousel">
-
-                    <div class="service-slider owl-carousel owl-theme">
-
-
-
-                        <?php
-
-                        if (!empty($top_rating_services)) {
-
-                            foreach ($top_rating_services as $srows) {
-                                $lang = ($this->session->userdata('user_select_language'))?$this->session->userdata('user_select_language'):settingValue('language');
-
-                                $feature_cat_name = $this->db->select('cl.category_name')->from('categories c')->join('categories_lang cl', 'cl.category_id = c.id', 'left')->where(array('c.id'=>$srows['category'],'c.status'=> 1, 'cl.lang_type'=>$lang))->get()->row()->category_name;
-                                $this->db->select("service_image");
-
-                                $this->db->from('services_image');
-
-                                $this->db->where("service_id", $srows['id']);
-
-                                $this->db->where("status", 1);
-
-                                $image = $this->db->get()->row_array();
-
-
-
-                                $provider_details = $this->db->where('id', $srows['user_id'])->get('providers')->row_array();
-
-
-
-
-
-                                $this->db->select('AVG(rating)');
-
-                                $this->db->where(array('service_id' => $srows['id'], 'status' => 1));
-
-                                $this->db->from('rating_review');
-
-                                $rating = $this->db->get()->row_array();
-
-                                $avg_rating = round($rating['AVG(rating)'], 1);
-
-
-
-                                $user_currency_code = '';
-
-                                $userId = $this->session->userdata('id');
-
-                                If (!empty($userId)) {
-
-                                    $service_amount = $srows['service_amount'];
-
-
-
-                                    $type = $this->session->userdata('usertype');
-
-                                    if ($type == 'user') {
-
-                                        $user_currency = get_user_currency();
-
-                                    } else if ($type == 'provider') {
-
-                                        $user_currency = get_provider_currency();
-
-                                    } $user_currency_code = $user_currency['user_currency_code'];
-
-
-
-                                    $service_amount = get_gigs_currency($srows['service_amount'], $srows['currency_code'], $user_currency_code);
-
-                                } else {
-
-                                    $user_currency_code = settings('currency');
-
-                                    $service_currency_code = $srows['currency_code'];
-
-                                    $service_amount = get_gigs_currency($srows['service_amount'], $srows['currency_code'], $user_currency_code);
-
-                                }
-
-                                if (is_nan($service_amount) || is_infinite($service_amount)) {
-
-                                    $service_amount = $srows['service_amount'];
-
-                                } 
-
-
-
-                                $RemoveSpecialChar = $this->home->RemoveSpecialChar($srows['service_title']);
-
-                                $output = preg_replace('!\s+!', ' ', $RemoveSpecialChar);
-
-                                $service_url = str_replace(" ","-",trim($output));
-
-                                $inputs['url'] = strtolower($service_url);
-
-                                $service_url = ($srows['url'])?$srows['url']:$inputs['url'];
-
-
-
-                                $data = array('url'=>$service_url);
-
-                                if(empty($srows['url'])) {
-
-                                    $this->db->update('services', $data, array('id'=>$srows['id']));
-
-                                }                           
-
-                                ?>
-
-                                <div class="service-widget">
-
-                                    <div class="service-img">
-
-                                        <a href="<?php echo base_url() . 'service-preview/' . $srows['url']; ?>">
-
-                                        
-
-                                        <?php if ($image['service_image'] != '' && (@getimagesize(base_url().$image['service_image']))) { ?>
-
-                                            <img class="img-fluid serv-img" alt="Service Image" src="<?php echo base_url() . $image['service_image']; ?>" alt="">
-
-                                        <?php } else { ?>
-
-                                             <img class="img-fluid serv-img" alt="Service Image" src="<?php echo ($placholder_img)?$placholder_img:base_url().'uploads/placeholder_img/1641376256_banner.jpg';?>">
-
-                                        <?php } ?>
-
-
-
-                                        </a>
-
-                                        <div class="item-info">
-
-                                            <div class="service-user">
-
-                                                <!-- <a href="#"> -->
-
-                                                    <?php  if ($provider_details['profile_img'] != '' && (@getimagesize(base_url().$provider_details['profile_img']))) { ?>
-
-                                                        <img src="<?php echo base_url() . $provider_details['profile_img'] ?>">
-
-                                                    <?php } else { ?>
-
-                                                        <img src="<?php echo base_url(); ?>assets/img/user.jpg">
-
-                                                        
-
-        <?php } ?>
-
-                                                <!-- </a> -->
-
-                                                <span class="service-price"><?php echo currency_conversion($user_currency_code) . $service_amount; ?></span>
-
-                                            </div>
-
-                                            <div class="cate-list">
-
-                                                <a class="bg-yellow" href="<?php echo base_url() . 'search/' . str_replace(' ', '-', strtolower($feature_cat_name)); ?>"><?php echo ucfirst($feature_cat_name); ?></a></div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="service-content">
-
-                                        <h3 class="title">
-                                            <?php 
-                                                $ser_lang = ($this->session->userdata('user_select_language'))?$this->session->userdata('user_select_language'):'en';
-                                                $this->db->where('service_id', $srows['id']);
-                                                $this->db->where('lang_type', $ser_lang);
-                                                $service_name = $this->db->get('service_lang')->row_array();
-                                            ?>
-                                            <a href="<?php echo base_url() . 'service-preview/' .$srows['url']; ?>"><?php echo ucfirst($service_name['service_name']); ?></a>
-
-                                        </h3>
-
-                                        <div class="rating">
-
-                                            <?php
-
-                                            for ($x = 1; $x <= $avg_rating; $x++) {
-
-                                                echo '<i class="fas fa-star filled"></i>';
-
-                                            }
-
-                                            if (strpos($avg_rating, '.')) {
-
-                                                echo '<i class="fas fa-star"></i>';
-
-                                                $x++;
-
-                                            }
-
-                                            while ($x <= 5) {
-
-                                                echo '<i class="fas fa-star"></i>';
-
-                                                $x++;
-
-                                            }
-
-                                            ?>
-
-                                            <span class="d-inline-block average-rating">(<?php echo $avg_rating ?>)</span>
-
-                                        </div>
-
-                                        <div class="user-info">
-
-
-
-                                            <div class="row">
-
-                                                <?php if ($this->session->userdata('id') != '') {
-
-                                                    ?>
-
-                                                    <span class="col ser-contact"><i class="fas fa-phone mr-1"></i> <span>xxxxxxxx<?= rand(00, 99) ?></span></span>
-
-                                                <?php } else { ?>
-
-                                                    <span class="col ser-contact"><i class="fas fa-phone mr-1"></i> <span>xxxxxxxx<?= rand(00, 99) ?></span></span>
-
-        <?php } ?>
-
-                                                <span class="col ser-location"><span><?php echo ucfirst($srows['service_location']); ?></span> <i class="fas fa-map-marker-alt ml-1"></i></span>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <?php
-
-                            }
-
-                        } else {
-
-
-
-                            echo '<div> 
-
-                                    <p class="mb-0">'. (!empty($user_language[$user_selected]["lg_no_service"])) ? $user_language[$user_selected]["lg_no_service"] : $default_language["en"]["lg_no_service"];
-
-                                    '</p>
-
-                                </div>';
-
-                        }
-
-                        ?>
-
-                    </div> 
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<?php  }  ?>
 
 
 <!-- Blog Section -->

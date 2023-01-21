@@ -4,8 +4,8 @@
     $query = $this->db->query("select * from system_settings WHERE status = 1");
     $result = $query->result_array();
     $this->website_name = '';
-    $this->website_logo_front = 'assets/img/logo.png';
-    $fav = base_url() . 'assets/img/favicon.png';
+    $this->website_logo_front = 'assets/mfs/img/logo.png';
+    $fav = base_url() . 'assets/mfs/img/favicon.png';
     $this->db->where('modules', 'website');
     $this->db->where('lang_type', $this->session->userdata('user_select_language'));
     $lang_website_check = $this->db->get('cookies')->row_array();
@@ -72,24 +72,25 @@
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title><?php echo $lang_seo_check['meta_title'];?></title>
+        <title>Mfsdubai</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
         <meta name="description" content="<?php echo $lang_seo_check['meta_desc']; ?>">
         <meta name="keywords" content="<?php echo $lang_seo_check['meta_keyword']; ?>">
 		
-        <meta name="author" content="Dreamguy's Technologies">
+        <meta name="author" content="Mfsdubai">
 
-        <link rel="shortcut icon" type="image/x-icon" href="<?php echo $fav; ?>">
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>assets/mfs/img/favicon.png">
 		
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"> 
-        <?php if ($this->session->userdata('user_select_language') == '') {
+         <?php 
+//          if ($this->session->userdata('user_select_language') == '') { 
 
-    $lang = $default_language['language_value'];
-} else {
-    $lang = $this->session->userdata('user_select_language');
-}
+//     $lang = $default_language['language_value'];
+// } else {
+//     $lang = $this->session->userdata('user_select_language');
+// }
 
-$default_language_select = default_language();
+// $default_language_select = default_language(); 
 
 if ($this->session->userdata('user_select_language') == '') {
     if ($default_language_select['tag'] == 'ltr' || $default_language_select['tag'] == '') { ?>
