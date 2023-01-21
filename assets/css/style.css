@@ -858,16 +858,16 @@ ul li {
 
 .view-icons a:hover,
 .view-icons a:focus {
-    color: #e60073;
+    color: #ef7f21;
 }
 
 .view-icons a.active {
-    color: #ff0080;
+    color: #ef7f21;
 }
 
 .view-icons a.active:hover,
 .view-icons a.active:focus {
-    color: #e60073;
+    color: #ef7f21;
 }
 
 .breadcrumb-title h2 {
@@ -1253,7 +1253,7 @@ ul li {
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     color: #fff;
-    background-color: #ff0080;
+    background-color: #ef7f21;
     border: 1px solid #ff0080;
 }
 
@@ -1882,7 +1882,7 @@ ul li {
 
 .login-btn {
     border: 0;
-    background-color: #ff0080;
+    background-color: #ef7f21;
     font-size: 18px;
     font-weight: 500;
     display: block;
@@ -2791,7 +2791,7 @@ header.sticktop.dark {
 }
 
 .btn-primary {
-    background-color: #ff0080;
+    background-color: #ef7f21;
     border: 1px solid #ff0080;
 }
 
@@ -2949,7 +2949,7 @@ header.sticktop.dark {
 
 .service-widget .service-content .title a:hover,
 .service-widget .service-content .title a:hover {
-    color: #ff0080;
+    color: #ef7f21;
 }
 
 .rating {
@@ -3972,6 +3972,7 @@ small.help-block {
     overflow: hidden;
     text-align: right;
     align-items: center;
+    justify-content: flex-end;
 }
 
 .ser-location span {
@@ -5992,7 +5993,9 @@ a.comment-btn:hover {
         font-size: 0.75rem;
     }
     .service-content .title {
-        font-size: 1rem;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 10px;
     }
     .breadcrumb-title h2 {
         font-size: 1.375rem;

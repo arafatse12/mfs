@@ -689,3 +689,87 @@ AND `s`.`status` = 1
 GROUP BY `s`.`id`
 ORDER BY `s`.`total_views` DESC
  LIMIT 10
+ERROR - 2023-01-21 22:27:33 --> Query error: In aggregated query without GROUP BY, expression #2 of SELECT list contains nonaggregated column 'truelysell.f.currency_code'; this is incompatible with sql_mode=only_full_group_by - Invalid query: SELECT sum(fee) as paid_amt, `currency_code`
+FROM `subscription_details_history` as `s`
+JOIN `subscription_fee` as `f` ON `f`.`id`=`s`.`subscription_id`
+ERROR - 2023-01-21 22:28:41 --> 404 Page Not Found: admin/Undefined/index
+ERROR - 2023-01-21 22:29:20 --> Query error: Expression #10 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'truelysell.r.rating' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by - Invalid query: SELECT `s`.`id`, `s`.`user_id`, `s`.`service_location`, `s`.`service_title`, `s`.`service_amount`, `s`.`mobile_image`, `s`.`about`, `c`.`category_name`, `c`.`category_image`, `r`.`rating`, `sc`.`subcategory_name`, `s`.`currency_code`, `s`.`url`
+FROM `services` `s`
+LEFT JOIN `categories` `c` ON `c`.`id` = `s`.`category`
+LEFT JOIN `subcategories` `sc` ON `sc`.`id` = `s`.`subcategory`
+LEFT JOIN `rating_review` `r` ON `r`.`service_id` = `s`.`id`
+JOIN `subscription_details` as `sd` ON `sd`.`subscriber_id`=`s`.`user_id`
+WHERE `s`.`status` = 1
+AND `s`.`status` = 1
+GROUP BY `s`.`id`
+ORDER BY `s`.`total_views` DESC
+ LIMIT 10
+ERROR - 2023-01-21 22:30:15 --> Query error: Expression #10 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'truelysell.r.rating' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by - Invalid query: SELECT `s`.`id`, `s`.`user_id`, `s`.`service_location`, `s`.`service_title`, `s`.`service_amount`, `s`.`mobile_image`, `s`.`about`, `c`.`category_name`, `c`.`category_image`, `r`.`rating`, `sc`.`subcategory_name`, `s`.`currency_code`, `s`.`url`
+FROM `services` `s`
+LEFT JOIN `categories` `c` ON `c`.`id` = `s`.`category`
+LEFT JOIN `subcategories` `sc` ON `sc`.`id` = `s`.`subcategory`
+LEFT JOIN `rating_review` `r` ON `r`.`service_id` = `s`.`id`
+JOIN `subscription_details` as `sd` ON `sd`.`subscriber_id`=`s`.`user_id`
+WHERE `s`.`status` = 1
+AND `s`.`status` = 1
+GROUP BY `s`.`id`
+ORDER BY `s`.`total_views` DESC
+ LIMIT 10
+ERROR - 2023-01-21 22:30:55 --> Query error: Expression #10 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'truelysell.r.rating' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by - Invalid query: SELECT `s`.`id`, `s`.`user_id`, `s`.`service_location`, `s`.`service_title`, `s`.`service_amount`, `s`.`mobile_image`, `s`.`about`, `c`.`category_name`, `c`.`category_image`, `r`.`rating`, `sc`.`subcategory_name`, `s`.`currency_code`, `s`.`url`
+FROM `services` `s`
+LEFT JOIN `categories` `c` ON `c`.`id` = `s`.`category`
+LEFT JOIN `subcategories` `sc` ON `sc`.`id` = `s`.`subcategory`
+LEFT JOIN `rating_review` `r` ON `r`.`service_id` = `s`.`id`
+JOIN `subscription_details` as `sd` ON `sd`.`subscriber_id`=`s`.`user_id`
+WHERE `s`.`status` = 1
+AND `s`.`status` = 1
+GROUP BY `s`.`id`
+ORDER BY `s`.`total_views` DESC
+ LIMIT 10
+ERROR - 2023-01-21 22:31:34 --> 404 Page Not Found: admin/Undefined/index
+ERROR - 2023-01-21 22:31:52 --> Query error: Expression #10 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'truelysell.r.rating' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by - Invalid query: SELECT `s`.`id`, `s`.`user_id`, `s`.`service_location`, `s`.`service_title`, `s`.`service_amount`, `s`.`mobile_image`, `s`.`about`, `c`.`category_name`, `c`.`category_image`, `r`.`rating`, `sc`.`subcategory_name`, `s`.`currency_code`, `s`.`url`
+FROM `services` `s`
+LEFT JOIN `categories` `c` ON `c`.`id` = `s`.`category`
+LEFT JOIN `subcategories` `sc` ON `sc`.`id` = `s`.`subcategory`
+LEFT JOIN `rating_review` `r` ON `r`.`service_id` = `s`.`id`
+JOIN `subscription_details` as `sd` ON `sd`.`subscriber_id`=`s`.`user_id`
+WHERE `s`.`status` = 1
+AND `s`.`status` = 1
+GROUP BY `s`.`id`
+ORDER BY `s`.`total_views` DESC
+ LIMIT 10
+ERROR - 2023-01-21 22:32:51 --> 404 Page Not Found: admin/Undefined/index
+ERROR - 2023-01-21 22:33:14 --> Query error: Expression #10 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'truelysell.r.rating' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by - Invalid query: SELECT `s`.`id`, `s`.`user_id`, `s`.`service_location`, `s`.`service_title`, `s`.`service_amount`, `s`.`mobile_image`, `s`.`about`, `c`.`category_name`, `c`.`category_image`, `r`.`rating`, `sc`.`subcategory_name`, `s`.`currency_code`, `s`.`url`
+FROM `services` `s`
+LEFT JOIN `categories` `c` ON `c`.`id` = `s`.`category`
+LEFT JOIN `subcategories` `sc` ON `sc`.`id` = `s`.`subcategory`
+LEFT JOIN `rating_review` `r` ON `r`.`service_id` = `s`.`id`
+JOIN `subscription_details` as `sd` ON `sd`.`subscriber_id`=`s`.`user_id`
+WHERE `s`.`status` = 1
+AND `s`.`status` = 1
+GROUP BY `s`.`id`
+ORDER BY `s`.`total_views` DESC
+ LIMIT 10
+ERROR - 2023-01-21 22:33:20 --> 404 Page Not Found: Uploads/profile_img
+ERROR - 2023-01-21 22:33:40 --> Query error: Expression #10 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'truelysell.r.rating' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by - Invalid query: SELECT `s`.`id`, `s`.`user_id`, `s`.`service_location`, `s`.`service_title`, `s`.`service_amount`, `s`.`mobile_image`, `s`.`about`, `c`.`category_name`, `c`.`category_image`, `r`.`rating`, `sc`.`subcategory_name`, `s`.`currency_code`, `s`.`url`
+FROM `services` `s`
+LEFT JOIN `categories` `c` ON `c`.`id` = `s`.`category`
+LEFT JOIN `subcategories` `sc` ON `sc`.`id` = `s`.`subcategory`
+LEFT JOIN `rating_review` `r` ON `r`.`service_id` = `s`.`id`
+JOIN `subscription_details` as `sd` ON `sd`.`subscriber_id`=`s`.`user_id`
+WHERE `s`.`status` = 1
+AND `s`.`status` = 1
+GROUP BY `s`.`id`
+ORDER BY `s`.`total_views` DESC
+ LIMIT 10
+ERROR - 2023-01-21 22:44:27 --> Query error: Expression #10 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'truelysell.r.rating' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by - Invalid query: SELECT `s`.`id`, `s`.`user_id`, `s`.`service_location`, `s`.`service_title`, `s`.`service_amount`, `s`.`mobile_image`, `s`.`about`, `c`.`category_name`, `c`.`category_image`, `r`.`rating`, `sc`.`subcategory_name`, `s`.`currency_code`, `s`.`url`
+FROM `services` `s`
+LEFT JOIN `categories` `c` ON `c`.`id` = `s`.`category`
+LEFT JOIN `subcategories` `sc` ON `sc`.`id` = `s`.`subcategory`
+LEFT JOIN `rating_review` `r` ON `r`.`service_id` = `s`.`id`
+JOIN `subscription_details` as `sd` ON `sd`.`subscriber_id`=`s`.`user_id`
+WHERE `s`.`status` = 1
+AND `s`.`status` = 1
+GROUP BY `s`.`id`
+ORDER BY `s`.`total_views` DESC
+ LIMIT 10

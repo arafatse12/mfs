@@ -515,11 +515,11 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                                                     <?php  if ($provider_details['profile_img'] != '' && (@getimagesize(base_url().$provider_details['profile_img']))) { ?>
 
-                                                        <img src="<?php echo base_url() . $provider_details['profile_img'] ?>">
+                                                        <!-- <img src="<?php echo base_url() . $provider_details['profile_img'] ?>"> -->
 
                                                     <?php } else { ?>
 
-                                                        <img src="<?php echo base_url(); ?>assets/img/user.jpg">
+                                                        <!-- <img src="<?php echo base_url(); ?>assets/img/user.jpg"> -->
 
                                                         
 
@@ -527,12 +527,12 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                                               
 
-                                                <span class="service-price"><?php echo currency_conversion($user_currency_code) . $service_amount; ?></span>
+                                                <!-- <span class="service-price"><?php echo currency_conversion($user_currency_code) . $service_amount; ?></span> -->
 
                                             </div>
 
-                                            <div class="cate-list">
-                                                <a class="bg-yellow" href="<?php echo base_url() . 'search/' . str_replace(' ', '-', strtolower($cat_name)); ?>"><?php echo ucfirst($cat_name); ?></a></div>
+                                            <!-- <div class="cate-list">
+                                                <a class="bg-yellow" href="<?php echo base_url() . 'search/' . str_replace(' ', '-', strtolower($cat_name)); ?>"><?php echo ucfirst($cat_name); ?></a></div> -->
 
                                         </div>
 
@@ -667,7 +667,7 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
 
 
-<?php  if(settingValue('popular_ser_showhide') == 1) { ?>
+<?php  if(settingValue('popular_ser_showhide') == 10) { ?>
 
 <section class="popular-services">
 
