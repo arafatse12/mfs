@@ -773,3 +773,4 @@ AND `s`.`status` = 1
 GROUP BY `s`.`id`
 ORDER BY `s`.`total_views` DESC
  LIMIT 10
+ERROR - 2023-01-21 23:58:01 --> 404 Page Not Found: About/index

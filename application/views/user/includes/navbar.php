@@ -101,12 +101,12 @@ $google_analytics_code = $this->db->get_where('system_settings', array('key'=>'g
                                             <li><a href="<?php echo $menu->link; ?>"><?php echo $menu->label; ?></a></li>
                                         <?php } }
                                     } ?>
-                                     <li><a href="">Home</a></li>
-                        <li><a href="">About Us</a></li>
-                        <li><a href="">Services</a></li>
-                        <li><a href="">Apply for Job</a></li>
-                        <li><a href="">Contact</a></li>
-                        <li><a href="">Blog</a></li> 
+                                     <li><a href="<?php echo $base_url; ?>">Home</a></li>
+                        <li><a href="<?php echo $base_url.'about-us' ?>">About Us</a></li>
+                        <li><a href="<?php echo $base_url.'all-services' ?>">Services</a></li>
+                        <li><a href="<?php echo $base_url.'apply-job' ?>">Apply for Job</a></li>
+                        <li><a href="<?php echo $base_url.'contact' ?>">Contact</a></li>
+                        <li><a href="<?php echo $base_url.'all-blogs' ?>">Blog</a></li> 
                                      <?php 
                                 $lang_val = ($this->session->userdata('user_select_language'))?$this->session->userdata('user_select_language'):'en';
                                 $this->db->where('language_value', $lang_val);
