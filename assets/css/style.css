@@ -5593,10 +5593,10 @@ a.comment-btn:hover {
         transform: translateY(0);
     }
     .main-nav .has-submenu.active>a {
-        color: #ff0080;
+        color: #ef7f21;
     }
     .main-nav .has-submenu.active .submenu li.active>a {
-        color: #ff0080;
+        color: #ef7f21;
     }
     .main-nav>li .submenu li:first-child a {
         border-top: 0;
@@ -5613,7 +5613,7 @@ a.comment-btn:hover {
         margin-top: 10px;
     }
     .main-nav li .submenu a:hover {
-        color: #ff0080;
+        color: #ef7f21;
         letter-spacing: 0.5px;
         padding-left: 20px;
     }

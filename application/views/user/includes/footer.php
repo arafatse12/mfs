@@ -702,7 +702,7 @@ $default_language = $lg['default_lang'];
 	<div class="footer-top">
 		<div class="container">
 			<div class="row">
-						<div class="col-lg-3 col-md-6">
+					<div class="col-lg-3 col-md-6">
                             <div class="footer-widget footer-menu">
                                 <h2 class="footer-title">Categories</h2>
 
@@ -881,22 +881,7 @@ $default_language = $lg['default_lang'];
 								</div>
 								<div class="col-md-6 col-lg-6">
 
-									<!-- Copyright Menu -->
-									<?php if(!empty($copyright->link) && $copyright->link != 'null') {  ?>
-									<div class="copyright-menu">
-										<ul class="policy-menu">
-											<?php $crLinks = json_decode($copyright->link);
-												foreach($crLinks as $key => $crlink) { 
-													if($crlink->url != '' && $crlink->name != '') { ?>
-													<li><a href="<?php echo $crlink->url; ?>"><?php echo $crlink->name; ?></a></li>
-											<?php } } ?>
-											
-										</ul>
-									</div>
-								<?php } else {?>
-										
-											
-								<?php } ?>
+									
 									<!-- /Copyright Menu -->
 
 									<!-- Download Our App -->
@@ -917,11 +902,200 @@ $default_language = $lg['default_lang'];
 				</div>
 				<!-- /Footer Bottom -->
 			<?php } ?>
-				
+				<div id="my_map" class="modal fade map-modal" role="dialog">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title"><?php echo (!empty($user_language[$user_selected]['lg_map'])) ? $user_language[$user_selected]['lg_map'] : $default_language['en']['lg_map']; ?></h4>
+							</div>
+							<div class="modal-body">
+								<p><?php echo (!empty($user_language[$user_selected]['lg_drag_point'])) ? $user_language[$user_selected]['lg_drag_point'] : $default_language['en']['lg_drag_point']; ?></p>
+								<div class="row">
+									<div class="col-md-8">
+										<input type="text" id="autocomplete" class="form-control" name="address"  value="<?php echo $this->session->userdata('user_address');?>">
+										<div class="row">
+											<div class="col-md-6"><input type="hidden"  id="user_latitude" value="<?php echo $this->session->userdata('latitude');?>" class="form-control"></div>
+											<div class="col-md-6"><input type="hidden"  id="user_longitude" value="<?php echo $this->session->userdata('longitude');?>" class="form-control"></div>
+										</div>
+									</div>
+									<?php if(settingValue('location_type') == 'live') { ?>
+										<div class="col-md-4">									  
+										  <button onclick="setlocation()" class="setlocation btn btn-primary"><?php echo (!empty($user_language[$user_selected]['lg_set_location'])) ? $user_language[$user_selected]['lg_set_location'] : $default_language['en']['lg_set_location']; ?></button>
+										  <button onclick="clearlocation()" class="setlocation btn btn-danger"><?php echo (!empty($user_language[$user_selected]['lg_clear_location'])) ? $user_language[$user_selected]['lg_clear_location'] : $default_language['en']['lg_clear_location']; ?></button>
+										</div>
+									<?php } ?>
+								</div>
+								<input type="range" name="distance" id="distance" min="5" max="500" class="mt-2" value="<?php echo $this->session->userdata('distance');?>">
+								  <h5 class="mb-3"><?php echo (!empty($user_language[$user_selected]['lg_distance'])) ? $user_language[$user_selected]['lg_distance'] : $default_language['en']['lg_distance']; ?> : <span id="slider_value"><?php echo $this->session->userdata('distance');?></span></h5>
+								  <div id="map"></div>
+							</div>
+							<div class="modal-footer">
+							  <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo (!empty($user_language[$user_selected]['lg_close'])) ? $user_language[$user_selected]['lg_close'] : $default_language['en']['lg_close']; ?></button>
+							</div>
+						</div>
+					</div>
+				</div>
 
 			</footer>
 		</div>
 
+		<?php 
+if($login_type=='email'){
+?>
+<div class="modal account-modal fade" id="tab_login_modal" data-keyboard="false" data-backdrop="static">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header p-0 border-0">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="alert alert-danger text-center"  id="flash_error_message1" ></div>
+						<div id="login_form_div">
+							<div class="account-content">
+								<div class="account-box">
+									<div class="login-right">
+										<div class="login-header">
+											<?php 
+												$user_lang = ($this->session->userdata('user_select_language'))?$this->session->userdata('user_select_language'):'en';
+												$this->db->where('modules', 'website');
+											    $this->db->where('lang_type', $user_lang);
+											    $lang_website_check = $this->db->get('cookies')->row_array();
+											 ?>
+											<h3><?php echo (!empty($user_language[$user_selected]['lg_login'])) ? $user_language[$user_selected]['lg_login'] : $default_language['en']['lg_login']; ?></h3>
+											<p class="text-muted"><?php echo (!empty($user_language[$user_selected]['lg_access_to_our'])) ? $user_language[$user_selected]['lg_access_to_our'] : $default_language['en']['lg_access_to_our']; ?> <?=$lang_website_check['cookie_name']?></p>
+										</div>
+										<div class="form-group">
+											<label><?php echo (!empty($user_language[$user_selected]['lg_email'])) ? $user_language[$user_selected]['lg_email'] : $default_language['en']['lg_email']; ?></label>
+											<div class="row">
+												<div class="col-12">
+													<input type="hidden" name="login_mode" id="login_mode" value="1">
+													<input type="hidden" name="csrf_token_name" value="<?php echo $this->security->get_csrf_hash(); ?>" id="login_csrf">
+													<input class="form-control login_email" type="text" name="login_email" id="login_email" placeholder="<?php echo (!empty($user_language[$user_selected]['lg_enter_email'])) ? $user_language[$user_selected]['lg_enter_email'] : $default_language['en']['lg_enter_email']; ?>" >
+													<span id="mailid_error"></span>
+												</div>
+											</div>
+										</div>
+										<button class="login-btn" id="emaillogin_submit" type="submit"><?php echo (!empty($user_language[$user_selected]['lg_login'])) ? $user_language[$user_selected]['lg_login'] : $default_language['en']['lg_login']; ?></button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="step-2" data-step="2" id="otp_final_div" >
+							<div class="login-header">
+								<h3><?php echo (!empty($user_language[$user_selected]['lg_password'])) ? $user_language[$user_selected]['lg_password'] : $default_language['en']['lg_password']; ?></h3>
+								<p class="text-muted"><?php echo (!empty($user_language[$user_selected]['lg_verify_your_account'])) ? $user_language[$user_selected]['lg_verify_your_account'] : $default_language['en']['lg_verify_your_account']; ?></p>
+							</div>
+							<div class="form-group">
+								<input type="hidden" name="" id="login_email_hide">
+								<input type="hidden" name="" id="login_mode_hide">
+								<input type="hidden" name="csrf_token_name" value="<?php echo $this->security->get_csrf_hash(); ?>" id="fp_csrf">
+							</div>
+							<div class="form-group">
+							
+								<input type="password" class="form-control form-control-lg" autocomplete="off"  placeholder="<?php echo (!empty($user_language[$user_selected]['lg_enter_password'])) ? $user_language[$user_selected]['lg_enter_password'] : $default_language['en']['lg_enter_password']; ?>" name="login_password" id='login_password'>
+								<span for='otp_number' id='otp_error_msg_login'></span>
+							</div>
+							<p class="user_forgot_pwd">Forgot Password ? <a href="#" id="user_forgot_pwd"> <?php echo (!empty($user_language[$user_selected]['lg_click_get_link'])) ? $user_language[$user_selected]['lg_click_get_link'] : $default_language['en']['lg_click_get_link']; ?></a></p>
+							<span id="err_respwd"></span>
+							<div>
+								<button id='emailregistration_finals' type="button" class="login-btn" ><?php echo (!empty($user_language[$user_selected]['lg_enter'])) ? $user_language[$user_selected]['lg_enter'] : $default_language['en']['lg_enter']; ?></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<?php }else{ ?>
+		<div class="modal account-modal fade" id="tab_login_modal" data-keyboard="false" data-backdrop="static">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header p-0 border-0">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="alert alert-danger text-center"  id="flash_error_message1" ></div>
+						<div id="login_form_div">
+							<div class="account-content">
+								<div class="account-box">
+									<div class="login-right">
+										<div class="login-header">
+											<?php 
+												$user_lang = ($this->session->userdata('user_select_language'))?$this->session->userdata('user_select_language'):'en';
+												$this->db->where('modules', 'website');
+											    $this->db->where('lang_type', $user_lang);
+											    $lang_website_check = $this->db->get('cookies')->row_array();
+											 ?>
+											<h3><?php echo (!empty($user_language[$user_selected]['lg_login'])) ? $user_language[$user_selected]['lg_login'] : $default_language['en']['lg_login']; ?></h3>
+											<p class="text-muted"><?php echo (!empty($user_language[$user_selected]['lg_access_to_our'])) ? $user_language[$user_selected]['lg_access_to_our'] : $default_language['en']['lg_access_to_our']; ?> <?=$lang_website_check['cookie_name']?></p>
+										</div>
+										<div class="form-group">
+											<label><?php echo (!empty($user_language[$user_selected]['lg_Mobile_Number'])) ? $user_language[$user_selected]['lg_Mobile_Number'] : $default_language['en']['lg_Mobile_Number']; ?></label>
+											<div class="row">
+												<div class="col-12">
+													<input type="hidden" name="login_mode" id="login_mode" value="1">
+													<input type="hidden" name="csrf_token_name" value="<?php echo $this->security->get_csrf_hash(); ?>" id="login_csrf">
+													<input class="form-control login_mobile" type="text" name="login_mobile" id="login_mobile" placeholder="<?php echo (!empty($user_language[$user_selected]['lg_enter_mob_no'])) ? $user_language[$user_selected]['lg_enter_mob_no'] : $default_language['en']['lg_enter_mob_no']; ?>" min="10" max="10">
+													<span id="mobile_no_error"></span>
+												</div>
+											</div>
+										</div>
+										<button class="login-btn" id="login_submit" type="submit"><?php echo (!empty($user_language[$user_selected]['lg_login'])) ? $user_language[$user_selected]['lg_login'] : $default_language['en']['lg_login']; ?></button><br>
+
+										<div class="account-footer text-center">
+											<?php echo (!empty($user_language[$user_selected]['lg_do_not_have_account'])) ? $user_language[$user_selected]['lg_do_not_have_account'] : $default_language['en']['lg_do_not_have_account']; ?>
+										</div>
+										<div class="account-footer-link">
+											<a href="javascript:void(0);" data-dismiss="modal" data-toggle="modal" data-target="#modal-wizard"><?php echo (!empty($user_language[$user_selected]['lg_Join_Professional'])) ? $user_language[$user_selected]['lg_Join_Professional'] : $default_language['en']['lg_Join_Professional']; ?></a>
+											<a href="javascript:void(0);" data-dismiss="modal" data-toggle="modal" data-target="#modal-wizard1"><?php echo (!empty($user_language[$user_selected]['lg_join_as_user'])) ? $user_language[$user_selected]['lg_join_as_user'] : $default_language['en']['lg_join_as_user']; ?></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="step-2" data-step="2" id="otp_final_div" >
+							<div class="login-header">
+								<h3><?php echo (!empty($user_language[$user_selected]['lg_otp'])) ? $user_language[$user_selected]['lg_otp'] : $default_language['en']['lg_otp']; ?></h3>
+								<p class="text-muted"><?php echo (!empty($user_language[$user_selected]['lg_verify_your_account'])) ? $user_language[$user_selected]['lg_verify_your_account'] : $default_language['en']['lg_verify_your_account']; ?></p>
+							</div>
+							<div class="form-group">
+								<input type="hidden" name="" id="login_country_code_hide">
+								<input type="hidden" name="" id="login_mobile_hide">
+								<input type="hidden" name="" id="login_mode_hide">
+							</div>
+							<div class="form-group">								
+								<?php if(settingValue('default_otp')==0){ ?>
+									<div class="alert alert-success text-center" role="alert">
+										<strong><?php echo (!empty($user_language[$user_selected]['lg_We_Have_OTP'])) ? $user_language[$user_selected]['lg_We_Have_OTP'] : $default_language['en']['lg_We_Have_OTP']; ?></strong>
+										<strong><?php echo (!empty($user_language[$user_selected]['lg_Please_Check_Your_Registered_Mobile'])) ? $user_language[$user_selected]['lg_Please_Check_Your_Registered_Mobile'] : $default_language['en']['lg_Please_Check_Your_Registered_Mobile']; ?> </strong>
+									</div>
+								<?php } else {?>
+									<div class="alert alert-danger text-center" role="alert">
+										<?php echo (!empty($user_language[$user_selected]['lg_have_used_default_otp_demo'])) ? $user_language[$user_selected]['lg_have_used_default_otp_demo'] : $default_language['en']['lg_have_used_default_otp_demo']; ?><br> <strong><?php echo (!empty($user_language[$user_selected]['lg_default_otp'])) ? $user_language[$user_selected]['lg_default_otp'] : $default_language['en']['lg_default_otp']; ?></strong>
+									</div>
+								<?php }?>
+								<input type="text" class="form-control form-control-lg no_only" autocomplete="off" maxlength="4" minlength="4" placeholder="<?php echo (!empty($user_language[$user_selected]['lg_enter_otp_here'])) ? $user_language[$user_selected]['lg_enter_otp_here'] : $default_language['en']['lg_enter_otp_here']; ?>" name="otp_numbers" id='login_otp'>
+								<span for='otp_number' id='otp_error_msg_login'></span>
+							</div>
+							<?php if(settingValue('default_otp')==0){ ?>
+								<p class="resend-otp"><?php echo (!empty($user_language[$user_selected]['lg_Didnt_receive_the_OTP'])) ? $user_language[$user_selected]['lg_Didnt_receive_the_OTP'] : $default_language['en']['lg_Didnt_receive_the_OTP']; ?> <a href="#" id="login_resend_otp"> <?php echo (!empty($user_language[$user_selected]['lg_Resend_OTP'])) ? $user_language[$user_selected]['lg_Resend_OTP'] : $default_language['en']['lg_Resend_OTP']; ?></a></p>
+							<?php }?>
+							<div>
+								<button id='registration_finals' type="button" class="login-btn" ><?php echo (!empty($user_language[$user_selected]['lg_enter'])) ? $user_language[$user_selected]['lg_enter'] : $default_language['en']['lg_enter']; ?></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<?php } ?>
 
 		<!-- Cancel Modal -->
 		<div id="cancelModal" class="modal fade" role="dialog">

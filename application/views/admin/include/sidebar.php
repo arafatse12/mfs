@@ -10,7 +10,7 @@
  <div class="sidebar" id="sidebar">
 	<div class="sidebar-logo">
 		<a href="<?php echo $base_url; ?>dashboard">
-			<img src="<?php echo $base_url.settingValue('header_icon'); ?>" alt="" class="img-fluid">
+			<img src="<?php echo $base_url.'/assets/mfs/img/logo.png'; ?>" alt="" class="img-fluid">
 		</a>
 	</div>
 	<div class="sidebar-inner slimscroll">
@@ -105,7 +105,7 @@
 					</li>
 				<?php } ?>
 				<?php if(in_array(45,$access_result_data_array) || in_array(46,$access_result_data_array) || in_array(10,$access_result_data_array)) { ?>
-				<li class="submenu <?php echo ($active =='add-payouts' || $active =='payout-requests' || $active =='completed-payouts')?'active':''; ?>">
+				<!-- <li class="submenu <?php echo ($active =='add-payouts' || $active =='payout-requests' || $active =='completed-payouts')?'active':''; ?>">
 						<a href="#"><i class="fas fa-hashtag"></i> <span> Payout</span> <span class="menu-arrow"><i class="fas fa-angle-right"></i></span></a>
 						<ul>
 							<?php if(in_array(45,$access_result_data_array)) { ?>
@@ -122,19 +122,20 @@
 								</li>
 							<?php } ?>
 						</ul>
-					</li>
+					</li> -->
 				<?php } 	
-				if(in_array(10,$access_result_data_array)) {  ?>
-					<li class="<?php echo ($active =='wallet' || $active =='wallet-history' || $active =='wallet-request-history')? 'active':''; ?>">
+				if(in_array(10,$access_result_data_array)) 
+				{  ?>
+					<!-- <li class="<?php echo ($active =='wallet' || $active =='wallet-history' || $active =='wallet-request-history')? 'active':''; ?>">
 						 <a href="<?php echo $base_url; ?>admin/wallet"><i class="fas fa-wallet"></i><span> <?php echo(!empty($sidebar['lg_admin_wallet']))?($sidebar['lg_admin_wallet']) : 'Wallet';  ?></span></a>
-					</li>
+					</li> -->
 				<?php } ?>
 
-				<?php if(in_array(48,$access_result_data_array)) { ?>
+				<!-- <?php if(in_array(48,$access_result_data_array)) { ?>
 					<li class="<?php echo ($page == 'refund-request-list')?'active':''; ?>">
 						<a href="<?php echo $base_url; ?>refund-request-list"><i class="fas fa-money-check"></i> <span> Refund Request</span></a>
 					</li>
-				<?php } ?>
+				<?php } ?> -->
 					<?php if (in_array(27, $access_result_data_array) || in_array(28,$access_result_data_array) || in_array(29,$access_result_data_array) ) { ?>
 					<li class="menu-title"><span>Others</span></li>
 		                <li class="submenuu <?php echo ($active == 'chat' || $page == 'provider-chat' || $page == 'client-chat') ? 'active' : ''; ?>">
@@ -184,7 +185,7 @@
 						</li>
 				<?php } ?>
 					<?php if(in_array(57,$access_result_data_array) || in_array(58,$access_result_data_array) || in_array(59,$access_result_data_array)) { ?>
-					<li class="submenu">
+					<!-- <li class="submenu">
 							<a href="#">
 								<i class="fas fa-location-arrow"></i> <span> <?php echo(!empty($sidebar['lg_admin_location']))?($sidebar['lg_admin_location']) : 'Location';  ?></span><span class="menu-arrow"><i class="fas fa-angle-right"></i></span>
 							</a>
@@ -203,10 +204,10 @@
 								</li>
 							<?php } ?>
 							</ul>
-						</li>
+						</li> -->
 					<?php } ?>
 						<?php if(in_array(9,$access_result_data_array) || in_array(60,$access_result_data_array)) { ?>
-						<li class="menu-title"><span>Membership</span></li>
+						<!-- <li class="menu-title"><span>Membership</span></li>
 							<li class="submenu">
 								<a href="#"><i class="fas fa-clipboard"></i> <span> Membership</span>
 									<span class="menu-arrow"><i class="fas fa-angle-right"></i></span>
@@ -222,10 +223,10 @@
 										</li>
 									<?php } ?>
 								</ul>
-							</li>
+							</li> -->
 						<?php } ?>
 					<?php if(in_array(43,$access_result_data_array) || in_array(44,$access_result_data_array) || in_array(11,$access_result_data_array) || in_array(18,$access_result_data_array)) { ?>
-						<li class="menu-title"><span>Reports</span></li>
+						<!-- <li class="menu-title"><span>Reports</span></li>
 						<li class="submenu  <?php echo ($active == 'earnings' || $active == 'seller-balance') ? 'active' : ''; ?>">
 							<a href="#"><i class="fas fa-wallet"></i> <span> Earnings</span> <span class="menu-arrow"><i class="fas fa-angle-right"></i></span></a>
 							<ul>
@@ -239,16 +240,16 @@
 									</li>
 								<?php } ?>
 							</ul>
-						</li>
+						</li> -->
 					<?php } ?>
 					<?php if(in_array(11,$access_result_data_array)) { ?>
-						<li class="<?php echo ($page == 'revenue') ? 'active':'';?>">
+						<!-- <li class="<?php echo ($page == 'revenue') ? 'active':'';?>">
 							<a href="<?php echo $base_url; ?>revenue"> <i class="fas fa-bullhorn"></i> <span><?php echo(!empty($sidebar['lg_admin_revenue']))?($sidebar['lg_admin_revenue']) : 'Revenue';  ?></span></a>
-						</li>
+						</li> -->
 					<?php } if(in_array(18,$access_result_data_array)) { ?>
-						<li class="<?php echo ($active == 'cod') ? 'active':'';?>">
+						<!-- <li class="<?php echo ($active == 'cod') ? 'active':'';?>">
 							<a href="<?php echo $base_url; ?>admin/cod"> <i class="fas fa-code"></i> <span><?php echo(!empty($sidebar['lg_admin_cod']))?($sidebar['lg_admin_cod']) : 'COD';  ?></span></a>
-						</li>
+						</li> -->
 					<?php } ?>
 
 					<?php if(in_array(1,$access_result_data_array) || in_array(13,$access_result_data_array) || in_array(12,$access_result_data_array) || in_array(49,$access_result_data_array) || in_array(72,$access_result_data_array)) { ?>
@@ -270,9 +271,9 @@
 								</li>
 								<?php
 								} if(in_array(12,$access_result_data_array)) { ?>
-								<li>
+								<!-- <li>
 									<a class="<?php echo ($page == 'service-providers')?'active':''; echo ($page == 'provider-details')?'active':''; echo ($page == 'providers')?'active':''; ?>" href="<?php echo $base_url; ?>service-providers"> <span> <?php echo(!empty($sidebar['lg_admin_service_providers']))?($sidebar['lg_admin_service_providers']) : 'Providers';  ?></span></a>
-								</li>
+								</li> -->
 								<?php }
 								if(in_array(13,$access_result_data_array)) { ?>
 								<li>

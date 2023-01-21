@@ -928,5 +928,83 @@ $google_analytics_code = $this->db->get_where('system_settings', array('key'=>'g
                     ?>
                 </ul>
             </nav>
+            <!-- <div class="modal account-modal fade" id="tab_login_modal" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header p-0 border-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger text-center" id="flash_error_message1"></div>
+                    <div id="login_form_div">
+                        <div class="account-content">
+                            <div class="account-box">
+                                <div class="login-right">
+                                    <div class="login-header">
+                                        <h3>Login</h3>
+                                        <p class="text-muted">Access to our </p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label></label>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <input type="hidden" name="login_mode" id="login_mode" value="1">
+                                                <input type="hidden" name="csrf_token_name" value="ac00a08e438950df47f4f83bb55e97db" id="login_csrf">
+                                                <input class="form-control login_email" type="text" name="login_email" id="login_email" placeholder="Enter EMail ID">
+                                                <span id="mailid_error"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="login-btn" id="emaillogin_submit" type="submit">Login</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-2" data-step="2" id="otp_final_div">
+                        <div class="login-header">
+                            <h3>Password</h3>
+                            <p class="text-muted">Verification your account</p>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" name="" id="login_email_hide">
+                            <input type="hidden" name="" id="login_mode_hide">
+                            <input type="hidden" name="csrf_token_name" value="ac00a08e438950df47f4f83bb55e97db" id="fp_csrf">
+                        </div>
+                        <div class="form-group">
+
+                            <input type="password" class="form-control form-control-lg" autocomplete="off" placeholder="Enter Password Here.." name="login_password" id='login_password'>
+                            <span for='otp_number' id='otp_error_msg_login'></span>
+                        </div>
+                        <p class="user_forgot_pwd">Forgot Password ? <a href="#" id="user_forgot_pwd"> Click to Get Link</a></p>
+                        <span id="err_respwd"></span>
+                        <div>
+                            <button id='emailregistration_finals' type="button" class="login-btn">Enter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- Cancel Modal -->
+    <div id="cancelModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cancel Reason</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+                </div>
+                <div class="modal-body">
+                    <p class="cancel_reason"></p>
+                </div>
+            </div>
+        </div>
+    </div>
         </header>
 
