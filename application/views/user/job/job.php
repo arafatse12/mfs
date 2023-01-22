@@ -3,14 +3,14 @@
 		<div class="row">
 			<div class="col">
 				<div class="breadcrumb-title">
-					<h2><?php echo (!empty($user_language[$user_selected]['lg_contact'])) ? $user_language[$user_selected]['lg_contact'] : $default_language['en']['lg_contact']; ?></h2>
+					<h2>Job Application</h2>
 				</div>
 			</div>
 			<div class="col-auto float-right ml-auto breadcrumb-menu">
 				<nav aria-label="breadcrumb" class="page-breadcrumb">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="<?php echo base_url();?>"><?php echo (!empty($user_language[$user_selected]['lg_home'])) ? $user_language[$user_selected]['lg_home'] : $default_language['en']['lg_home']; ?></a></li>
-						<li class="breadcrumb-item active" aria-current="page"><?php echo (!empty($user_language[$user_selected]['lg_contact'])) ? $user_language[$user_selected]['lg_contact'] : $default_language['en']['lg_contact']; ?></li>
+						<li class="breadcrumb-item active" aria-current="page">Job Application</li>
 					</ol>
 				</nav>
 			</div>
@@ -23,23 +23,34 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="contact-blk-content">
-				<form method="post" enctype="multipart/form-data" id="contact_form" >
+				<form method="post" enctype="multipart/form-data" id="contact_form1" >
           <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>" />
     
 					<div class="row">						
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label><?php echo (!empty($user_language[$user_selected]['lg_Name'])) ? $user_language[$user_selected]['lg_Name'] : $default_language['en']['lg_Name']; ?></label>
+								<label><?php echo (!empty($user_language[$user_selected]['lg_Name'])) ? $user_language[$user_selected]['lg_Name'] : $default_language['en']['lg_Name']; ?> </label>
 								<input class="form-control" type="text" name="name" id="name" >
 							</div>
 						</div>	
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label><?php echo (!empty($user_language[$user_selected]['lg_Email'])) ? $user_language[$user_selected]['lg_Email'] : $default_language['en']['lg_Email']; ?></label>
+								<label><?php echo (!empty($user_language[$user_selected]['lg_Email'])) ? $user_language[$user_selected]['lg_Email'] : $default_language['en']['lg_Email']; ?> <span>*</span></label>
 								<input class="form-control" type="text" name="email" id="email">
 							</div>
 						</div>					
-
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label>Address <span>*</span></label>
+								<input class="form-control" type="text" name="name" id="name" >
+							</div>
+						</div>	
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label>Upload CV <span>*</span></label>
+								<input class="form-control" type="file" name="uplaod_cv" id="uplaod_cv">
+							</div>
+						</div>	
 						<div class="col-lg-12">
 							<div class="form-group">
 								<div class="text-center">

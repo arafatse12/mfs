@@ -226,6 +226,7 @@ $route['cookie-policy'] = 'user/privacy/cookiesPolicy';
 $route['privacy-app'] = 'user/privacy/privacy_app';
 $route['terms-conditions-app'] = 'user/terms/terms_conditions_app';
 $route['contact-app'] = 'user/contact/contact_app';
+$route['job'] = 'user/job/job';
 
 //my_service_pagination
 $route['my-services']='user/myservice/index';

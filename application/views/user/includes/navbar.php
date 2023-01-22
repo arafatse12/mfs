@@ -104,7 +104,7 @@ $google_analytics_code = $this->db->get_where('system_settings', array('key'=>'g
                                      <li><a href="<?php echo $base_url; ?>">Home</a></li>
                         <li><a href="<?php echo $base_url.'about-us' ?>">About Us</a></li>
                         <li><a href="<?php echo $base_url.'all-services' ?>">Services</a></li>
-                        <li><a href="<?php echo $base_url.'apply-job' ?>">Apply for Job</a></li>
+                        <li><a href="<?php echo $base_url.'job' ?>">Apply for Job</a></li>
                         <li><a href="<?php echo $base_url.'contact' ?>">Contact</a></li>
                         <li><a href="<?php echo $base_url.'all-blogs' ?>">Blog</a></li> 
                                      <?php 
