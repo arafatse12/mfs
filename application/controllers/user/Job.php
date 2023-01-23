@@ -107,6 +107,7 @@ class Job extends CI_Controller {
 		 $table_datas['message']=$this->input->post('message');
 		 $table_datas['upload_cv']=$this->input->post('upload_cv');
 		 $result=$this->db->insert('apply_job', $table_datas);
+         return json_encode($result);
 		//  if ($result) {
         //     $this->data['user'] = $this->session->userdata();
 

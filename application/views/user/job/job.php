@@ -23,7 +23,7 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="contact-blk-content">
-				<form method="post" enctype="multipart/form-data" id="contact_form1" >
+				<form method="post" enctype="multipart/form-data" id="createForm" >
           <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>" />
     
 					<div class="row">						
@@ -42,7 +42,13 @@
 						<div class="col-lg-6">
 							<div class="form-group">
 								<label>Address <span>*</span></label>
-								<input class="form-control" type="text" name="name" id="name" >
+								<input class="form-control" type="text" name="address" id="address" >
+							</div>
+						</div>	
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label>Phone <span>*</span></label>
+								<input class="form-control" type="number" name="phone" id="phone" >
 							</div>
 						</div>	
 						<div class="col-lg-6">
@@ -51,13 +57,13 @@
 								<input class="form-control" type="file" name="uplaod_cv" id="uplaod_cv">
 							</div>
 						</div>	
-						<div class="col-lg-12">
+						<div class="col-lg-6">
 							<div class="form-group">
 								<div class="text-center">
 									<div id="load_div"></div>
 								</div>
 								<label><?php echo (!empty($user_language[$user_selected]['lg_messages'])) ? $user_language[$user_selected]['lg_messages'] : $default_language['en']['lg_messages']; ?></label>
-								<textarea class="form-control" name="message" id="message" rows="5"></textarea>
+								<textarea class="form-control" name="message" id="message" rows="3"></textarea>
 							</div>
 						</div>
 					</div>
@@ -72,4 +78,26 @@
 
 	</div>
 </div>
+	 <script type="text/javascript">
+
+            //submitting form
+            $("#createForm").submit(function (event) {
+                event.preventDefault(); //prevent the browser to execute default action. Here, it will prevent browser to be refresh
+                $.ajax({
+                    url: "<?php echo base_url('user/job/insert_job'); ?>", //backend url
+                    data: $("#createForm").serialize(), //sending form data in a serialize way
+                    type: "post",
+                    async: false, //hold the next execution until the previous execution complete
+                    dataType: 'json',
+                    success: function (response) {
+
+                        $('#createModal').modal('hide'); //hiding modal
+                        $('#createForm')[0].reset(); //reset form
+                        alert('Successfully inserted'); //displaying a successful message
+                        $('#exampleTable').DataTable().ajax.reload(); //rereshing the datatable to add new data in datatable
+                    }
+                    
+                });
+            });
+ </script>
 
