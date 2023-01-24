@@ -14,6 +14,7 @@
 					</ol>
 				</nav>
 			</div>
+			<div id="messageId" class"btn btn-success"></div>
 		</div>
 	</div>
 </div>
@@ -51,13 +52,13 @@
 								<input class="form-control" type="number" name="phone" id="phone" >
 							</div>
 						</div>	
-						<div class="col-lg-6">
+						<!-- <div class="col-lg-6">
 							<div class="form-group">
 								<label>Upload CV <span>*</span></label>
-								<input class="form-control" type="file" name="uplaod_cv" id="uplaod_cv">
+								<input class="form-control" type="file" name="image" id="image">
 							</div>
-						</div>	
-						<div class="col-lg-6">
+						</div>	 -->
+						<div class="col-lg-12">
 							<div class="form-group">
 								<div class="text-center">
 									<div id="load_div"></div>
@@ -82,19 +83,21 @@
 
             //submitting form
             $("#createForm").submit(function (event) {
-                event.preventDefault(); //prevent the browser to execute default action. Here, it will prevent browser to be refresh
+                event.preventDefault(); 
+				// var fd = new FormData();
+        		// var files = $('#image')[0].files;
+				// fd.append('file',files[0]);
+				// console.log(files);
                 $.ajax({
                     url: "<?php echo base_url('user/job/insert_job'); ?>", //backend url
-                    data: $("#createForm").serialize(), //sending form data in a serialize way
+                    data: $('#createForm').serialize(), 
                     type: "post",
-                    async: false, //hold the next execution until the previous execution complete
                     dataType: 'json',
                     success: function (response) {
-
-                        $('#createModal').modal('hide'); //hiding modal
+					console.log(response);
+						$('#messageId').html('arafat');
                         $('#createForm')[0].reset(); //reset form
                         alert('Successfully inserted'); //displaying a successful message
-                        $('#exampleTable').DataTable().ajax.reload(); //rereshing the datatable to add new data in datatable
                     }
                     
                 });

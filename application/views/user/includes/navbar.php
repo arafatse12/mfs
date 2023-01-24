@@ -260,11 +260,13 @@ $google_analytics_code = $this->db->get_where('system_settings', array('key'=>'g
                             <a class="nav-link header-login" href="javascript:void(0);" data-toggle="modal" data-target="#tab_login_modal"><?php echo (!empty($user_language[$user_selected]['lg_login'])) ? $user_language[$user_selected]['lg_login'] : $default_language['en']['lg_login']; ?></a>
                         </li>
 
-                        <li class="nav-item dropdown hide-dropdown">
-                        <a href="#" class="dropdown-toggle header-login" data-toggle="dropdown">
+                        <li class="nav-item">
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#modal-wizard1" class="header-login">Register</a>
+                         </li>
+                        <!-- <a href="#" class="dropdown-toggle header-login" data-toggle="dropdown">
                             Register <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <div class="dropdown-menu notify-blk dropdown-menu-right register-dropdown">
+                        </a> -->
+                        <!-- <div class="dropdown-menu notify-blk dropdown-menu-right register-dropdown">
                             <div class="dropdown-content">
                                 <ul class="notification-list">
                                     <?php if ($this->session->userdata('id') == '') { ?>
@@ -276,8 +278,8 @@ $google_analytics_code = $this->db->get_where('system_settings', array('key'=>'g
                                     <?php } ?>
                                 </ul>
                             </div>
-                        </div>
-                    </li>
+                        </div> -->
+                   
                         <?php
                     } ?>
                     

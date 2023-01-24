@@ -2394,9 +2394,7 @@
                                 location.reload();
                             });
                         }
-                    });
+                    })
                 }
             }
-
-
         })(jQuery);

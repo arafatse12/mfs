@@ -32,6 +32,11 @@ class Job extends CI_Controller {
             $this->data['user_selected'] = $this->session->userdata('user_select_language');
         }
 
+        $this->data['csrf'] = array(
+            'name' => $this->security->get_csrf_token_name(),
+            'hash' => $this->security->get_csrf_hash()
+        );
+
         $this->data['active_language'] = $active_lang = active_language();
 
         $lg = custom_language($this->data['user_selected']);
@@ -105,9 +110,31 @@ class Job extends CI_Controller {
 		 $table_datas['address']=$this->input->post('address');
 		 $table_datas['phone']=$this->input->post('phone');
 		 $table_datas['message']=$this->input->post('message');
-		 $table_datas['upload_cv']=$this->input->post('upload_cv');
+        
+        //  if (isset($_FILES) && isset($_FILES['image']['image']) && !empty($_FILES['image']['image'])) {
+        //     if(!is_dir('uploads/jobs')) {
+        //         mkdir('./uploads/jobs/', 0777, TRUE);
+        //     }
+        //     $uploaded_file_name = $_FILES['image']['image'];
+        //     $uploaded_file_name_arr = explode('.', $uploaded_file_name);
+        //     $filename = $uploaded_file_name;
+        //     $this->load->library('common');
+        //     $upload_sts = $this->common->global_file_upload('uploads/jobs/', 'image', time() . $filename);
+            
+        //     if (isset($upload_sts['success']) && $upload_sts['success'] == 'y') {
+        //         $uploaded_file_name = $upload_sts['data']['file_name'];
+
+        //         if (!empty($uploaded_file_name)) {
+        //             $image_url = 'uploads/jobs/' . $uploaded_file_name;
+        //             $input['upload_cv'] = $image_url;
+        //             // $input['image_small'] = $this->image_resize(50, 50, $image_url, 'thu_' . $uploaded_file_name);
+        //             // $input['image_default'] = $this->image_resize(381, 286, $image_url, $uploaded_file_name);
+        //         }
+        //     }
+        // }
+		//  $table_datas['upload_cv']=$this->input->post('upload_cv');
 		 $result=$this->db->insert('apply_job', $table_datas);
-         return json_encode($result);
+         return $result;
 		//  if ($result) {
         //     $this->data['user'] = $this->session->userdata();
 
