@@ -885,13 +885,13 @@ $default_language = $lg['default_lang'];
 									<!-- /Copyright Menu -->
 
 									<!-- Download Our App -->
-									<div class="app-img">
+									<!-- <div class="app-img">
 										<?php if(settingValue('download_showhide') == 1) { ?>
 											<a href="<?=(settingValue('app_store_link')?settingValue('app_store_link'):'#')?>" target="_blank" rel="noopener noreferrer"><img class="thumbnail m-b-0" src="<?php echo base_url() . settingValue('app_store_img'); ?>"></a>
 
 		                            		<a href="<?=(settingValue('play_store_link')?settingValue('play_store_link'):'#')?>" target="_blank" rel="noopener noreferrer"><img class="thumbnail m-b-0" src="<?php echo base_url() . settingValue('play_store_img'); ?>"></a>
 		                            	<?php } ?>
-		                            </div>
+		                            </div> -->
 								</div>
 							</div>
 						</div>

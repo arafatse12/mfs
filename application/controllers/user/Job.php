@@ -74,8 +74,8 @@ class Job extends CI_Controller {
 		 $this->load->view($this->data['theme'].'/template');
     }
     public function insert_job()
-	{
-		
+	{ 
+        
 		$query = $this->db->query("select * from system_settings WHERE status = 1");
 		$result = $query->result_array();
 		$mail_config='';
@@ -110,28 +110,30 @@ class Job extends CI_Controller {
 		 $table_datas['address']=$this->input->post('address');
 		 $table_datas['phone']=$this->input->post('phone');
 		 $table_datas['message']=$this->input->post('message');
-        
-        //  if (isset($_FILES) && isset($_FILES['image']['image']) && !empty($_FILES['image']['image'])) {
-        //     if(!is_dir('uploads/jobs')) {
-        //         mkdir('./uploads/jobs/', 0777, TRUE);
-        //     }
-        //     $uploaded_file_name = $_FILES['image']['image'];
-        //     $uploaded_file_name_arr = explode('.', $uploaded_file_name);
-        //     $filename = $uploaded_file_name;
-        //     $this->load->library('common');
-        //     $upload_sts = $this->common->global_file_upload('uploads/jobs/', 'image', time() . $filename);
+       
+         if (isset($_FILES) && isset($_FILES['image_file']['name']) && !empty($_FILES['image_file']['name'])) {
+            if(!is_dir('uploads/jobs')) {
+                mkdir('/uploads/jobs/', 0777, TRUE);
+            }
+            $uploaded_file_name = $_FILES['image_file']['name'];
             
-        //     if (isset($upload_sts['success']) && $upload_sts['success'] == 'y') {
-        //         $uploaded_file_name = $upload_sts['data']['file_name'];
+            $uploaded_file_name_arr = explode('.', $uploaded_file_name);
+            $filename = $uploaded_file_name;
+            $this->load->library('common');
+            $upload_sts = $this->common->global_file_upload('uploads/jobs/', 'image_file', time() . $filename);
+          
+            if (isset($upload_sts['success']) && $upload_sts['success'] == 'y') {
+                $uploaded_file_name = $upload_sts['data']['file_name'];
 
-        //         if (!empty($uploaded_file_name)) {
-        //             $image_url = 'uploads/jobs/' . $uploaded_file_name;
-        //             $input['upload_cv'] = $image_url;
-        //             // $input['image_small'] = $this->image_resize(50, 50, $image_url, 'thu_' . $uploaded_file_name);
-        //             // $input['image_default'] = $this->image_resize(381, 286, $image_url, $uploaded_file_name);
-        //         }
-        //     }
-        // }
+                if (!empty($uploaded_file_name)) {
+                    $image_url = 'uploads/jobs/' . $uploaded_file_name;
+                    
+                    $table_datas['upload_cv'] = $image_url;
+                    // $input['image_small'] = $this->image_resize(50, 50, $image_url, 'thu_' . $uploaded_file_name);
+                    // $input['image_default'] = $this->image_resize(381, 286, $image_url, $uploaded_file_name);
+                }
+            }
+        }
 		//  $table_datas['upload_cv']=$this->input->post('upload_cv');
 		 $result=$this->db->insert('apply_job', $table_datas);
          return $result;
@@ -175,5 +177,7 @@ class Job extends CI_Controller {
         $this->load->vars($this->data);
         $this->load->view($this->data['theme'] . '/'.$this->data['module'] . '/' . $this->data['page']);
     }
+
+    
    
 }

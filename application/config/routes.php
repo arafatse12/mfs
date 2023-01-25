@@ -63,6 +63,7 @@ $route['admin/wallet-history'] = 'admin/wallet/wallet_history';
 $route['admin/wallet-request-history'] = 'admin/wallet/wallet_request_history';
 /*booking report*/
 $route['admin/total-report'] = 'admin/Booking/total_bookings';
+$route['admin/job-apply'] = 'admin/Booking/job_apply';
 $route['admin/pending-report'] = 'admin/Booking/pending_bookings';
 $route['admin/inprogress-report'] = 'admin/Booking/inprogress_bookings';
 $route['admin/complete-report'] = 'admin/Booking/completed_bookings';
@@ -520,5 +521,3 @@ $route['sitemap\.xml'] = "admin/sitemap/view_map";
 
 //Admin Data
 $route['admin-data'] = "admin/login/getAdminDetails";
-
-

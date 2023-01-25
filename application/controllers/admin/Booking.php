@@ -102,6 +102,14 @@ class Booking extends CI_Controller {
     }
   }
 
+  public function job_apply()
+  {
+      $this->data['page'] = 'job_apply'; 
+      $this->load->vars($this->data);
+      $this->load->view($this->data['theme'].'/template');
+    
+  }
+
   /*pending report*/
   public function pending_bookings() 
   {
