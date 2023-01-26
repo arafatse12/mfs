@@ -501,10 +501,10 @@
                         <span><?php echo(!empty($sidebar['lg_admin_currency_settings']))?($sidebar['lg_admin_currency_settings']) : 'Currency Settings';  ?></span></a>
                 </li>
                 <?php } if(in_array(66,$access_result_data_array)) { ?>
-                <li class="<?php echo ($active == 'offline-payment-details')?'active':''; ?>">
+                <!-- <li class="<?php echo ($active == 'offline-payment-details')?'active':''; ?>">
                     <a href="<?php echo $base_url;?>admin/offline-payment-details"><i class="fas fa-credit-card"></i>
                         <span> Bank Transfer(Offline)</span></a>
-                </li>
+                </li> -->
                 <?php } if(in_array(67,$access_result_data_array)) { ?>
                 <li class="<?php echo ($active == 'sitemap')?'active':''; ?>">
                     <a href="<?php echo $base_url;?>admin/sitemap"><i class="fa fa-sitemap"></i><span>Sitemap</span></a>

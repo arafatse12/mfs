@@ -129,7 +129,8 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
                         ?>
                         <h1><?php echo ucfirst($service_name['service_name']); ?></h1>
 
-                        <address class="service-location"><i class="fas fa-location-arrow"></i> <?php echo ucfirst($service['service_location']); ?></address>
+                        <!-- <address class="service-location"><i class="fas fa-location-arrow"></i>
+                            <?php echo ucfirst($service['service_location']); ?></address> -->
 
                         <div class="rating">
 
@@ -157,7 +158,7 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                             }
 
-                            ?>	
+                            ?>
 
                             <span class="d-inline-block average-rating">(<?php echo $avg_rating; ?>)</span>
 
@@ -170,9 +171,10 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
                             $this->db->where('lang_type', $cat_lang);
                             $cat_names = $this->db->get('categories_lang')->row_array();
                             ?>
-                            <a class="cate-link" href="<?php echo base_url(); ?>search/<?php echo str_replace(' ', '-', $service['category_name']); ?>"><?php echo ucfirst($cat_names['category_name']); ?></a>
+                            <a class="cate-link"
+                                href="<?php echo base_url(); ?>search/<?php echo str_replace(' ', '-', $service['category_name']); ?>"><?php echo ucfirst($cat_names['category_name']); ?></a>
 
-							                        <?php  
+                            <?php  
 
                         if($this->session->userdata('usertype') != "provider") {    
 
@@ -182,19 +184,31 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                 if($user_fav['status'] == 1) { ?>
 
-                                    <a href="javascript:;" id="ufav" class="fav-link favourited" data-id="<?php echo $user_fav['id']?>" data-userid = "<?php echo $userId?>" data-provid="<?php echo $service['user_id']?>" data-servid="<?php echo $service['id']?>" data-favstatus="0" data-pagename="<?php echo $service['category_name']?>" title="Click here to unfavorite the service"><i class="fas fa-heart filled"></i></a>
+                            <a href="javascript:;" id="ufav" class="fav-link favourited"
+                                data-id="<?php echo $user_fav['id']?>" data-userid="<?php echo $userId?>"
+                                data-provid="<?php echo $service['user_id']?>" data-servid="<?php echo $service['id']?>"
+                                data-favstatus="0" data-pagename="<?php echo $service['category_name']?>"
+                                title="Click here to unfavorite the service"><i class="fas fa-heart filled"></i></a>
 
-                                <?php } 
+                            <?php } 
 
                                 else { ?>
 
-                                    <a href="javascript:;" id="ufav" class="fav-link" data-id="<?php echo $user_fav['id']?>" data-userid = "<?php echo $userId?>" data-provid="<?php echo $service['user_id']?>" data-servid="<?php echo $service['id']?>" data-favstatus="1" data-pagename="<?php echo $service['category_name']?>"  title="Click here to favorite the service"><i class="fas fa-heart"></i></a>
+                            <a href="javascript:;" id="ufav" class="fav-link" data-id="<?php echo $user_fav['id']?>"
+                                data-userid="<?php echo $userId?>" data-provid="<?php echo $service['user_id']?>"
+                                data-servid="<?php echo $service['id']?>" data-favstatus="1"
+                                data-pagename="<?php echo $service['category_name']?>"
+                                title="Click here to favorite the service"><i class="fas fa-heart"></i></a>
 
-                                <?php } 
+                            <?php } 
 
                             } else { ?>
 
-                                <a href="javascript:;" id="ufav" class="fav-link" data-id="<?php echo $user_fav['id']?>" data-userid = "<?php echo $this->session->userdata('id');?>" data-provid="<?php echo $service['user_id']?>" data-servid="<?php echo $service['id']?>" data-favstatus="1" data-pagename="<?php echo $service['category_name']?>" title="Click here to favorite the service"><i class="fas fa-heart"></i></a>
+                            <a href="javascript:;" id="ufav" class="fav-link" data-id="<?php echo $user_fav['id']?>"
+                                data-userid="<?php echo $this->session->userdata('id');?>"
+                                data-provid="<?php echo $service['user_id']?>" data-servid="<?php echo $service['id']?>"
+                                data-favstatus="1" data-pagename="<?php echo $service['category_name']?>"
+                                title="Click here to favorite the service"><i class="fas fa-heart"></i></a>
 
                             <?php } 
 
@@ -230,7 +244,8 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                             } else { ?>
 
-                                <div class="item"><img src="<?php echo base_url().$placholder_img; ?>" alt="" class="img-fluid"></div>
+                            <div class="item"><img src="<?php echo base_url().$placholder_img; ?>" alt=""
+                                    class="img-fluid"></div>
 
                             <?php } ?>
 
@@ -246,36 +261,44 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                             <li class="nav-item">
 
-                                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><?php echo (!empty($user_language[$user_selected]['lg_Overview'])) ? $user_language[$user_selected]['lg_Overview'] : $default_language['en']['lg_Overview']; ?></a>
+                                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                                    role="tab" aria-controls="pills-home"
+                                    aria-selected="true"><?php echo (!empty($user_language[$user_selected]['lg_Overview'])) ? $user_language[$user_selected]['lg_Overview'] : $default_language['en']['lg_Overview']; ?></a>
 
                             </li>
                             <?php if(settingValue('service_offered_showhide') == 1) { ?>
-                                <li class="nav-item">
-
-                                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><?php echo (!empty($user_language[$user_selected]['lg_Services_Offered'])) ? $user_language[$user_selected]['lg_Services_Offered'] : $default_language['en']['lg_Services_Offered']; ?></a>
-
-                                </li>
-                        <?php } ?>
-                        <?php if(settingValue('review_showhide') == 1) { ?>
                             <li class="nav-item">
 
-                                <a class="nav-link" id="pills-book-tab" data-toggle="pill" href="#pills-book" role="tab" aria-controls="pills-book" aria-selected="false"><?php echo (!empty($user_language[$user_selected]['lg_Reviews'])) ? $user_language[$user_selected]['lg_Reviews'] : $default_language['en']['lg_Reviews']; ?></a>
+                                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                                    role="tab" aria-controls="pills-profile" aria-selected="false">Related service</a>
 
                             </li>
-                        <?php } ?>
+                            <?php } ?>
+                            <?php if(settingValue('review_showhide') == 1) { ?>
+                            <li class="nav-item">
+
+                                <a class="nav-link" id="pills-book-tab" data-toggle="pill" href="#pills-book" role="tab"
+                                    aria-controls="pills-book"
+                                    aria-selected="false"><?php echo (!empty($user_language[$user_selected]['lg_Reviews'])) ? $user_language[$user_selected]['lg_Reviews'] : $default_language['en']['lg_Reviews']; ?></a>
+
+                            </li>
+                            <?php } ?>
 
                         </ul>
 
 
 
                         <div class="tab-content">
-                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                aria-labelledby="pills-home-tab">
 
                                 <div class="card service-description">
 
                                     <div class="card-body">
 
-                                        <h5 class="card-title"><?php echo (!empty($user_language[$user_selected]['lg_Service_Details'])) ? $user_language[$user_selected]['lg_Service_Details'] : $default_language['en']['lg_Service_Details']; ?></h5>
+                                        <h5 class="card-title">
+                                            <?php echo (!empty($user_language[$user_selected]['lg_Service_Details'])) ? $user_language[$user_selected]['lg_Service_Details'] : $default_language['en']['lg_Service_Details']; ?>
+                                        </h5>
 
                                         <p class="mb-0"><?php echo $service['about']; ?></p>
 
@@ -287,19 +310,21 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
 
                             <?php if(settingValue('service_offered_showhide') == 1) { ?>
-                                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                aria-labelledby="pills-profile-tab">
 
-                                    <div class="card">
+                                <div class="card">
 
-                                        <div class="card-body">
+                                    <div class="card-body">
 
-                                            <h5 class="card-title"><?php echo (!empty($user_language[$user_selected]['lg_Services_Offered'])) ? $user_language[$user_selected]['lg_Services_Offered'] : $default_language['en']['lg_Services_Offered']; ?></h5>
+                                        <h5 class="card-title">
+                                            Related service
+                                        </h5>
 
-                                            <div class="service-offer">
+                                        <div class="service-offer">
 
-                                                <ul class="list-bullet">
-
-                                                    <?php 
+                                            <ul class="list-bullet">
+                                                <?php 
 
                                                     if (count($service_offered) > 0) {
 
@@ -319,15 +344,15 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                                     ?>
 
-                                                </ul>
-
-                                            </div>
+                                            </ul>
 
                                         </div>
 
                                     </div>
 
                                 </div>
+
+                            </div>
                             <?php } ?>
 
 
@@ -373,37 +398,39 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                                 ?>
 
-                                                <div class="review-list">
+                                        <div class="review-list">
 
-                                                    <div class="review-img">
+                                            <div class="review-img">
 
-                                                        <?php if ($review['profile_img'] == '') { ?>
+                                                <?php if ($review['profile_img'] == '') { ?>
 
-                                                            <img class="rounded-circle" src="<?php echo base_url(); ?>assets/img/user.jpg" alt="">
+                                                <img class="rounded-circle"
+                                                    src="<?php echo base_url(); ?>assets/img/user.jpg" alt="">
 
-                                                        <?php } else { ?>
+                                                <?php } else { ?>
 
-                                                            <img class="rounded-circle" src="<?php echo base_url() . $review['profile_img'] ?>" alt="">
+                                                <img class="rounded-circle"
+                                                    src="<?php echo base_url() . $review['profile_img'] ?>" alt="">
 
-                                                        <?php } ?>
+                                                <?php } ?>
 
-                                                    </div>
+                                            </div>
 
-                                                    <div class="review-info">
+                                            <div class="review-info">
 
-                                                        <h5><?php echo $review['name'] ?></h5>
+                                                <h5><?php echo $review['name'] ?></h5>
 
-                                                        <div class="review-date"><?php echo $datetime; ?></div>
+                                                <div class="review-date"><?php echo $datetime; ?></div>
 
-                                                        <p class="mb-0"><?php echo $review['review'] ?></p>
+                                                <p class="mb-0"><?php echo $review['review'] ?></p>
 
-                                                    </div>
+                                            </div>
 
-                                                    <div class="review-count">
+                                            <div class="review-count">
 
-                                                        <div class="rating">
+                                                <div class="rating">
 
-                                                            <?php
+                                                    <?php
 
                                                             for ($x = 1; $x <= $avg_ratings; $x++) {
 
@@ -427,17 +454,18 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                                             }
 
-                                                            ?>	
+                                                            ?>
 
-                                                            <span class="d-inline-block average-rating">(<?php echo $review['rating'] ?>)</span>
-
-                                                        </div>
-
-                                                    </div>
+                                                    <span
+                                                        class="d-inline-block average-rating">(<?php echo $review['rating'] ?>)</span>
 
                                                 </div>
 
-                                                <?php
+                                            </div>
+
+                                        </div>
+
+                                        <?php
 
                                             }
 
@@ -445,7 +473,7 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                             ?>
 
-                                            <span><?php echo (!empty($user_language[$user_selected]['lg_No_reviews'])) ? $user_language[$user_selected]['lg_No_reviews'] : $default_language['en']['lg_No_reviews']; ?></span>
+                                        <span><?php echo (!empty($user_language[$user_selected]['lg_No_reviews'])) ? $user_language[$user_selected]['lg_No_reviews'] : $default_language['en']['lg_No_reviews']; ?></span>
 
                                         <?php } ?>
 
@@ -463,17 +491,17 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                     <div class="book-service-left">
 
-                <div class="sidebar-widget widget">
+                        <div class="sidebar-widget widget">
 
-                    <div class="service-amount">
+                            <div class="service-amount">
 
-                        <span><?php echo currency_conversion($user_currency_code) . $service_amount; ?></span>
+                                <span><?php echo currency_conversion($user_currency_code) . $service_amount; ?></span>
 
-                    </div>
+                            </div>
 
-                    <div class="service-book">
+                            <div class="service-book">
 
-                        <?php
+                                <?php
 
                         $val = $this->db->select('*')->from('book_service')->where('service_id', $service['id'])->where('user_id', $this->session->userdata('id'))->order_by('id', 'DESC')->get()->row();
 
@@ -519,7 +547,9 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
 
                                 <?php if(settingValue('booking_showhide') == 1) { ?>
-                                    <button class="btn btn-primary go_book_service" type="button" id="go_book_service" data-id="<?php echo $service['id'] ?>" ><?php echo (!empty($user_language[$user_selected]['lg_Book_Service'])) ? $user_language[$user_selected]['lg_Book_Service'] : $default_language['en']['lg_Book_Service']; ?> </button>
+                                <button class="btn btn-primary go_book_service" type="button" id="go_book_service"
+                                    data-id="<?php echo $service['id'] ?>"><?php echo (!empty($user_language[$user_selected]['lg_Book_Service'])) ? $user_language[$user_selected]['lg_Book_Service'] : $default_language['en']['lg_Book_Service']; ?>
+                                </button>
 
                                 <?php } ?>
 
@@ -531,11 +561,14 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                             ?>
 
-                            <a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#modal-wizard1"> <?php echo (!empty($user_language[$user_selected]['lg_Book_Service'])) ? $user_language[$user_selected]['lg_Book_Service'] : $default_language['en']['lg_Book_Service']; ?> </a>
+                                <a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#modal-wizard1">
+                                    <?php echo (!empty($user_language[$user_selected]['lg_Book_Service'])) ? $user_language[$user_selected]['lg_Book_Service'] : $default_language['en']['lg_Book_Service']; ?>
+                                </a>
 
-                        <?php } ?>
+                                <?php } ?>
 
-                        <?php
+                                <?php
 
                         if (!empty($this->session->userdata('id'))) {
 
@@ -545,9 +578,12 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                     ?>
 
-                                    <a href="<?php echo base_url() . 'user/service/edit_service/' . $service['id'] ?>" class="btn btn-primary" > <?php echo (!empty($user_language[$user_selected]['lg_Edit_Service'])) ? $user_language[$user_selected]['lg_Edit_Service'] : $default_language['en']['lg_Edit_Service']; ?> </a>
+                                <a href="<?php echo base_url() . 'user/service/edit_service/' . $service['id'] ?>"
+                                    class="btn btn-primary">
+                                    <?php echo (!empty($user_language[$user_selected]['lg_Edit_Service'])) ? $user_language[$user_selected]['lg_Edit_Service'] : $default_language['en']['lg_Edit_Service']; ?>
+                                </a>
 
-                                    <?php
+                                <?php
 
                                 }
 
@@ -557,21 +593,23 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                         ?>
 
-                    </div>
+                            </div>
 
-                </div>
-
-
+                        </div>
 
 
 
-                <div class="card provider-widget clearfix">
 
-                    <div class="card-body">
 
-                        <h5 class="card-title"><?php echo (!empty($user_language[$user_selected]['lg_Service_Provider'])) ? $user_language[$user_selected]['lg_Service_Provider'] : $default_language['en']['lg_Service_Provider']; ?></h5>
+                        <div class="card provider-widget clearfix">
 
-                        <?php
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    <?php echo (!empty($user_language[$user_selected]['lg_Service_Provider'])) ? $user_language[$user_selected]['lg_Service_Provider'] : $default_language['en']['lg_Service_Provider']; ?>
+                                </h5>
+
+                                <?php
 
                         if (!empty($service['user_id'])) {
 
@@ -587,13 +625,13 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
 
 
-                            <div class="about-author">
+                                <div class="about-author">
 
-                                <div class="about-provider-img">
+                                    <div class="about-provider-img">
 
-                                    <div class="provider-img-wrap">
+                                        <div class="provider-img-wrap">
 
-                                        <?php
+                                            <?php
 
                                         if (file_exists($provider['profile_img'])) {
 
@@ -607,101 +645,111 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                         ?>
 
-                                        <a href="javascript:void(0);"><img class="img-fluid rounded-circle" alt="" src="<?php echo $image; ?>"></a>
+                                            <a href="javascript:void(0);"><img class="img-fluid rounded-circle" alt=""
+                                                    src="<?php echo $image; ?>"></a>
+
+                                        </div>
 
                                     </div>
 
-                                </div>
 
 
-
-                                <div class="provider-details">
-                                    <?php  
+                                    <div class="provider-details">
+                                        <?php  
                                         $user_lang = ($this->session->userdata('user_select_language'))?$this->session->userdata('user_select_language'):'en';
                                         $this->db->where('modules', 'provider');
                                         $this->db->where('name_id', $provider['id']);
                                         $this->db->where('lang_type', $user_lang);
                                         $lang_pro = $this->db->get('users_lang')->row_array();
                                     ?>
-                                    <a href="javascript:void(0);" class="ser-provider-name"><?= !empty($lang_pro['name']) ? $lang_pro['name'] : $provider['name']; ?></a>
+                                        <a href="javascript:void(0);"
+                                            class="ser-provider-name"><?= !empty($lang_pro['name']) ? $lang_pro['name'] : $provider['name']; ?></a>
 
-                                    <p class="last-seen"> 
+                                        <p class="last-seen">
 
-                                        <?php 
+                                            <?php 
                                         if(settingValue('provider_status_showhide') == 1) {
                                             if ($provider_online['is_online'] == 2) { ?>
 
-                                                <i class="fas fa-circle"></i> <?php echo (!empty($user_language[$user_selected]['lg_last_seen'])) ? $user_language[$user_selected]['lg_last_seen'] : $default_language['en']['lg_last_seen']; ?>: &nbsp;
+                                            <i class="fas fa-circle"></i>
+                                            <?php echo (!empty($user_language[$user_selected]['lg_last_seen'])) ? $user_language[$user_selected]['lg_last_seen'] : $default_language['en']['lg_last_seen']; ?>:
+                                            &nbsp;
 
-                                                <?php $day_text=(!empty($user_language[$user_selected]['lg_days'])) ? $user_language[$user_selected]['lg_days'] : $default_language['en']['lg_days'];  echo (!empty($days)) ? $days .' '. $day_text.' ': ''; ?> 
+                                            <?php $day_text=(!empty($user_language[$user_selected]['lg_days'])) ? $user_language[$user_selected]['lg_days'] : $default_language['en']['lg_days'];  echo (!empty($days)) ? $days .' '. $day_text.' ': ''; ?>
 
-                                                <?php if ($days == 0) { ?>
+                                            <?php if ($days == 0) { ?>
 
-                                                    <?php $hours_text = (!empty($user_language[$user_selected]['lg_hours'])) ? $user_language[$user_selected]['lg_hours'] : $default_language['en']['lg_hours']; echo (!empty($hours)) ? $hours . " ".$hours_text : ''; ?>
+                                            <?php $hours_text = (!empty($user_language[$user_selected]['lg_hours'])) ? $user_language[$user_selected]['lg_hours'] : $default_language['en']['lg_hours']; echo (!empty($hours)) ? $hours . " ".$hours_text : ''; ?>
 
-                                                <?php } ?>
+                                            <?php } ?>
 
-                                                <?php if ($days == 0 && $hours == 0) { ?>
+                                            <?php if ($days == 0 && $hours == 0) { ?>
 
-                                                    <?php $min_text = (!empty($user_language[$user_selected]['lg_mints'])) ? $user_language[$user_selected]['lg_mints'] : $default_language['en']['lg_mints']; echo (!empty($minutes)) ? $minutes . " " .$min_text : ''; ?>
+                                            <?php $min_text = (!empty($user_language[$user_selected]['lg_mints'])) ? $user_language[$user_selected]['lg_mints'] : $default_language['en']['lg_mints']; echo (!empty($minutes)) ? $minutes . " " .$min_text : ''; ?>
 
-                                                <?php } ?>
+                                            <?php } ?>
 
-                                                <?php echo (!empty($user_language[$user_selected]['lg_ago'])) ? $user_language[$user_selected]['lg_ago'] : $default_language['en']['lg_ago']; ?>
+                                            <?php echo (!empty($user_language[$user_selected]['lg_ago'])) ? $user_language[$user_selected]['lg_ago'] : $default_language['en']['lg_ago']; ?>
 
-                                            </p>
+                                        </p>
 
-                                            <?php } elseif ($provider_online['is_online'] == 1) { ?>
-                                                <i class="fas fa-circle online"></i> Online</p>
-                                            <?php } 
+                                        <?php } elseif ($provider_online['is_online'] == 1) { ?>
+                                        <i class="fas fa-circle online"></i> Online</p>
+                                        <?php } 
                                         } ?>
 
-                                    <p class="text-muted mb-1"><?php echo (!empty($user_language[$user_selected]['lg_Member_Since'])) ? $user_language[$user_selected]['lg_Member_Since'] : $default_language['en']['lg_Member_Since']; ?> <?= date('M Y', strtotime($provider['created_at'])); ?></p>
+                                        <p class="text-muted mb-1">
+                                            <?php echo (!empty($user_language[$user_selected]['lg_Member_Since'])) ? $user_language[$user_selected]['lg_Member_Since'] : $default_language['en']['lg_Member_Since']; ?>
+                                            <?= date('M Y', strtotime($provider['created_at'])); ?></p>
+
+                                    </div>
 
                                 </div>
 
-                            </div>
-
-                            <?php if(settingValue('provider_email_showhide') == 1 || settingValue('provider_mobileno_showhide') == 1) { ?>
-                            <hr>
-                            <div class="provider-info">
-                                <?php if(settingValue('provider_email_showhide') == 1) { ?>
+                                <?php if(settingValue('provider_email_showhide') == 1 || settingValue('provider_mobileno_showhide') == 1) { ?>
+                                <hr>
+                                <div class="provider-info">
+                                    <?php if(settingValue('provider_email_showhide') == 1) { ?>
                                     <p class="mb-1"><i class="far fa-envelope mr-1"></i> <?= $provider['email'] ?></p>
-                                <?php } 
+                                    <?php } 
                                     if(settingValue('provider_mobileno_showhide') == 1) { ?>
-                                        <p class="mb-0"><i class="fas fa-phone-alt mr-1"></i>
-                                            <?php if ($this->session->userdata('id')) {
+                                    <p class="mb-0"><i class="fas fa-phone-alt mr-1"></i>
+                                        <?php if ($this->session->userdata('id')) {
                                                     echo $provider['country_code'].' - '.$provider['mobileno'];
                                                 } else { ?>
-                                                    xxxxxxxx<?= rand(00, 99); ?>
-                                            <?php } ?>
-                                        </p>
-                             <?php  } ?>
+                                        xxxxxxxx<?= rand(00, 99); ?>
+                                        <?php } ?>
+                                    </p>
+                                    <?php  } ?>
 
-                            </div>
+                                </div>
 
 
-                        <?php }
+                                <?php }
                     }  ?>
 
-                    </div>
-                </div>
-                <?php if (!empty($this->session->userdata('id')) && $this->session->userdata('usertype') == 'user') { ?>
-                <div class="report">
-                    <a id="abuse_report" data-id="<?php echo $service['user_id']; ?>" class='btn btn-sm bg-danger-light'><i class="fas fa-bug" aria-hidden="true"></i> Report this provider</a>
-                </div>
-                <?php } ?>
-                <br>
-                <?php if(settingValue('service_availability_showhide') == 1) { ?>
-                    <div class="card available-widget">
+                            </div>
+                        </div>
+                        <?php if (!empty($this->session->userdata('id')) && $this->session->userdata('usertype') == 'user') { ?>
+                        <div class="report">
+                            <a id="abuse_report" data-id="<?php echo $service['user_id']; ?>"
+                                class='btn btn-sm bg-danger-light'><i class="fas fa-bug" aria-hidden="true"></i> Report
+                                this provider</a>
+                        </div>
+                        <?php } ?>
+                        <br>
+                        <?php if(settingValue('service_availability_showhide') == 1) { ?>
+                        <div class="card available-widget">
 
-                        <div class="card-body">
+                            <div class="card-body">
 
-                            <h5 class="card-title"><?php echo (!empty($user_language[$user_selected]['lg_Service_Availability'])) ? $user_language[$user_selected]['lg_Service_Availability'] : $default_language['en']['lg_Service_Availability']; ?></h5>
+                                <h5 class="card-title">
+                                    <?php echo (!empty($user_language[$user_selected]['lg_Service_Availability'])) ? $user_language[$user_selected]['lg_Service_Availability'] : $default_language['en']['lg_Service_Availability']; ?>
+                                </h5>
 
-                            <ul>
+                                <ul>
 
-                                <?php
+                                    <?php
 
                                 if (!empty($availability_details)) {
 
@@ -765,19 +813,21 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                 ?>
 
-                            </ul>
+                                </ul>
 
-                        </div>              
+                            </div>
 
-                    </div>              
-                <?php } ?>
-            </div>
+                        </div>
+                        <?php } ?>
+                    </div>
 
                 </div>
 
 
 
-                <h4 class="card-title"><?php echo (!empty($user_language[$user_selected]['lg_Related_Services'])) ? $user_language[$user_selected]['lg_Related_Services'] : $default_language['en']['lg_Related_Services']; ?></h4>
+                <h4 class="card-title">
+                    <?php echo (!empty($user_language[$user_selected]['lg_Related_Services'])) ? $user_language[$user_selected]['lg_Related_Services'] : $default_language['en']['lg_Related_Services']; ?>
+                </h4>
 
 
 
@@ -849,63 +899,69 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
 
 
-                            <div class="service-widget">
+                        <div class="service-widget">
 
-                                <div class="service-img">
+                            <div class="service-img">
 
-                                    <a href="<?php echo base_url() . 'service-preview/' . $serv['url']; ?>">
+                                <a href="<?php echo base_url() . 'service-preview/' . $serv['url']; ?>">
 
-									
 
-										<?php if (!empty($image['service_image']) && (@getimagesize(base_url().$image['service_image']))) { ?>
 
-											<img class="img-fluid serv-img" alt="Service Image" src="<?php echo base_url() . $image['service_image']; ?>">
+                                    <?php if (!empty($image['service_image']) && (@getimagesize(base_url().$image['service_image']))) { ?>
 
-										<?php } else { ?>
+                                    <img class="img-fluid serv-img" alt="Service Image"
+                                        src="<?php echo base_url() . $image['service_image']; ?>">
 
-											<img class="img-fluid serv-img" alt="Service Image" src="<?php echo ($placholder_img)? base_url().$placholder_img:base_url().'uploads/placeholder_img/1641376248_user.jpg'; ?>">
+                                    <?php } else { ?>
 
-										<?php } ?>
+                                    <img class="img-fluid serv-img" alt="Service Image"
+                                        src="<?php echo ($placholder_img)? base_url().$placholder_img:base_url().'uploads/placeholder_img/1641376248_user.jpg'; ?>">
 
-                                    </a>
+                                    <?php } ?>
 
-                                    <div class="item-info">
+                                </a>
 
-                                        <div class="service-user">
+                                <div class="item-info">
 
-                                            <a href="#">
+                                    <div class="service-user">
 
-                                               <?php if ($provider_details['profile_img'] != '' && (@getimagesize(base_url().$provider_details['profile_img']))) { ?>
+                                        <a href="#">
 
-													<img src="<?php echo base_url() . $provider_details['profile_img'] ?>">
+                                            <?php if ($provider_details['profile_img'] != '' && (@getimagesize(base_url().$provider_details['profile_img']))) { ?>
 
-												<?php } else { ?>
+                                            <img src="<?php echo base_url() . $provider_details['profile_img'] ?>">
 
-													<img src="<?php echo base_url(); ?>assets/img/user.jpg">
+                                            <?php } else { ?>
 
-													
+                                            <img src="<?php echo base_url(); ?>assets/img/user.jpg">
 
-												<?php } ?>
 
-                                            </a>
 
-                                            <span class="service-price"><?php echo currency_conversion($user_currency_code) . $service_amount12; ?></span>
+                                            <?php } ?>
 
-                                        </div>
+                                        </a>
 
-                                        <div class="cate-list"> <a class="bg-yellow" href="<?php echo base_url(); ?>search/<?php echo str_replace(' ', '-', $serv['category_name']); ?>"><?= ucfirst($serv['category_name']); ?></a></div>
+                                        <span
+                                            class="service-price"><?php echo currency_conversion($user_currency_code) . $service_amount12; ?></span>
 
+                                    </div>
+
+                                    <div class="cate-list"> <a class="bg-yellow"
+                                            href="<?php echo base_url(); ?>search/<?php echo str_replace(' ', '-', $serv['category_name']); ?>"><?= ucfirst($serv['category_name']); ?></a>
                                     </div>
 
                                 </div>
 
-                                <div class="service-content">
+                            </div>
 
-                                     <h3 class="title">
+                            <div class="service-content">
 
-                                                <a href="<?php echo base_url() . 'service-preview/' . $serv['url']; ?>"><?php echo ucfirst($serv['service_title']); ?></a>
+                                <h3 class="title">
 
-                                                <?php    
+                                    <a
+                                        href="<?php echo base_url() . 'service-preview/' . $serv['url']; ?>"><?php echo ucfirst($serv['service_title']); ?></a>
+
+                                    <?php    
 
                                                 
 
@@ -915,61 +971,80 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                                         if($user_fav['status'] == 1) { ?>
 
-                                                            <a href="javascript:;" id="ufav<?=$serv['id']?>" class="hearting" style="float: right;color:#007bff" data-id="<?php echo $user_fav['id']?>" data-userid = "<?php echo $userId?>" data-provid="<?php echo $serv['user_id']?>" data-servid="<?php echo $serv['id']?>" data-favstatus="0" data-pagename="<?php echo $serv['category_name']?>"><i class="fas fa-heart filled"></i></a>
+                                    <a href="javascript:;" id="ufav<?=$serv['id']?>" class="hearting"
+                                        style="float: right;color:#007bff" data-id="<?php echo $user_fav['id']?>"
+                                        data-userid="<?php echo $userId?>" data-provid="<?php echo $serv['user_id']?>"
+                                        data-servid="<?php echo $serv['id']?>" data-favstatus="0"
+                                        data-pagename="<?php echo $serv['category_name']?>"><i
+                                            class="fas fa-heart filled"></i></a>
 
-                                                        <?php } 
+                                    <?php } 
 
                                                         else { ?>
 
-                                                            <a href="javascript:;" id="ufav<?=$serv['id']?>" class="hearting" style="float: right;" data-id="<?php echo $user_fav['id']?>" data-userid = "<?php echo $userId?>" data-provid="<?php echo $serv['user_id']?>" data-servid="<?php echo $serv['id']?>" data-favstatus="1" data-pagename="<?php echo $serv['category_name']?>"><i class="fas fa-heart"></i></a>
+                                    <a href="javascript:;" id="ufav<?=$serv['id']?>" class="hearting"
+                                        style="float: right;" data-id="<?php echo $user_fav['id']?>"
+                                        data-userid="<?php echo $userId?>" data-provid="<?php echo $serv['user_id']?>"
+                                        data-servid="<?php echo $serv['id']?>" data-favstatus="1"
+                                        data-pagename="<?php echo $serv['category_name']?>"><i
+                                            class="fas fa-heart"></i></a>
 
-                                                        <?php } 
+                                    <?php } 
 
                                                     } else { ?>
 
-                                                        <a href="javascript:;" id="ufav<?=$serv['id']?>" class="hearting" style="float: right;" data-id="<?php echo $user_fav['id']?>" data-userid = "<?php echo $this->session->userdata('id');?>" data-provid="<?php echo $serv['user_id']?>" data-servid="<?php echo $serv['id']?>" data-favstatus="1" data-pagename="<?php echo $serv['category_name']?>"><i class="fas fa-heart"></i></a>
+                                    <a href="javascript:;" id="ufav<?=$serv['id']?>" class="hearting"
+                                        style="float: right;" data-id="<?php echo $user_fav['id']?>"
+                                        data-userid="<?php echo $this->session->userdata('id');?>"
+                                        data-provid="<?php echo $serv['user_id']?>"
+                                        data-servid="<?php echo $serv['id']?>" data-favstatus="1"
+                                        data-pagename="<?php echo $serv['category_name']?>"><i
+                                            class="fas fa-heart"></i></a>
 
-                                                    <?php }
+                                    <?php }
 
                                                 }
 
                                                 ?>
 
-                                            </h3>
+                                </h3>
 
-                                    <div class="rating">
+                                <div class="rating">
 
-                                        <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
 
-                                        <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
 
-                                        <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
 
-                                        <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
 
-                                        <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
 
-                                        <span class="d-inline-block average-rating">(0)</span>
+                                    <span class="d-inline-block average-rating">(0)</span>
 
-                                    </div>
+                                </div>
 
-                                    <div class="user-info">
+                                <div class="user-info">
 
-                                        <div class="row">
+                                    <div class="row">
 
-                                            <span class="col ser-contact"><i class="fas fa-phone mr-1"></i> <span>xxxxxxxx<?= rand(00, 99) ?></span></span>
+                                        <span class="col ser-contact"><i class="fas fa-phone mr-1"></i>
+                                            <span>xxxxxxxx<?= rand(00, 99) ?></span></span>
 
-                                            
 
-                                            <span class="col ser-location" title="Address"><span><?= $serv['service_location']; ?></span> <i class="fas fa-map-marker-alt ml-1"></i></span>
 
-                                        </div>
+                                        <span class="col ser-location"
+                                            title="Address"><span><?= $serv['service_location']; ?></span> <i
+                                                class="fas fa-map-marker-alt ml-1"></i></span>
 
                                     </div>
 
                                 </div>
 
                             </div>
+
+                        </div>
 
                         <?php } ?>
 
@@ -1086,12 +1161,14 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
                                 ]; ?>
 
 
-                                <?php if(settingValue('booking_showhide') == 1) { ?>
-                                    <button class="btn btn-primary go_book_service" type="button" id="go_book_service" data-id="<?php echo $service['id'] ?>" ><?php echo (!empty($user_language[$user_selected]['lg_Book_Service'])) ? $user_language[$user_selected]['lg_Book_Service'] : $default_language['en']['lg_Book_Service']; ?> </button>
+                        <?php if(settingValue('booking_showhide') == 1) { ?>
+                        <button class="btn btn-primary go_book_service" type="button" id="go_book_service"
+                            data-id="<?php echo $service['id'] ?>"><?php echo (!empty($user_language[$user_selected]['lg_Book_Service'])) ? $user_language[$user_selected]['lg_Book_Service'] : $default_language['en']['lg_Book_Service']; ?>
+                        </button>
 
-                                <?php } ?>
+                        <?php } ?>
 
-                                <?php
+                        <?php
 
                             }
 
@@ -1099,7 +1176,11 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                             ?>
 
-                            <a href="javascript:void(0);" class="btn btn-primary" style="background-color: #ef7f21!important;" data-toggle="modal" data-target="#modal-wizard1"> <?php echo (!empty($user_language[$user_selected]['lg_Book_Service'])) ? $user_language[$user_selected]['lg_Book_Service'] : $default_language['en']['lg_Book_Service']; ?> </a>
+                        <a href="javascript:void(0);" class="btn btn-primary"
+                            style="background-color: #ef7f21!important;" data-toggle="modal"
+                            data-target="#modal-wizard1">
+                            <?php echo (!empty($user_language[$user_selected]['lg_Book_Service'])) ? $user_language[$user_selected]['lg_Book_Service'] : $default_language['en']['lg_Book_Service']; ?>
+                        </a>
 
                         <?php } ?>
 
@@ -1113,9 +1194,12 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                     ?>
 
-                                    <a href="<?php echo base_url() . 'user/service/edit_service/' . $service['id'] ?>" class="btn btn-primary" > <?php echo (!empty($user_language[$user_selected]['lg_Edit_Service'])) ? $user_language[$user_selected]['lg_Edit_Service'] : $default_language['en']['lg_Edit_Service']; ?> </a>
+                        <a href="<?php echo base_url() . 'user/service/edit_service/' . $service['id'] ?>"
+                            class="btn btn-primary">
+                            <?php echo (!empty($user_language[$user_selected]['lg_Edit_Service'])) ? $user_language[$user_selected]['lg_Edit_Service'] : $default_language['en']['lg_Edit_Service']; ?>
+                        </a>
 
-                                    <?php
+                        <?php
 
                                 }
 
@@ -1137,11 +1221,13 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                     <div class="card-body">
 
-                        <h5 class="card-title"><?php echo (!empty($user_language[$user_selected]['lg_Service_Provider'])) ? $user_language[$user_selected]['lg_Service_Provider'] : $default_language['en']['lg_Service_Provider']; ?></h5>
+                        <!-- <h5 class="card-title">
+                            <?php echo (!empty($user_language[$user_selected]['lg_Service_Provider'])) ? $user_language[$user_selected]['lg_Service_Provider'] : $default_language['en']['lg_Service_Provider']; ?>
+                        </h5> -->
 
                         <?php
 
-                        if (!empty($service['user_id'])) {
+                       
 
                             $provider = $this->db->select('*')->
 
@@ -1155,121 +1241,82 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
 
 
-                            <div class="about-author">
+                        <div class="about-author">
 
-                                <div class="about-provider-img">
+                            <div class="about-provider-img">
 
-                                    <div class="provider-img-wrap">
+                                <div class="provider-img-wrap">
 
-                                        <?php
-
-                                        if (file_exists($provider['profile_img'])) {
-
-                                            $image = base_url() . $provider['profile_img'];
-
-                                        } else {
-
-                                            $image = base_url() . 'assets/img/user.jpg';
-
-                                        }
-
+                                    <?php
+                                            $image = base_url() . 'uploads/logo/logo.png';
                                         ?>
 
-                                        <a href="javascript:void(0);"><img class="img-fluid rounded-circle" alt="" src="<?php echo $image; ?>"></a>
-
-                                    </div>
-
-                                </div>
-
-
-
-                                <div class="provider-details">
-                                    <?php  
-                                        $user_lang = ($this->session->userdata('user_select_language'))?$this->session->userdata('user_select_language'):'en';
-                                        $this->db->where('modules', 'provider');
-                                        $this->db->where('name_id', $provider['id']);
-                                        $this->db->where('lang_type', $user_lang);
-                                        $lang_pro = $this->db->get('users_lang')->row_array();
-                                    ?>
-                                    <a href="javascript:void(0);" class="ser-provider-name"><?= !empty($lang_pro['name']) ? $lang_pro['name'] : $provider['name']; ?></a>
-
-                                    <p class="last-seen"> 
-
-                                        <?php 
-                                        if(settingValue('provider_status_showhide') == 1) {
-                                            if ($provider_online['is_online'] == 2) { ?>
-
-                                                <i class="fas fa-circle"></i> <?php echo (!empty($user_language[$user_selected]['lg_last_seen'])) ? $user_language[$user_selected]['lg_last_seen'] : $default_language['en']['lg_last_seen']; ?>: &nbsp;
-
-                                                <?php $day_text=(!empty($user_language[$user_selected]['lg_days'])) ? $user_language[$user_selected]['lg_days'] : $default_language['en']['lg_days'];  echo (!empty($days)) ? $days .' '. $day_text.' ': ''; ?> 
-
-                                                <?php if ($days == 0) { ?>
-
-                                                    <?php $hours_text = (!empty($user_language[$user_selected]['lg_hours'])) ? $user_language[$user_selected]['lg_hours'] : $default_language['en']['lg_hours']; echo (!empty($hours)) ? $hours . " ".$hours_text : ''; ?>
-
-                                                <?php } ?>
-
-                                                <?php if ($days == 0 && $hours == 0) { ?>
-
-                                                    <?php $min_text = (!empty($user_language[$user_selected]['lg_mints'])) ? $user_language[$user_selected]['lg_mints'] : $default_language['en']['lg_mints']; echo (!empty($minutes)) ? $minutes . " " .$min_text : ''; ?>
-
-                                                <?php } ?>
-
-                                                <?php echo (!empty($user_language[$user_selected]['lg_ago'])) ? $user_language[$user_selected]['lg_ago'] : $default_language['en']['lg_ago']; ?>
-
-                                            </p>
-
-                                            <?php } elseif ($provider_online['is_online'] == 1) { ?>
-                                                <i class="fas fa-circle online"></i> Online</p>
-                                            <?php } 
-                                        } ?>
-
-                                    <p class="text-muted mb-1"><?php echo (!empty($user_language[$user_selected]['lg_Member_Since'])) ? $user_language[$user_selected]['lg_Member_Since'] : $default_language['en']['lg_Member_Since']; ?> <?= date('M Y', strtotime($provider['created_at'])); ?></p>
+                                    <a href="javascript:void(0);"><img class="img-fluid rounded-circle" alt=""
+                                            src="<?php echo $image; ?>"></a>
 
                                 </div>
 
                             </div>
 
-                            <?php if(settingValue('provider_email_showhide') == 1 || settingValue('provider_mobileno_showhide') == 1) { ?>
-                            <hr>
-                            <div class="provider-info">
-                                <?php if(settingValue('provider_email_showhide') == 1) { ?>
-                                    <p class="mb-1"><i class="far fa-envelope mr-1"></i> <?= $provider['email'] ?></p>
-                                <?php } 
-                                    if(settingValue('provider_mobileno_showhide') == 1) { ?>
-                                        <p class="mb-0"><i class="fas fa-phone-alt mr-1"></i>
-                                            <?php if ($this->session->userdata('id')) {
-                                                    echo $provider['country_code'].' - '.$provider['mobileno'];
-                                                } else { ?>
-                                                    xxxxxxxx<?= rand(00, 99); ?>
-                                            <?php } ?>
-                                        </p>
-                             <?php  } ?>
+
+
+                            <div class="provider-details">
+
+                                <a href="javascript:void(0);" class="ser-provider-name">Mfs technical services</a>
+
+
+
+
+
+
+                                <p class="text-muted mb-1">
+                                    Contact with us</p>
 
                             </div>
 
+                        </div>
 
-                        <?php }
-                    }  ?>
+
+                        <hr>
+                        <div class="provider-info">
+
+                            <p class="mb-1"><i class="far fa-envelope mr-1"></i> mfs.service123@gmail.com</p>
+
+                            <p class="mb-0"><i class="fas fa-phone-alt mr-1"></i>
+
+                                +971-581329990
+
+                            </p>
+
+
+                        </div>
+
+
+
 
                     </div>
                 </div>
-                <?php if (!empty($this->session->userdata('id')) && $this->session->userdata('usertype') == 'user') { ?>
+                <!-- <?php if (!empty($this->session->userdata('id')) && $this->session->userdata('usertype') == 'user') { ?>
                 <div class="report">
-                    <a id="abuse_report" data-id="<?php echo $service['user_id']; ?>" class='btn btn-sm bg-danger-light'><i class="fas fa-bug" aria-hidden="true"></i> Report this provider</a>
+                    <a id="abuse_report" data-id="<?php echo $service['user_id']; ?>"
+                        class='btn btn-sm bg-danger-light'><i class="fas fa-bug" aria-hidden="true"></i> Report this
+                        provider</a>
                 </div>
-                <?php } ?>
+                <?php } ?> -->
                 <br>
+
                 <?php if(settingValue('service_availability_showhide') == 1) { ?>
-                    <div class="card available-widget">
+                <div class="card available-widget">
 
-                        <div class="card-body">
+                    <div class="card-body">
 
-                            <h5 class="card-title"><?php echo (!empty($user_language[$user_selected]['lg_Service_Availability'])) ? $user_language[$user_selected]['lg_Service_Availability'] : $default_language['en']['lg_Service_Availability']; ?></h5>
+                        <h5 class="card-title">
+                            <?php echo (!empty($user_language[$user_selected]['lg_Service_Availability'])) ? $user_language[$user_selected]['lg_Service_Availability'] : $default_language['en']['lg_Service_Availability']; ?>
+                        </h5>
 
-                            <ul>
+                        <ul>
 
-                                <?php
+                            <?php
 
                                 if (!empty($availability_details)) {
 
@@ -1333,11 +1380,11 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                 ?>
 
-                            </ul>
+                        </ul>
 
-                        </div>				
+                    </div>
 
-                    </div>				
+                </div>
                 <?php } ?>
             </div>
 
@@ -1348,39 +1395,44 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 </div>
 
 <div class="modal" id="abuse_modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5>Report This Provider Reason</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-            <label><?php echo (!empty($user_language[$user_selected]['lg_descriptions'])) ? $user_language[$user_selected]['lg_descriptions'] : $default_language['en']['lg_descriptions']; ?></label>
-            <textarea class="form-control" id="abuse_desc" required></textarea>
-            <p class="repo_reason_error error" >Reason Is Required</p>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Report This Provider Reason</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label><?php echo (!empty($user_language[$user_selected]['lg_descriptions'])) ? $user_language[$user_selected]['lg_descriptions'] : $default_language['en']['lg_descriptions']; ?></label>
+                    <textarea class="form-control" id="abuse_desc" required></textarea>
+                    <p class="repo_reason_error error">Reason Is Required</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="confirm_abuse_sub" data-userid="<?php echo $this->session->userdata('id'); ?>"
+                    data-id=""
+                    class="btn btn-primary"><?php echo(!empty($user_language[$user_selected]['lg_admin_confirm']))?($user_language[$user_selected]['lg_admin_confirm']) : 'Confirm';  ?></button>
+                <button type="button" class="btn btn-secondary"
+                    data-dismiss="modal"><?php echo(!empty($user_language[$user_selected]['lg_admin_cancel']))?($user_language[$user_selected]['lg_admin_cancel']) : 'Cancel';  ?></button>
+            </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="confirm_abuse_sub" data-userid="<?php echo $this->session->userdata('id'); ?>" data-id="" class="btn btn-primary"><?php echo(!empty($user_language[$user_selected]['lg_admin_confirm']))?($user_language[$user_selected]['lg_admin_confirm']) : 'Confirm';  ?></button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo(!empty($user_language[$user_selected]['lg_admin_cancel']))?($user_language[$user_selected]['lg_admin_cancel']) : 'Cancel';  ?></button>
-      </div>
     </div>
-  </div>
 </div>
 
 <style>
-    .book-service-left {
+.book-service-left {
+    display: none;
+}
+
+@media only screen and (max-width: 991.98px) {
+    .book-service-right {
         display: none;
     }
-    @media only screen and (max-width: 991.98px) {
-        .book-service-right {
-            display: none;
-        }
-        .book-service-left {
-            display: block;
-        }
+
+    .book-service-left {
+        display: block;
     }
+}
 </style>
