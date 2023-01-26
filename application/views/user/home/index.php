@@ -93,9 +93,9 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
 <section class="hero-section">
 
-    <div class="layer"> 
+    <div class="layer">
 
-        <div class="home-banner" style="background-image: url('<?php echo $bgimg;?>');"></div>	
+        <div class="home-banner" style="background-image: url('<?php echo $bgimg;?>');"></div>
 
         <div class="container">
 
@@ -106,18 +106,21 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
                     <div class="section-search">
                         <?php 
                         foreach ($home_banner_language as $home_language) { ?>
-    						<h1><?php echo(!empty($home_language['title']))?($home_language['title']) : 'Worlds Largest Marketplace';  ?></h1>
+                        <h1><?php echo(!empty($home_language['title']))?($home_language['title']) : 'Worlds Largest Marketplace';  ?>
+                        </h1>
 
-    						<p><?php echo(!empty($home_language['content']))?($home_language['content']) : 'Search From 0 Awesome Verified Ads!';  ?></p>
+                        <p><?php echo(!empty($home_language['content']))?($home_language['content']) : 'Search From 0 Awesome Verified Ads!';  ?>
+                        </p>
                         <?php } ?>
 
-                        <?php if($banner_showhide->main_search == 1)  { ?>						
+                        <?php if($banner_showhide->main_search == 1)  { ?>
 
                         <div class="search-box">
 
                             <form action="<?php echo base_url(); ?>search" id="search_service" method="post">
 
-                                <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>" />
+                                <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>"
+                                    value="<?php echo $this->security->get_csrf_hash(); ?>" />
 
                                 <div class="search-input line">
 
@@ -125,7 +128,9 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                                     <div class="form-group mb-0">
 
-                                        <input type="text" class="form-control common_search search" name="common_search" id="search-blk" placeholder="<?php echo (!empty($user_language[$user_selected]['lg_what_you_look'])) ? $user_language[$user_selected]['lg_what_you_look'] : $default_language['en']['lg_what_you_look']; ?>" >
+                                        <input type="text" class="form-control common_search search"
+                                            name="common_search" id="search-blk"
+                                            placeholder="<?php echo (!empty($user_language[$user_selected]['lg_what_you_look'])) ? $user_language[$user_selected]['lg_what_you_look'] : $default_language['en']['lg_what_you_look']; ?>">
 
                                     </div>
 
@@ -137,13 +142,18 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                                     <div class="form-group mb-0">
 
-                                        <input type="text" class="form-control" value="<?php echo $this->session->userdata('user_address');?>" name="user_address" id="user_address" placeholder="<?php echo (!empty($user_language[$user_selected]['lg_your_location'])) ? $user_language[$user_selected]['lg_your_location'] : $default_language['en']['lg_your_location']; ?>">
+                                        <input type="text" class="form-control"
+                                            value="<?php echo $this->session->userdata('user_address');?>"
+                                            name="user_address" id="user_address"
+                                            placeholder="<?php echo (!empty($user_language[$user_selected]['lg_your_location'])) ? $user_language[$user_selected]['lg_your_location'] : $default_language['en']['lg_your_location']; ?>">
 
                                         <input type="hidden" value="" name="user_latitude" id="user_latitude">
 
                                         <input type="hidden" value="" name="user_longitude" id="user_longitude">
                                         <?php if(settingValue('location_type') == 'live') { ?>
-                                            <a class="current-loc-icon current_location" data-id="1" href="javascript:void(0);" onclick="change_location()"><i class="fas fa-crosshairs"></i></a>
+                                        <a class="current-loc-icon current_location" data-id="1"
+                                            href="javascript:void(0);" onclick="change_location()"><i
+                                                class="fas fa-crosshairs"></i></a>
                                         <?php } ?>
 
                                     </div>
@@ -152,11 +162,12 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                                 <div class="search-btn">
 
-                                    <button class="btn search_service" name="search" value="search"  type="button"><?php echo (!empty($user_language[$user_selected]['lg_search'])) ? $user_language[$user_selected]['lg_search'] : $default_language['en']['lg_search']; ?></button>
+                                    <button class="btn search_service" name="search" value="search"
+                                        type="button"><?php echo (!empty($user_language[$user_selected]['lg_search'])) ? $user_language[$user_selected]['lg_search'] : $default_language['en']['lg_search']; ?></button>
 
                                 </div>
 
-                            <?php } ?>
+                                <?php } ?>
 
                             </form>
 
@@ -164,19 +175,19 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                         <ul id="searchResult"></ul>
 
-                         <?php if($banner_showhide->popular_search == 1)  { ?> 
-                           
+                        <?php if($banner_showhide->popular_search == 1)  { ?>
+
                         <div class="search-cat">
 
                             <i class="fas fa-circle"></i>
 
-                        <?php 
+                            <?php 
                         foreach ($home_popularsea_language as $popularsea_language) { ?>
                             <span><?php echo(!empty($popularsea_language['content']))?($popularsea_language['content']) : $popularsea_language['content'];  ?></span>
 
-                        <?php } ?>
+                            <?php } ?>
 
-                        <?php foreach ($popular as $popular_services) { ?>
+                            <?php foreach ($popular as $popular_services) { ?>
 
                             <a href="<?php echo base_url() . 'service-preview/' . $popular_services['url']; ?>">
 
@@ -184,11 +195,11 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                             </a>
 
-                        <?php } ?>
+                            <?php } ?>
 
                         </div>
 
-                         <?php } ?>
+                        <?php } ?>
 
                     </div>
 
@@ -220,11 +231,11 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                         <div class="heading">
 
-                        <?php foreach ($home_featured_language as $featured_language) { ?>
+                            <?php foreach ($home_featured_language as $featured_language) { ?>
                             <h2>Our professional expertise</h2>
 
                             <span>What Do You Need To Find?</span>
-                        <?php } ?>
+                            <?php } ?>
 
                         </div>
 
@@ -244,7 +255,7 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                     </div>
 
-                </div>						
+                </div>
 
                 <div class="catsec">
 
@@ -257,8 +268,8 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                                 ?>
 
-                                <div class="col-lg-4 col-md-6">
-                                <?php 
+                        <div class="col-lg-4 col-md-6">
+                            <?php 
                                 $RemoveSpecialChar = $this->home->RemoveSpecialChar($crows['category_name']);
                                 $output =  preg_replace('/[^A-Za-z0-9-]+/', '-', $RemoveSpecialChar);
 
@@ -277,45 +288,48 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
                                 }
 
                                 ?>
-                                    <a href="<?php echo base_url(); ?>search/<?php echo str_replace(' ', '-', strtolower($crows['category_slug'])); ?>">
+                            <a
+                                href="<?php echo base_url(); ?>search/<?php echo str_replace(' ', '-', strtolower($crows['category_slug'])); ?>">
 
-                                        <div class="cate-widget">
+                                <div class="cate-widget">
 
-										<?php if ($crows['category_image'] != '' && (@getimagesize(base_url().$crows['category_image']))) { ?>
+                                    <?php if ($crows['category_image'] != '' && (@getimagesize(base_url().$crows['category_image']))) { ?>
 
-                                            <img src="<?php echo base_url() . $crows['category_image']; ?>" alt="">
+                                    <img src="<?php echo base_url() . $crows['category_image']; ?>" alt="">
 
-										<?php } else { ?>
+                                    <?php } else { ?>
 
-											 <img alt="Category Image" src="<?php echo ($placholder_img)? base_url().$placholder_img:base_url().'uploads/placeholder_img/1641376256_banner.jpg'; ?>">
+                                    <img alt="Category Image"
+                                        src="<?php echo ($placholder_img)? base_url().$placholder_img:base_url().'uploads/placeholder_img/1641376256_banner.jpg'; ?>">
 
-										<?php } 
+                                    <?php } 
                                         $cat_lang = ($this->session->userdata('user_select_language'))?$this->session->userdata('user_select_language'):'en';
                                         $this->db->where('category_id', $crows['id']);
                                         $this->db->where('lang_type', $cat_lang);
                                         $cat_name = $this->db->get('categories_lang')->row();
                                         ?>
 
-                                            <div class="cate-title">
-                                               
+                                    <div class="cate-title">
 
-                                                <h3><span><i class="fas fa-circle"></i> <?php echo $cat_name->category_name; ?></span></h3>
 
-                                            </div>
+                                        <h3><span><i class="fas fa-circle"></i>
+                                                <?php echo $cat_name->category_name; ?></span></h3>
 
-                                            <!-- <div class="cate-count">
+                                    </div>
+
+                                    <!-- <div class="cate-count">
 
                                                 <i class="fas fa-clone"></i> <?php echo $crows['category_count']; ?>
 
                                             </div> -->
 
-                                        </div>
-
-                                    </a>
-
                                 </div>
 
-                                <?php
+                            </a>
+
+                        </div>
+
+                        <?php
 
                             }
 
@@ -325,11 +339,13 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                         <div class="col-lg-12">
 
-                        <div class="category">
+                            <div class="category">
 
-                        <h5 class="text-center"><?php echo (!empty($user_language[$user_selected]['lg_no_categories_found'])) ? $user_language[$user_selected]['lg_no_categories_found'] : $default_language['en']['lg_no_categories_found'] ?></h5>
+                                <h5 class="text-center">
+                                    <?php echo (!empty($user_language[$user_selected]['lg_no_categories_found'])) ? $user_language[$user_selected]['lg_no_categories_found'] : $default_language['en']['lg_no_categories_found'] ?>
+                                </h5>
 
-                        </div>
+                            </div>
 
                         </div>
 
@@ -371,11 +387,12 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                         <div class="heading">
 
-                        <?php foreach ($home_latest_language as $latest_language) { ?>
-                            <h2><?php echo(!empty($latest_language['title']))?($latest_language['title']) : 'Newest Services';  ?></h2>
+                            <?php foreach ($home_latest_language as $latest_language) { ?>
+                            <h2><?php echo(!empty($latest_language['title']))?($latest_language['title']) : 'Newest Services';  ?>
+                            </h2>
 
                             <span><?php echo(!empty($latest_language['content']))?($latest_language['content']) : 'Newest Service Contents';  ?></span>
-                        <?php } ?>
+                            <?php } ?>
 
                         </div>
 
@@ -384,7 +401,7 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
                     <div class="col-md-6">
 
                         <div class="viewall">
-                        <span>Featured Services</span>
+                            <span>Featured Services</span>
                             <!-- <h4><a href="<?php echo base_url(); ?>all-services"><?php echo (!empty($user_language[$user_selected]['lg_View_All'])) ? $user_language[$user_selected]['lg_View_All'] : $default_language['en']['lg_View_All']; ?> <i class="fas fa-angle-right"></i></a></h4>
 
                             <span><?php echo (!empty($user_language[$user_selected]['lg_newest_services'])) ? $user_language[$user_selected]['lg_newest_services'] : 'Newested Services'; ?></span> -->
@@ -485,62 +502,64 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                                 ?>
 
-                                <div class="service-widget">
+                        <div class="service-widget">
 
-                                    <div class="service-img">
+                            <div class="service-img">
 
-                                        <a href="<?php echo base_url() . 'service-preview/' . $nrows['url']; ?>">
+                                <a href="<?php echo base_url() . 'service-preview/' . $nrows['url']; ?>">
 
-                                        
 
-                                        <?php if ($image['service_image'] != '' && (@getimagesize(base_url().$image['service_image']))) { ?>
 
-                                            <img class="img-fluid serv-img" alt="Service Image" src="<?php echo base_url() . $image['service_image']; ?>" alt="">
+                                    <?php if ($image['service_image'] != '' && (@getimagesize(base_url().$image['service_image']))) { ?>
+
+                                    <img class="img-fluid serv-img" alt="Service Image"
+                                        src="<?php echo base_url() . $image['service_image']; ?>" alt="">
+
+                                    <?php } else { ?>
+
+                                    <img class="img-fluid serv-img" alt="Service Image"
+                                        src="<?php echo ($placholder_img)?$placholder_img:base_url().'uploads/placeholder_img/1641376256_banner.jpg';?>">
+
+                                    <?php } ?>
+
+
+
+                                </a>
+
+                                <div class="item-info">
+
+                                    <div class="service-user">
+
+
+
+                                        <?php  if ($provider_details['profile_img'] != '' && (@getimagesize(base_url().$provider_details['profile_img']))) { ?>
+
+                                        <!-- <img src="<?php echo base_url() . $provider_details['profile_img'] ?>"> -->
 
                                         <?php } else { ?>
 
-                                             <img class="img-fluid serv-img" alt="Service Image" src="<?php echo ($placholder_img)?$placholder_img:base_url().'uploads/placeholder_img/1641376256_banner.jpg';?>">
+                                        <!-- <img src="<?php echo base_url(); ?>assets/img/user.jpg"> -->
+
+
 
                                         <?php } ?>
 
 
 
-                                        </a>
-
-                                        <div class="item-info">
-
-                                            <div class="service-user">
-
-                                             
-
-                                                    <?php  if ($provider_details['profile_img'] != '' && (@getimagesize(base_url().$provider_details['profile_img']))) { ?>
-
-                                                        <!-- <img src="<?php echo base_url() . $provider_details['profile_img'] ?>"> -->
-
-                                                    <?php } else { ?>
-
-                                                        <!-- <img src="<?php echo base_url(); ?>assets/img/user.jpg"> -->
-
-                                                        
-
-        <?php } ?>
-
-                                              
-
-                                                <!-- <span class="service-price"><?php echo currency_conversion($user_currency_code) . $service_amount; ?></span> -->
-
-                                            </div>
-
-                                            <!-- <div class="cate-list">
-                                                <a class="bg-yellow" href="<?php echo base_url() . 'search/' . str_replace(' ', '-', strtolower($cat_name)); ?>"><?php echo ucfirst($cat_name); ?></a></div> -->
-
-                                        </div>
+                                        <!-- <span class="service-price"><?php echo currency_conversion($user_currency_code) . $service_amount; ?></span> -->
 
                                     </div>
 
-                                    <div class="service-content">
+                                    <!-- <div class="cate-list">
+                                                <a class="bg-yellow" href="<?php echo base_url() . 'search/' . str_replace(' ', '-', strtolower($cat_name)); ?>"><?php echo ucfirst($cat_name); ?></a></div> -->
 
-                                        <?php 
+                                </div>
+
+                            </div>
+
+                            <div class="service-content">
+
+                                <?php 
 
 
 
@@ -566,20 +585,21 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                                         ?>
 
-                                        <h3 class="title">
-                                            <?php 
+                                <h3 class="title">
+                                    <?php 
                                                 $ser_lang = ($this->session->userdata('user_select_language'))?$this->session->userdata('user_select_language'):'en';
                                                 $this->db->where('service_id', $nrows['id']);
                                                 $this->db->where('lang_type', $ser_lang);
                                                 $service_name = $this->db->get('service_lang')->row_array();
                                             ?>
-                                            <a href="<?php echo base_url() . 'service-preview/' .$service_url; ?>"><?php echo ucfirst($service_name['service_name']); ?></a>
+                                    <a
+                                        href="<?php echo base_url() . 'service-preview/' .$service_url; ?>"><?php echo ucfirst($service_name['service_name']); ?></a>
 
-                                        </h3>
+                                </h3>
 
-                                        <div class="rating">
+                                <div class="rating">
 
-                                            <?php
+                                    <?php
 
                                             for ($x = 1; $x <= $avg_rating; $x++) {
 
@@ -605,33 +625,34 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                                             ?>
 
-                                            <span class="d-inline-block average-rating">(<?php echo $avg_rating ?>)</span>
+                                    <span class="d-inline-block average-rating">(<?php echo $avg_rating ?>)</span>
 
-                                        </div>
+                                </div>
 
-                                        <div class="user-info">
+                                <div class="user-info">
 
 
 
-                                        <div class="row">
-                                                <span class="col ser-contact">
-                      <i class="fas fa-phone mr-1"></i>
-                      <span><a href="tel:+971-581329990">+971-581329990</a></span>
-                                                </span>
-                                                <span class="col ser-location">
-                      <div class="blog-read-more">
-                            <a href=""> Book Now<i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
-                    </span>
+                                    <div class="row">
+                                        <span class="col ser-contact">
+                                            <i class="fas fa-phone mr-1"></i>
+                                            <span><a href="tel:+971-581329990">+971-581329990</a></span>
+                                        </span>
+                                        <span class="col ser-location">
+                                            <div class="blog-read-more">
+                                                <a href="<?php echo base_url() . 'service-preview/' .$service_url; ?>">
+                                                    Book Now<i class="fas fa-arrow-right ml-2"></i></a>
                                             </div>
-
-                                        </div>
-
+                                        </span>
                                     </div>
 
                                 </div>
 
-                                <?php
+                            </div>
+
+                        </div>
+
+                        <?php
 
                             }
 
@@ -651,7 +672,7 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                         ?>
 
-                    </div> 
+                    </div>
 
                 </div>
 
@@ -683,11 +704,12 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                         <div class="heading">
 
-                        <?php foreach ($home_popular_language as $popular_language) { ?>
-                            <h2><?php echo(!empty($popular_language['title']))?($popular_language['title']) : 'Popular Services';  ?></h2>
+                            <?php foreach ($home_popular_language as $popular_language) { ?>
+                            <h2><?php echo(!empty($popular_language['title']))?($popular_language['title']) : 'Popular Services';  ?>
+                            </h2>
 
                             <span><?php echo(!empty($popular_language['content']))?($popular_language['content']) : 'Popular Service Contents';  ?></span>
-                        <?php } ?>
+                            <?php } ?>
 
                         </div>
 
@@ -697,7 +719,8 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                         <div class="viewall">
 
-                            <h4><a href="<?php echo base_url(); ?>all-services"><?php echo (!empty($user_language[$user_selected]['lg_View_All'])) ? $user_language[$user_selected]['lg_View_All'] : $default_language['en']['lg_View_All']; ?> <i class="fas fa-angle-right"></i></a></h4>
+                            <h4><a href="<?php echo base_url(); ?>all-services"><?php echo (!empty($user_language[$user_selected]['lg_View_All'])) ? $user_language[$user_selected]['lg_View_All'] : $default_language['en']['lg_View_All']; ?>
+                                    <i class="fas fa-angle-right"></i></a></h4>
 
                             <span><?php echo (!empty($user_language[$user_selected]['lg_Most_Popular'])) ? $user_language[$user_selected]['lg_Most_Popular'] : $default_language['en']['lg_Most_Popular']; ?></span>
 
@@ -819,54 +842,57 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                                 ?>
 
-                                <div class="service-widget">
+                        <div class="service-widget">
 
-                                    <div class="service-img">
+                            <div class="service-img">
 
-                                        <a href="<?php echo base_url() . 'service-preview/' . $srows['url']; ?>">
-
-										
-
-										<?php if ($image['service_image'] != '' && (@getimagesize(base_url().$image['service_image']))) { ?>
-
-                                            <img class="img-fluid serv-img" alt="Service Image" src="<?php echo base_url() . $image['service_image']; ?>" alt="">
-
-										<?php } else { ?>
-
-											 <img class="img-fluid serv-img" alt="Service Image" src="<?php echo ($placholder_img)?$placholder_img:base_url().'uploads/placeholder_img/1641376256_banner.jpg';?>">
-
-										<?php } ?>
+                                <a href="<?php echo base_url() . 'service-preview/' . $srows['url']; ?>">
 
 
 
-                                        </a>
+                                    <?php if ($image['service_image'] != '' && (@getimagesize(base_url().$image['service_image']))) { ?>
 
-                                        <div class="item-info">
+                                    <img class="img-fluid serv-img" alt="Service Image"
+                                        src="<?php echo base_url() . $image['service_image']; ?>" alt="">
 
-                                            <div class="service-user">
+                                    <?php } else { ?>
 
-                                                <!-- <a href="#"> -->
+                                    <img class="img-fluid serv-img" alt="Service Image"
+                                        src="<?php echo ($placholder_img)?$placholder_img:base_url().'uploads/placeholder_img/1641376256_banner.jpg';?>">
 
-                                                    <?php  if ($provider_details['profile_img'] != '' && (@getimagesize(base_url().$provider_details['profile_img']))) { ?>
+                                    <?php } ?>
 
-                                                        <img src="<?php echo base_url() . $provider_details['profile_img'] ?>">
 
-                                                    <?php } else { ?>
 
-														<img src="<?php echo base_url(); ?>assets/img/user.jpg">
+                                </a>
 
-                                                        
+                                <div class="item-info">
 
-        <?php } ?>
+                                    <div class="service-user">
 
-                                                <!-- </a> -->
+                                        <!-- <a href="#"> -->
 
-                                                <span class="service-price"><?php echo currency_conversion($user_currency_code) . $service_amount; ?></span>
+                                        <?php  if ($provider_details['profile_img'] != '' && (@getimagesize(base_url().$provider_details['profile_img']))) { ?>
 
-                                            </div>
+                                        <img src="<?php echo base_url() . $provider_details['profile_img'] ?>">
 
-                                            <div class="cate-list">
-                                                <?php 
+                                        <?php } else { ?>
+
+                                        <img src="<?php echo base_url(); ?>assets/img/user.jpg">
+
+
+
+                                        <?php } ?>
+
+                                        <!-- </a> -->
+
+                                        <span
+                                            class="service-price"><?php echo currency_conversion($user_currency_code) . $service_amount; ?></span>
+
+                                    </div>
+
+                                    <div class="cate-list">
+                                        <?php 
                                                     $this->db->where('category_name', $srows['category_name']);
                                                     $cat_names = $this->db->get('categories')->row();
                                                     $cat_langs = ($this->session->userdata('user_select_language'))?$this->session->userdata('user_select_language'):'en';
@@ -874,28 +900,31 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
                                                     $this->db->where('lang_type', $cat_langs);
                                                     $cat_namess = $this->db->get('categories_lang')->row();
                                                  ?>
-                                                <a class="bg-yellow" href="<?php echo base_url() . 'search/' . str_replace(' ', '-', strtolower($srows['category_name'])); ?>"><?php echo $cat_namess->category_name; ?></a></div>
-
-                                        </div>
-
+                                        <a class="bg-yellow"
+                                            href="<?php echo base_url() . 'search/' . str_replace(' ', '-', strtolower($srows['category_name'])); ?>"><?php echo $cat_namess->category_name; ?></a>
                                     </div>
 
-                                    <div class="service-content">
+                                </div>
 
-                                        <h3 class="title">
-                                            <?php 
+                            </div>
+
+                            <div class="service-content">
+
+                                <h3 class="title">
+                                    <?php 
                                                 $ser_lang = ($this->session->userdata('user_select_language'))?$this->session->userdata('user_select_language'):'en';
                                                 $this->db->where('service_id', $srows['id']);
                                                 $this->db->where('lang_type', $ser_lang);
                                                 $service_name = $this->db->get('service_lang')->row_array();
                                             ?>
-                                            <a href="<?php echo base_url() . 'service-preview/' .$srows['url']; ?>"><?php echo ucfirst($service_name['service_name']); ?></a>
+                                    <a
+                                        href="<?php echo base_url() . 'service-preview/' .$srows['url']; ?>"><?php echo ucfirst($service_name['service_name']); ?></a>
 
-                                        </h3>
+                                </h3>
 
-                                        <div class="rating">
+                                <div class="rating">
 
-                                            <?php
+                                    <?php
 
                                             for ($x = 1; $x <= $avg_rating; $x++) {
 
@@ -921,39 +950,43 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                                             ?>
 
-                                            <span class="d-inline-block average-rating">(<?php echo $avg_rating ?>)</span>
+                                    <span class="d-inline-block average-rating">(<?php echo $avg_rating ?>)</span>
 
-                                        </div>
+                                </div>
 
-                                        <div class="user-info">
+                                <div class="user-info">
 
 
 
-                                            <div class="row">
+                                    <div class="row">
 
-                                                <?php if ($this->session->userdata('id') != '') {
+                                        <?php if ($this->session->userdata('id') != '') {
 
                                                     ?>
 
-                                                    <span class="col ser-contact"><i class="fas fa-phone mr-1"></i> <span>xxxxxxxx<?= rand(00, 99) ?></span></span>
+                                        <span class="col ser-contact"><i class="fas fa-phone mr-1"></i>
+                                            <span>xxxxxxxx<?= rand(00, 99) ?></span></span>
 
-                                                <?php } else { ?>
+                                        <?php } else { ?>
 
-                                                    <span class="col ser-contact"><i class="fas fa-phone mr-1"></i> <span>xxxxxxxx<?= rand(00, 99) ?></span></span>
+                                        <span class="col ser-contact"><i class="fas fa-phone mr-1"></i>
+                                            <span>xxxxxxxx<?= rand(00, 99) ?></span></span>
 
-        <?php } ?>
+                                        <?php } ?>
 
-                                                <span class="col ser-location"><span><?php echo ucfirst($srows['service_location']); ?></span> <i class="fas fa-map-marker-alt ml-1"></i></span>
-
-                                            </div>
-
-                                        </div>
+                                        <span
+                                            class="col ser-location"><span><?php echo ucfirst($srows['service_location']); ?></span>
+                                            <i class="fas fa-map-marker-alt ml-1"></i></span>
 
                                     </div>
 
                                 </div>
 
-                                <?php
+                            </div>
+
+                        </div>
+
+                        <?php
 
                             }
 
@@ -973,7 +1006,7 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                         ?>
 
-                    </div> 
+                    </div>
 
                 </div>
 
@@ -993,62 +1026,69 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 <!-- Blog Section -->
 
 <?php  if(settingValue('blog_showhide') == 1) { ?>
-    <!-- Blog -->
-		<section class="popular-services">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="heading aos" data-aos="fade-up">
+<!-- Blog -->
+<section class="popular-services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="heading aos" data-aos="fade-up">
 
-                                <?php foreach ($home_blog_language as $blog_language) { ?>
-                                    <h2><?php echo(!empty($blog_language['title']))?($blog_language['title']) : 'Blogs';  ?></h2>
+                            <?php foreach ($home_blog_language as $blog_language) { ?>
+                            <h2><?php echo(!empty($blog_language['title']))?($blog_language['title']) : 'Blogs';  ?>
+                            </h2>
 
-                                    <span><?php echo(!empty($blog_language['content']))?($blog_language['content']) : 'Latest From Our Blog';  ?></span>
-                                <?php } ?>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="viewall aos" data-aos="fade-up">
-									<h4><a href="<?php echo $base_url; ?>all-blogs"><?php echo (!empty($user_language[$user_selected]['lg_View_All'])) ? $user_language[$user_selected]['lg_View_All'] : $default_language['en']['lg_View_All']; ?> <i class="fas fa-angle-right"></i></a></h4>
-									<span>Blogs</span>
-								</div>
-							</div>
-						</div>
-						<div class="row aos" data-aos="fade-up">
+                            <span><?php echo(!empty($blog_language['content']))?($blog_language['content']) : 'Latest From Our Blog';  ?></span>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="viewall aos" data-aos="fade-up">
+                            <h4><a href="<?php echo $base_url; ?>all-blogs"><?php echo (!empty($user_language[$user_selected]['lg_View_All'])) ? $user_language[$user_selected]['lg_View_All'] : $default_language['en']['lg_View_All']; ?>
+                                    <i class="fas fa-angle-right"></i></a></h4>
+                            <span>Blogs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row aos" data-aos="fade-up">
 
-                        <?php if($blogs){
+                    <?php if($blogs){
                             foreach($blogs as $post){ ?>
-                                <!-- Blog Post -->
-                                <div class="col-md-6 col-xl-4 col-sm-12 d-flex">
-                                    <div class="blog grid-blog flex-fill">
-                                        <div class="blog-image blog-inner-image">
-											<?php if ($post['image_default'] != '' && (@getimagesize(base_url().$post['image_default']))) { ?>
-                                            <a href="<?php echo $base_url; ?>user-blog-details/<?php echo $post['url']; ?>">
-												<img class="img-fluid" src="<?php echo $post['image_default']; ?>" alt="Post Image">
-                                            </a>
-											<?php } else { ?>
-											<a href="<?php echo $base_url; ?>user-blog-details/<?php echo $post['url']; ?>">
-												<img src="<?php echo base_url(); ?>assets/img/service-placeholder.jpg">
-											</a>
-											<?php } ?>
-                                        </div>
-                                        <div class="blog-content">
-                                            <h3 class="blog-title"><a href="<?php echo $base_url; ?>user-blog-details/<?php echo $post['url']; ?>"><?php echo $post['title']; ?></a></h3>
-											<div class="blog-read d-flex justify-content-between align-items-center">
-												<div class= "blog-date">
-													<p><i class="far fa-calendar mr-2"></i><?php echo date('d-M-Y',strtotime($post['createdAt'])); ?></p>
-												</div>
-												<div class="blog-read-more">
-													<a href="<?php echo $base_url; ?>user-blog-details/<?php echo $post['url']; ?>"> Read more<i class="fas fa-arrow-right ml-2"></i></a>
-												</div>
-											</div>
-										</div>
-                                    </div>										
+                    <!-- Blog Post -->
+                    <div class="col-md-6 col-xl-4 col-sm-12 d-flex">
+                        <div class="blog grid-blog flex-fill">
+                            <div class="blog-image blog-inner-image">
+                                <?php if ($post['image_default'] != '' && (@getimagesize(base_url().$post['image_default']))) { ?>
+                                <a href="<?php echo $base_url; ?>user-blog-details/<?php echo $post['url']; ?>">
+                                    <img class="img-fluid" src="<?php echo $post['image_default']; ?>" alt="Post Image">
+                                </a>
+                                <?php } else { ?>
+                                <a href="<?php echo $base_url; ?>user-blog-details/<?php echo $post['url']; ?>">
+                                    <img src="<?php echo base_url(); ?>assets/img/service-placeholder.jpg">
+                                </a>
+                                <?php } ?>
+                            </div>
+                            <div class="blog-content">
+                                <h3 class="blog-title"><a
+                                        href="<?php echo $base_url; ?>user-blog-details/<?php echo $post['url']; ?>"><?php echo $post['title']; ?></a>
+                                </h3>
+                                <div class="blog-read d-flex justify-content-between align-items-center">
+                                    <div class="blog-date">
+                                        <p><i
+                                                class="far fa-calendar mr-2"></i><?php echo date('d-M-Y',strtotime($post['createdAt'])); ?>
+                                        </p>
+                                    </div>
+                                    <div class="blog-read-more">
+                                        <a href="<?php echo $base_url; ?>user-blog-details/<?php echo $post['url']; ?>">
+                                            Read more<i class="fas fa-arrow-right ml-2"></i></a>
+                                    </div>
                                 </div>
-                                <!-- /Blog Post -->
-                            <?php } 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Blog Post -->
+                    <?php } 
                         } else { 
                             echo '<div> 
 
@@ -1057,14 +1097,14 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
                                     '</p>
 
                                 </div>';
-                        } ?> 
+                        } ?>
 
-						</div>
-					</div>
-				</div>
-			</div>
-			</section>
-		<!-- /Blog -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Blog -->
 <?php } ?>
 
 <?php  if(settingValue('how_showhide') == 1) { ?>
@@ -1080,9 +1120,10 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
                 <div class="heading howitworks">
 
                     <?php foreach ($home_how_it_language as $how_it_language) { ?>
-                        <h2><?php echo(!empty($how_it_language['title']))?($how_it_language['title']) : 'How It Works';  ?></h2>
+                    <h2><?php echo(!empty($how_it_language['title']))?($how_it_language['title']) : 'How It Works';  ?>
+                    </h2>
 
-                        <span><?php echo(!empty($how_it_language['content']))?($how_it_language['content']) : 'How It Works Content';  ?></span>
+                    <span><?php echo(!empty($how_it_language['content']))?($how_it_language['content']) : 'How It Works Content';  ?></span>
                     <?php } ?>
 
                 </div>
@@ -1099,7 +1140,7 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                                     <div class="steps">01</div>
 
-                                        <?php
+                                    <?php
 
                                         $bo1query = $this->db->query("select * from bgimage WHERE bgimg_for = 'bottom_image1'");
 
@@ -1119,14 +1160,16 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
                                         ?>
 
-                                    
+
 
                                 </div>
 
                                 <?php foreach ($home_step_1_language as $step_1_language) { ?>
-                                    <h3><?php echo(!empty($step_1_language['title']))?($step_1_language['title']) : 'Choose What To Do';  ?></h3>
+                                <h3><?php echo(!empty($step_1_language['title']))?($step_1_language['title']) : 'Choose What To Do';  ?>
+                                </h3>
 
-                                    <p><?php echo(!empty($step_1_language['content']))?($step_1_language['content']) : 'Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus varius laoreet.';  ?></p>
+                                <p><?php echo(!empty($step_1_language['content']))?($step_1_language['content']) : 'Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus varius laoreet.';  ?>
+                                </p>
                                 <?php } ?>
 
                             </div>
@@ -1164,9 +1207,11 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
                                 </div>
 
                                 <?php foreach ($home_step_2_language as $step_2_language) { ?>
-                                    <h3><?php echo(!empty($step_2_language['title']))?($step_2_language['title']) : 'Find What You Want';  ?></h3>
+                                <h3><?php echo(!empty($step_2_language['title']))?($step_2_language['title']) : 'Find What You Want';  ?>
+                                </h3>
 
-                                    <p><?php echo(!empty($step_2_language['content']))?($step_2_language['content']) : 'Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus varius laoreet.';  ?></p>
+                                <p><?php echo(!empty($step_2_language['content']))?($step_2_language['content']) : 'Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus varius laoreet.';  ?>
+                                </p>
                                 <?php } ?>
 
                             </div>
@@ -1204,9 +1249,11 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
                                 </div>
 
                                 <?php foreach ($home_step_3_language as $step_3_language) { ?>
-                                    <h3><?php echo(!empty($step_3_language['title']))?($step_3_language['title']) : 'Amazing Places';  ?></h3>
+                                <h3><?php echo(!empty($step_3_language['title']))?($step_3_language['title']) : 'Amazing Places';  ?>
+                                </h3>
 
-                                    <p><?php echo(!empty($step_3_language['content']))?($step_3_language['content']) : 'Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus varius laoreet.';  ?></p>
+                                <p><?php echo(!empty($step_3_language['content']))?($step_3_language['content']) : 'Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus varius laoreet.';  ?>
+                                </p>
                                 <?php } ?>
                             </div>
 
@@ -1228,28 +1275,31 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
 <?php  if(settingValue('download_showhide') == 1) { ?>
 
-    <section class="app-section d-none" id="how-work">
+<section class="app-section d-none" id="how-work">
 
-        <div class="container">
+    <div class="container">
 
-            <div class="row">
+        <div class="row">
 
-                <div class="col-lg-12">
+            <div class="col-lg-12">
 
-                    <div class="heading howitworks">
+                <div class="heading howitworks">
 
-                        <?php foreach ($home_down_language as $down_language) { ?>
-                            <h2><?php echo(!empty($down_language['title']))?($down_language['title']) : 'Download Our App';  ?></h2>
+                    <?php foreach ($home_down_language as $down_language) { ?>
+                    <h2><?php echo(!empty($down_language['title']))?($down_language['title']) : 'Download Our App';  ?>
+                    </h2>
 
-                            <span><?php echo(!empty($down_language['content']))?($down_language['content']) : 'Aliquam lorem ante, dapibus in, viverra quis';  ?></span>
-                        <?php } ?>
+                    <span><?php echo(!empty($down_language['content']))?($down_language['content']) : 'Aliquam lorem ante, dapibus in, viverra quis';  ?></span>
+                    <?php } ?>
 
-                        <div class="mt-3">
+                    <div class="mt-3">
 
-                        <a href="<?=(settingValue('app_store_link')?settingValue('app_store_link'):'#')?>" target="_blank" rel="noopener noreferrer"><img class="thumbnail m-b-0" src="<?php echo base_url() . settingValue('app_store_img'); ?>"></a>
-                            <a href="<?=(settingValue('play_store_link')?settingValue('play_store_link'):'#')?>" target="_blank" rel="noopener noreferrer"><img class="thumbnail m-b-0" src="<?php echo base_url() . settingValue('play_store_img'); ?>"></a>
-
-                        </div>
+                        <a href="<?=(settingValue('app_store_link')?settingValue('app_store_link'):'#')?>"
+                            target="_blank" rel="noopener noreferrer"><img class="thumbnail m-b-0"
+                                src="<?php echo base_url() . settingValue('app_store_img'); ?>"></a>
+                        <a href="<?=(settingValue('play_store_link')?settingValue('play_store_link'):'#')?>"
+                            target="_blank" rel="noopener noreferrer"><img class="thumbnail m-b-0"
+                                src="<?php echo base_url() . settingValue('play_store_img'); ?>"></a>
 
                     </div>
 
@@ -1259,7 +1309,9 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 <?php } ?>
 

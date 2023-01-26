@@ -604,3 +604,12 @@ ERROR - 2023-01-27 02:08:00 --> Severity: error --> Exception: Cannot use object
 ERROR - 2023-01-27 02:09:21 --> Severity: error --> Exception: Call to undefined method CI_DB_mysqli_result::row_result() D:\laragon\www\mfs\application\views\user\about\about-us.php 33
 ERROR - 2023-01-27 02:11:11 --> Severity: error --> Exception: Cannot use object of type stdClass as array D:\laragon\www\mfs\application\views\user\about\about-us.php 44
 ERROR - 2023-01-27 02:13:12 --> 404 Page Not Found: Testing/index
+ERROR - 2023-01-27 02:23:12 --> 404 Page Not Found: Assets/js
+ERROR - 2023-01-27 02:25:12 --> 404 Page Not Found: Uploads/profile_img
+ERROR - 2023-01-27 02:25:16 --> 404 Page Not Found: Uploads/profile_img
+ERROR - 2023-01-27 02:25:57 --> 404 Page Not Found: Uploads/profile_img
+ERROR - 2023-01-27 02:25:57 --> 404 Page Not Found: Uploads/profile_img
+ERROR - 2023-01-27 02:26:35 --> 404 Page Not Found: Assets/js
+ERROR - 2023-01-27 02:28:52 --> 404 Page Not Found: Assets/js
+ERROR - 2023-01-27 02:29:32 --> 404 Page Not Found: Assets/js
+ERROR - 2023-01-27 02:29:59 --> 404 Page Not Found: Assets/js

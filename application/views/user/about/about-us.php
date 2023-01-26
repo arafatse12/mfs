@@ -29,23 +29,9 @@ use phpDocumentor\Reflection\DocBlock\Tags\Var_;
         </div>
     </div>
 </div>
-<?php
-$pages = $this->db->where('slug', 'about-us')->get('pages_list')->result_array();
 
-?>
 <div class="content">
     <div class="container">
-
-        <div class="blog-single-post">
-
-            <div class="blog-image">
-
-                <a href="javascript:void(0)">
-                    <img class="img-fluid" src="<?php echo base_url().$pages[0]['image_default']; ?>" alt="posts Image">
-                </a>
-
-            </div>
-        </div>
         <div class="row">
             <div class="col-12">
                 <div class="about-blk-content">
