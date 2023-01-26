@@ -3119,6 +3119,25 @@ $live_braintree_merchant = $live_braintree_key = $live_braintree_publickey = $li
                 $table_data['visibility'] = $this->input->post('pages_visibility');
                 $table_data['page_content'] = $this->input->post('content');
                 $table_data['created_at'] =date('Y-m-d H:i:s');
+                if (isset($_FILES) && isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])) {
+                    if(!is_dir('uploads/pages')) {
+                        mkdir('./uploads/pages/', 0777, TRUE);
+                    }
+                    $uploaded_file_name = $_FILES['image']['name'];
+                    $uploaded_file_name_arr = explode('.', $uploaded_file_name);
+                    $filename = $uploaded_file_name;
+                    $this->load->library('common');
+                    $upload_sts = $this->common->global_file_upload('uploads/pages/', 'image', time() . $filename);
+    				
+                    if (isset($upload_sts['success']) && $upload_sts['success'] == 'y') {
+                        $uploaded_file_name = $upload_sts['data']['file_name'];
+
+                        if (!empty($uploaded_file_name)) {
+                            $image_url = 'uploads/pages/' . $uploaded_file_name;
+                            $table_data['image_default'] = $image_url;
+                        }
+                    }
+                }
                 $this->db->insert('pages_list', $table_data);
 
                 if($this->db->affected_rows() > 0) {
@@ -3150,6 +3169,25 @@ $live_braintree_merchant = $live_braintree_key = $live_braintree_publickey = $li
                 $table_data['lang_id'] = $this->input->post('pages_lang');
                 $table_data['location'] = $this->input->post('pages_loc');
                 $table_data['visibility'] = $this->input->post('pages_visibility');
+                 if (isset($_FILES) && isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])) {
+                    if(!is_dir('uploads/pages')) {
+                        mkdir('./uploads/pages/', 0777, TRUE);
+                    }
+                    $uploaded_file_name = $_FILES['image']['name'];
+                    $uploaded_file_name_arr = explode('.', $uploaded_file_name);
+                    $filename = $uploaded_file_name;
+                    $this->load->library('common');
+                    $upload_sts = $this->common->global_file_upload('uploads/pages/', 'image', time() . $filename);
+    				
+                    if (isset($upload_sts['success']) && $upload_sts['success'] == 'y') {
+                        $uploaded_file_name = $upload_sts['data']['file_name'];
+
+                        if (!empty($uploaded_file_name)) {
+                            $image_url = 'uploads/pages/' . $uploaded_file_name;
+                            $table_data['image_default'] = $image_url;
+                        }
+                    }
+                }
                 $table_data['page_content'] = $this->input->post('content');
                 $table_data['created_at'] =date('Y-m-d H:i:s');
                 $this->db->where('id', $id);
