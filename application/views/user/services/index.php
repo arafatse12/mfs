@@ -56,7 +56,8 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                 <div class="breadcrumb-title">
 
-                    <h2><?php echo (!empty($user_language[$user_selected]['lg_Find_Professional'])) ? $user_language[$user_selected]['lg_Find_Professional'] : $default_language['en']['lg_Find_Professional']; ?></h2>
+                    <h2><?php echo (!empty($user_language[$user_selected]['lg_Find_Professional'])) ? $user_language[$user_selected]['lg_Find_Professional'] : $default_language['en']['lg_Find_Professional']; ?>
+                    </h2>
 
                 </div>
 
@@ -68,9 +69,13 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                     <ol class="breadcrumb">
 
-                        <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>"><?php echo (!empty($user_language[$user_selected]['lg_home'])) ? $user_language[$user_selected]['lg_home'] : $default_language['en']['lg_home']; ?></a></li>
+                        <li class="breadcrumb-item"><a
+                                href="<?php echo base_url(); ?>"><?php echo (!empty($user_language[$user_selected]['lg_home'])) ? $user_language[$user_selected]['lg_home'] : $default_language['en']['lg_home']; ?></a>
+                        </li>
 
-                        <li class="breadcrumb-item active" aria-current="page"><?php echo (!empty($user_language[$user_selected]['lg_Find_Professional'])) ? $user_language[$user_selected]['lg_Find_Professional'] : $default_language['en']['lg_Find_Professional']; ?></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <?php echo (!empty($user_language[$user_selected]['lg_Find_Professional'])) ? $user_language[$user_selected]['lg_Find_Professional'] : $default_language['en']['lg_Find_Professional']; ?>
+                        </li>
 
                     </ol>
 
@@ -98,7 +103,9 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                     <div class="card-body">
 
-                        <h4 class="card-title mb-4"><?php echo (!empty($user_language[$user_selected]['lg_Search_Filter'])) ? $user_language[$user_selected]['lg_Search_Filter'] : $default_language['en']['lg_Search_Filter']; ?></h4>
+                        <h4 class="card-title mb-4">
+                            <?php echo (!empty($user_language[$user_selected]['lg_Search_Filter'])) ? $user_language[$user_selected]['lg_Search_Filter'] : $default_language['en']['lg_Search_Filter']; ?>
+                        </h4>
 
                         <form id="search_form">
 
@@ -108,25 +115,40 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                 <div class="filter-list">
 
-                                    <h4 class="filter-title"><?php echo (!empty($user_language[$user_selected]['lg_Keyword'])) ? $user_language[$user_selected]['lg_Keyword'] : $default_language['en']['lg_Keyword']; ?></h4>
+                                    <h4 class="filter-title">
+                                        <?php echo (!empty($user_language[$user_selected]['lg_Keyword'])) ? $user_language[$user_selected]['lg_Keyword'] : $default_language['en']['lg_Keyword']; ?>
+                                    </h4>
 
-                                    <input type="text" id="common_search" value="<?php if (isset($_POST["common_search"]) && !empty($_POST["common_search"])) echo $_POST["common_search"]; ?>" class="form-control common_search" placeholder="<?php echo (!empty($user_language[$user_selected]['lg_what_you_look'])) ? $user_language[$user_selected]['lg_what_you_look'] : $default_language['en']['lg_what_you_look']; ?>" />
+                                    <input type="text" id="common_search"
+                                        value="<?php if (isset($_POST["common_search"]) && !empty($_POST["common_search"])) echo $_POST["common_search"]; ?>"
+                                        class="form-control common_search"
+                                        placeholder="<?php echo (!empty($user_language[$user_selected]['lg_what_you_look'])) ? $user_language[$user_selected]['lg_what_you_look'] : $default_language['en']['lg_what_you_look']; ?>" />
 
                                 </div>
 
                                 <div class="filter-list">
 
-                                    <h4 class="filter-title"><?php echo (!empty($user_language[$user_selected]['lg_Sort_By'])) ? $user_language[$user_selected]['lg_Sort_By'] : $default_language['en']['lg_Sort_By']; ?></h4>
+                                    <h4 class="filter-title">
+                                        <?php echo (!empty($user_language[$user_selected]['lg_Sort_By'])) ? $user_language[$user_selected]['lg_Sort_By'] : $default_language['en']['lg_Sort_By']; ?>
+                                    </h4>
 
                                     <select id="sort_by" class="form-control selectbox select">
 
-                                        <option value=""><?php echo (!empty($user_language[$user_selected]['lg_Sort_By'])) ? $user_language[$user_selected]['lg_Sort_By'] : $default_language['en']['lg_Sort_By']; ?></option>
+                                        <option value="">
+                                            <?php echo (!empty($user_language[$user_selected]['lg_Sort_By'])) ? $user_language[$user_selected]['lg_Sort_By'] : $default_language['en']['lg_Sort_By']; ?>
+                                        </option>
 
-                                        <option value="1"><?php echo (!empty($user_language[$user_selected]['lg_Price_Low_High'])) ? $user_language[$user_selected]['lg_Price_Low_High'] : $default_language['en']['lg_Price_Low_High']; ?></option>
+                                        <option value="1">
+                                            <?php echo (!empty($user_language[$user_selected]['lg_Price_Low_High'])) ? $user_language[$user_selected]['lg_Price_Low_High'] : $default_language['en']['lg_Price_Low_High']; ?>
+                                        </option>
 
-                                        <option value="2"><?php echo (!empty($user_language[$user_selected]['lg_Price_High_Low'])) ? $user_language[$user_selected]['lg_Price_High_Low'] : $default_language['en']['lg_Price_High_Low']; ?></option>
+                                        <option value="2">
+                                            <?php echo (!empty($user_language[$user_selected]['lg_Price_High_Low'])) ? $user_language[$user_selected]['lg_Price_High_Low'] : $default_language['en']['lg_Price_High_Low']; ?>
+                                        </option>
 
-                                        <option value="3"><?php echo (!empty($user_language[$user_selected]['lg_Newest'])) ? $user_language[$user_selected]['lg_Newest'] : $default_language['en']['lg_Newest']; ?></option>
+                                        <option value="3">
+                                            <?php echo (!empty($user_language[$user_selected]['lg_Newest'])) ? $user_language[$user_selected]['lg_Newest'] : $default_language['en']['lg_Newest']; ?>
+                                        </option>
 
                                     </select>
 
@@ -134,11 +156,15 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                 <div class="filter-list">
 
-                                    <h4 class="filter-title"><?php echo (!empty($user_language[$user_selected]['lg_category_name'])) ? $user_language[$user_selected]['lg_category_name'] : $default_language['en']['lg_category_name']; ?></h4>
+                                    <h4 class="filter-title">
+                                        <?php echo (!empty($user_language[$user_selected]['lg_category_name'])) ? $user_language[$user_selected]['lg_category_name'] : $default_language['en']['lg_category_name']; ?>
+                                    </h4>
 
                                     <select id="categories" class="form-control form-control selectbox select">
 
-                                        <option value=""><?php echo (!empty($user_language[$user_selected]['lg_all_categories'])) ? $user_language[$user_selected]['lg_all_categories'] : $default_language['en']['lg_all_categories']; ?></option>
+                                        <option value="">
+                                            <?php echo (!empty($user_language[$user_selected]['lg_all_categories'])) ? $user_language[$user_selected]['lg_all_categories'] : $default_language['en']['lg_all_categories']; ?>
+                                        </option>
 
                                         <?php
 
@@ -169,13 +195,17 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                 </div>
 
-								<div class="filter-list">
+                                <div class="filter-list">
 
-                                    <h4 class="filter-title"><?php echo (!empty($user_language[$user_selected]['lg_Sub_Category'])) ? $user_language[$user_selected]['lg_Sub_Category'] : $default_language['en']['lg_Sub_Category']; ?></h4>
+                                    <h4 class="filter-title">
+                                        <?php echo (!empty($user_language[$user_selected]['lg_Sub_Category'])) ? $user_language[$user_selected]['lg_Sub_Category'] : $default_language['en']['lg_Sub_Category']; ?>
+                                    </h4>
 
                                     <select id="subcategories" class="form-control form-control selectbox select">
 
-                                        <option value=""><?php echo (!empty($user_language[$user_selected]['lg_Choose_the_Sub_Category'])) ? $user_language[$user_selected]['lg_Choose_the_Sub_Category'] : $default_language['en']['lg_Choose_the_Sub_Category']; ?></option>
+                                        <option value="">
+                                            <?php echo (!empty($user_language[$user_selected]['lg_Choose_the_Sub_Category'])) ? $user_language[$user_selected]['lg_Choose_the_Sub_Category'] : $default_language['en']['lg_Choose_the_Sub_Category']; ?>
+                                        </option>
 
                                         <?php
 
@@ -205,19 +235,31 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                 <div class="filter-list">
 
-                                    <h4 class="filter-title"><?php echo (!empty($user_language[$user_selected]['lg_Location'])) ? $user_language[$user_selected]['lg_Location'] : $default_language['en']['lg_Location']; ?></h4>
+                                    <h4 class="filter-title">
+                                        <?php echo (!empty($user_language[$user_selected]['lg_Location'])) ? $user_language[$user_selected]['lg_Location'] : $default_language['en']['lg_Location']; ?>
+                                    </h4>
 
-                                    <input class="form-control" type="text" <?php if(settingValue('location_type') == 'live') { ?> id="service_location" <?php } else { ?> id="service_locations" <?php } ?>value="<?php if (isset($_POST["user_address"]) && !empty($_POST["user_address"])) echo $_POST["user_address"]; ?>" placeholder="Search Location" name="user_address" >
+                                    <input class="form-control" type="text"
+                                        <?php if(settingValue('location_type') == 'live') { ?> id="service_location"
+                                        <?php } else { ?> id="service_locations"
+                                        <?php } ?>value="<?php if (isset($_POST["user_address"]) && !empty($_POST["user_address"])) echo $_POST["user_address"]; ?>"
+                                        placeholder="Search Location" name="user_address">
 
-                                    <input type="hidden" value="<?php if (isset($_POST["user_latitude"]) && !empty($_POST["user_latitude"])) echo $_POST["user_latitude"]; ?>" id="service_latitude">
+                                    <input type="hidden"
+                                        value="<?php if (isset($_POST["user_latitude"]) && !empty($_POST["user_latitude"])) echo $_POST["user_latitude"]; ?>"
+                                        id="service_latitude">
 
-                                    <input type="hidden" value="<?php if (isset($_POST["user_longitude"]) && !empty($_POST["user_longitude"])) echo $_POST["user_longitude"]; ?>" id="service_longitude">
+                                    <input type="hidden"
+                                        value="<?php if (isset($_POST["user_longitude"]) && !empty($_POST["user_longitude"])) echo $_POST["user_longitude"]; ?>"
+                                        id="service_longitude">
 
                                 </div>
 
                                 <div class="filter-list">
 
-                                    <h4 class="filter-title"><?php echo (!empty($user_language[$user_selected]['lg_Price_Range'])) ? $user_language[$user_selected]['lg_Price_Range'] : $default_language['en']['lg_Price_Range']; ?></h4>
+                                    <h4 class="filter-title">
+                                        <?php echo (!empty($user_language[$user_selected]['lg_Price_Range'])) ? $user_language[$user_selected]['lg_Price_Range'] : $default_language['en']['lg_Price_Range']; ?>
+                                    </h4>
 
                                     <div class="price-ranges">
 
@@ -251,21 +293,27 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                         ?>
 
-                                        <?php echo currency_conversion($user_currency_code); ?><span class="from d-inline-block" id="min_price"><?php echo ($min_price['service_amount']) ? $min_price['service_amount'] : '0'; ?></span> -
+                                        <?php echo currency_conversion($user_currency_code); ?><span
+                                            class="from d-inline-block"
+                                            id="min_price"><?php echo ($min_price['service_amount']) ? $min_price['service_amount'] : '0'; ?></span>
+                                        -
 
-                                        <?php echo currency_conversion($user_currency_code); ?><span class="to d-inline-block" id="max_price"><?php echo ($max_price['service_amount']) ? $max_price['service_amount'] : '0'; ?></span>
+                                        <?php echo currency_conversion($user_currency_code); ?><span
+                                            class="to d-inline-block"
+                                            id="max_price"><?php echo ($max_price['service_amount']) ? $max_price['service_amount'] : '0'; ?></span>
 
-                                    </div>	
+                                    </div>
 
-                                    <div class="range-slider price-range"></div>										
+                                    <div class="range-slider price-range"></div>
 
                                 </div>
 
                             </div>
 
-                            <button class="btn btn-primary pl-5 pr-5 btn-block get_services" type="button"><?php echo (!empty($user_language[$user_selected]['lg_search'])) ? $user_language[$user_selected]['lg_search'] : $default_language['en']['lg_search']; ?></button>
+                            <button class="btn btn-primary pl-5 pr-5 btn-block get_services"
+                                type="button"><?php echo (!empty($user_language[$user_selected]['lg_search'])) ? $user_language[$user_selected]['lg_search'] : $default_language['en']['lg_search']; ?></button>
 
-                        </form>	
+                        </form>
 
                     </div>
 
@@ -281,7 +329,9 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                     <div class="col-md-6 col">
 
-                        <h4><span id="service_count"><?php echo $count; ?></span> <?php echo (!empty($user_language[$user_selected]['lg_Services_Found'])) ? $user_language[$user_selected]['lg_Services_Found'] : $default_language['en']['lg_Services_Found']; ?></h4>
+                        <h4><span id="service_count"><?php echo $count; ?></span>
+                            <?php echo (!empty($user_language[$user_selected]['lg_Services_Found'])) ? $user_language[$user_selected]['lg_Services_Found'] : $default_language['en']['lg_Services_Found']; ?>
+                        </h4>
 
                     </div>
 
@@ -418,69 +468,71 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                 ?>
 
-                                <div class="col-lg-4 col-md-6 contant">
+                        <div class="col-lg-4 col-md-6 contant">
 
-                                    <div class="service-widget">
+                            <div class="service-widget">
 
-                                        <div class="service-img">
+                                <div class="service-img">
 
-                                            <a href="<?php echo base_url() . 'service-preview/' . $srows['url']; ?>">
+                                    <a href="<?php echo base_url() . 'service-preview/' . $srows['url']; ?>">
 
-                                                <?php if (!empty($serviceimages['service_image']) && (@getimagesize(base_url().$serviceimages['service_image']))) { ?>
+                                        <?php if (!empty($serviceimages['service_image']) && (@getimagesize(base_url().$serviceimages['service_image']))) { ?>
 
-                                                    <img class="img-fluid serv-img" alt="Service Image" src="<?php echo base_url() . $serviceimages['service_image']; ?>">
+                                        <img class="img-fluid serv-img" alt="Service Image"
+                                            src="<?php echo base_url() . $serviceimages['service_image']; ?>">
 
-                                                <?php } else { ?>
+                                        <?php } else { ?>
 
-                                                    <img class="img-fluid serv-img" alt="Service Image" src="<?php echo ($placholder_img)? base_url().$placholder_img:base_url().'uploads/placeholder_img/1641376248_user.jpg'; ?>">
+                                        <img class="img-fluid serv-img" alt="Service Image"
+                                            src="<?php echo ($placholder_img)? base_url().$placholder_img:base_url().'uploads/placeholder_img/1641376248_user.jpg'; ?>">
 
-                                                <?php } ?>
+                                        <?php } ?>
 
-                                            </a>
+                                    </a>
 
-                                            <div class="item-info">
+                                    <div class="item-info">
 
-                                                <div class="service-user">
+                                        <div class="service-user">
 
-                                                    <!-- <a href="#"> -->
-                                                   
+                                            <!-- <a href="#"> -->
 
-                                                        <?php if ($provider_details['profile_img'] != '' && (@getimagesize(base_url().$provider_details['profile_img']))) { ?>
 
-                                                            <img src="<?php echo base_url() . $provider_details['profile_img'] ?>">
 
-                                                        <?php } else { ?>
 
-														    <img src="<?php echo base_url(); ?>assets/img/user.jpg">
+                                            <img src="<?php echo base_url(); ?>uploads/logo/logo.png">
 
-                                                            
 
-                                                        <?php } ?>
 
-                                                    <!-- </a> -->
 
-                                                    <span class="service-price"><?php echo currency_conversion($user_currency_code) . $service_amount; ?></span>
 
-                                                </div>
+                                            <!-- </a> -->
 
-                                                <div class="cate-list"> <a class="bg-yellow" href="<?php $cat_name = str_replace('&', '_', strtolower($srows['category_name'])); echo base_url() . 'search/' . str_replace(' ', '-', strtolower($cat_name)); ?>"><?php echo ucfirst($srows['category_name']); ?></a></div>
-
-                                            </div>
+                                            <span
+                                                class="service-price"><?php echo currency_conversion($user_currency_code) . $service_amount; ?></span>
 
                                         </div>
 
-                                        <div class="service-content">
+                                        <div class="cate-list"> <a class="bg-yellow"
+                                                href="<?php $cat_name = str_replace('&', '_', strtolower($srows['category_name'])); echo base_url() . 'search/' . str_replace(' ', '-', strtolower($cat_name)); ?>"><?php echo ucfirst($srows['category_name']); ?></a>
+                                        </div>
 
-                                            <h3 class="title">
-                                                 <?php 
+                                    </div>
+
+                                </div>
+
+                                <div class="service-content">
+
+                                    <h3 class="title">
+                                        <?php 
                                                     $ser_lang = ($this->session->userdata('user_select_language'))?$this->session->userdata('user_select_language'):'en';
                                                     $this->db->where('service_id', $srows['id']);
                                                     $this->db->where('lang_type', $ser_lang);
                                                     $service_name = $this->db->get('service_lang')->row_array();
                                                 ?>
-                                                <a href="<?php echo base_url() . 'service-preview/' . $srows['url']; ?>"><?php echo ucfirst($service_name['service_name']); ?></a>
+                                        <a
+                                            href="<?php echo base_url() . 'service-preview/' . $srows['url']; ?>"><?php echo ucfirst($service_name['service_name']); ?></a>
 
-                                                <?php    
+                                        <?php    
 
                                                 
 
@@ -490,31 +542,49 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                                         if($user_fav['status'] == 1) { ?>
 
-                                                            <a href="javascript:;" id="ufav<?=$srows['id']?>" class="hearting" style="float: right;color:#ff0080" data-id="<?php echo $user_fav['id']?>" data-userid = "<?php echo $userId?>" data-provid="<?php echo $srows['user_id']?>" data-servid="<?php echo $srows['id']?>" data-favstatus="0" data-pagename="<?php echo $srows['category_name']?>"><i class="fas fa-heart filled"></i></a>
+                                        <a href="javascript:;" id="ufav<?=$srows['id']?>" class="hearting"
+                                            style="float: right;color:#ff0080" data-id="<?php echo $user_fav['id']?>"
+                                            data-userid="<?php echo $userId?>"
+                                            data-provid="<?php echo $srows['user_id']?>"
+                                            data-servid="<?php echo $srows['id']?>" data-favstatus="0"
+                                            data-pagename="<?php echo $srows['category_name']?>"><i
+                                                class="fas fa-heart filled"></i></a>
 
-                                                        <?php } 
+                                        <?php } 
 
                                                         else { ?>
 
-                                                            <a href="javascript:;" id="ufav<?=$srows['id']?>" class="hearting" style="float: right;" data-id="<?php echo $user_fav['id']?>" data-userid = "<?php echo $userId?>" data-provid="<?php echo $srows['user_id']?>" data-servid="<?php echo $srows['id']?>" data-favstatus="1" data-pagename="<?php echo $srows['category_name']?>"><i class="fas fa-heart"></i></a>
+                                        <a href="javascript:;" id="ufav<?=$srows['id']?>" class="hearting"
+                                            style="float: right;" data-id="<?php echo $user_fav['id']?>"
+                                            data-userid="<?php echo $userId?>"
+                                            data-provid="<?php echo $srows['user_id']?>"
+                                            data-servid="<?php echo $srows['id']?>" data-favstatus="1"
+                                            data-pagename="<?php echo $srows['category_name']?>"><i
+                                                class="fas fa-heart"></i></a>
 
-                                                        <?php } 
+                                        <?php } 
 
                                                     } else { ?>
 
-                                                        <a href="javascript:;" id="ufav<?=$srows['id']?>" class="hearting" style="float: right;" data-id="<?php echo $user_fav['id']?>" data-userid = "<?php echo $this->session->userdata('id');?>" data-provid="<?php echo $srows['user_id']?>" data-servid="<?php echo $srows['id']?>" data-favstatus="1" data-pagename="<?php echo $srows['category_name']?>"><i class="fas fa-heart"></i></a>
+                                        <a href="javascript:;" id="ufav<?=$srows['id']?>" class="hearting"
+                                            style="float: right;" data-id="<?php echo $user_fav['id']?>"
+                                            data-userid="<?php echo $this->session->userdata('id');?>"
+                                            data-provid="<?php echo $srows['user_id']?>"
+                                            data-servid="<?php echo $srows['id']?>" data-favstatus="1"
+                                            data-pagename="<?php echo $srows['category_name']?>"><i
+                                                class="fas fa-heart"></i></a>
 
-                                                    <?php }
+                                        <?php }
 
                                                 }
 
                                                 ?>
 
-                                            </h3>
+                                    </h3>
 
-                                            <div class="rating">
+                                    <div class="rating">
 
-                                                <?php
+                                        <?php
 
                                                 for ($x = 1; $x <= $avg_rating; $x++) {
 
@@ -540,58 +610,62 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
                                                 ?>
 
-                                                <span class="d-inline-block average-rating">(<?php echo $avg_rating ?>)</span>
+                                        <span class="d-inline-block average-rating">(<?php echo $avg_rating ?>)</span>
 
-                                            </div>
+                                    </div>
 
-                                            <div class="user-info">
+                                    <div class="user-info">
 
 
 
-                                                <div class="row">
+                                        <div class="row">
 
-                                                    <?php if ($this->session->userdata('id') != '') {
+                                            <?php if ($this->session->userdata('id') != '') {
 
                                                         ?>
 
-                                                        <span class="col ser-contact"><i class="fas fa-phone mr-1"></i> <span>xxxxxxxx<?= rand(00, 99) ?></span></span>
+                                            <span class="col ser-contact"><i class="fas fa-phone mr-1"></i>
+                                                <span>xxxxxxxx<?= rand(00, 99) ?></span></span>
 
-                                                    <?php } else { ?>
+                                            <?php } else { ?>
 
-                                                        <span class="col ser-contact"><i class="fas fa-phone mr-1"></i> <span>xxxxxxxx<?= rand(00, 99) ?></span></span>
+                                            <span class="col ser-contact"><i class="fas fa-phone mr-1"></i>
+                                                <span>xxxxxxxx<?= rand(00, 99) ?></span></span>
 
-                                                    <?php } ?>
+                                            <?php } ?>
 
 
 
-                                                    <span class="col ser-location"><span><?php echo ucfirst($srows['service_location']); ?></span> <i class="fas fa-map-marker-alt ml-1"></i></span>
-
-                                                </div>
-
-                                            </div>
+                                            <span
+                                                class="col ser-location"><span><?php echo ucfirst($srows['service_location']); ?></span>
+                                                <i class="fas fa-map-marker-alt ml-1"></i></span>
 
                                         </div>
 
                                     </div>
 
-
-
                                 </div>
 
-                                <?php
+                            </div>
+
+
+
+                        </div>
+
+                        <?php
 
                             } ?>
-                            
+
                         <?php } else { ?>
-                            <div class="col-lg-12">
+                        <div class="col-lg-12">
 
-									<p class="mb-0">
+                            <p class="mb-0">
 
-										No Services Found
+                                No Services Found
 
-									</p>
+                            </p>
 
-								</div>
+                        </div>
 
                         <?php }
 
@@ -614,13 +688,10 @@ $placholder_img = $this->db->get_where('system_settings', array('key'=>'service_
 
 
 
-            </div>					
+            </div>
 
         </div>
 
     </div>
 
 </div>
-
-
-

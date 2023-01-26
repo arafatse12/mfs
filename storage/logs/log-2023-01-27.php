@@ -613,3 +613,76 @@ ERROR - 2023-01-27 02:26:35 --> 404 Page Not Found: Assets/js
 ERROR - 2023-01-27 02:28:52 --> 404 Page Not Found: Assets/js
 ERROR - 2023-01-27 02:29:32 --> 404 Page Not Found: Assets/js
 ERROR - 2023-01-27 02:29:59 --> 404 Page Not Found: Assets/js
+ERROR - 2023-01-27 02:33:51 --> Query error: Expression #10 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'truelysell.r.rating' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by - Invalid query: SELECT `s`.`id`, `s`.`user_id`, `s`.`service_location`, `s`.`service_title`, `s`.`service_amount`, `s`.`mobile_image`, `s`.`about`, `c`.`category_name`, `c`.`category_image`, `r`.`rating`, `sc`.`subcategory_name`, `s`.`currency_code`, `s`.`url`
+FROM `services` `s`
+LEFT JOIN `categories` `c` ON `c`.`id` = `s`.`category`
+LEFT JOIN `subcategories` `sc` ON `sc`.`id` = `s`.`subcategory`
+LEFT JOIN `rating_review` `r` ON `r`.`service_id` = `s`.`id`
+JOIN `subscription_details` as `sd` ON `sd`.`subscriber_id`=`s`.`user_id`
+WHERE `s`.`status` = 1
+AND `s`.`status` = 1
+GROUP BY `s`.`id`
+ORDER BY `s`.`total_views` DESC
+ LIMIT 10
+ERROR - 2023-01-27 02:50:14 --> 404 Page Not Found: Uploads/profile_img
+ERROR - 2023-01-27 02:53:01 --> Query error: Unknown column 'Array' in 'where clause' - Invalid query: select * from services WHERE category = Array
+ERROR - 2023-01-27 02:53:02 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\laragon\www\mfs\application\controllers\Home.php 187
+ERROR - 2023-01-27 03:25:01 --> Severity: error --> Exception: Call to undefined method CI_DB_mysqli_result::num_of_rows() D:\laragon\www\mfs\application\controllers\Home.php 189
+ERROR - 2023-01-27 03:25:03 --> Severity: error --> Exception: Call to undefined method CI_DB_mysqli_result::num_of_rows() D:\laragon\www\mfs\application\controllers\Home.php 189
+ERROR - 2023-01-27 03:25:57 --> Severity: error --> Exception: Call to a member function count() on array D:\laragon\www\mfs\application\controllers\Home.php 189
+ERROR - 2023-01-27 03:26:01 --> Severity: error --> Exception: Call to a member function count() on array D:\laragon\www\mfs\application\controllers\Home.php 189
+ERROR - 2023-01-27 03:39:37 --> Query error: Expression #10 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'truelysell.r.rating' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by - Invalid query: SELECT `s`.`id`, `s`.`user_id`, `s`.`service_location`, `s`.`service_title`, `s`.`service_amount`, `s`.`mobile_image`, `s`.`about`, `c`.`category_name`, `c`.`category_image`, `r`.`rating`, `sc`.`subcategory_name`, `s`.`currency_code`, `s`.`url`
+FROM `services` `s`
+LEFT JOIN `categories` `c` ON `c`.`id` = `s`.`category`
+LEFT JOIN `subcategories` `sc` ON `sc`.`id` = `s`.`subcategory`
+LEFT JOIN `rating_review` `r` ON `r`.`service_id` = `s`.`id`
+JOIN `subscription_details` as `sd` ON `sd`.`subscriber_id`=`s`.`user_id`
+WHERE `s`.`status` = 1
+AND `s`.`status` = 1
+GROUP BY `s`.`id`
+ORDER BY `s`.`total_views` DESC
+ LIMIT 10
+ERROR - 2023-01-27 03:41:59 --> Query error: Expression #10 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'truelysell.r.rating' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by - Invalid query: SELECT `s`.`id`, `s`.`user_id`, `s`.`service_location`, `s`.`service_title`, `s`.`service_amount`, `s`.`mobile_image`, `s`.`about`, `c`.`category_name`, `c`.`category_image`, `r`.`rating`, `sc`.`subcategory_name`, `s`.`currency_code`, `s`.`url`
+FROM `services` `s`
+LEFT JOIN `categories` `c` ON `c`.`id` = `s`.`category`
+LEFT JOIN `subcategories` `sc` ON `sc`.`id` = `s`.`subcategory`
+LEFT JOIN `rating_review` `r` ON `r`.`service_id` = `s`.`id`
+JOIN `subscription_details` as `sd` ON `sd`.`subscriber_id`=`s`.`user_id`
+WHERE `s`.`status` = 1
+AND `s`.`status` = 1
+GROUP BY `s`.`id`
+ORDER BY `s`.`total_views` DESC
+ LIMIT 10
+ERROR - 2023-01-27 03:44:24 --> Query error: Expression #10 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'truelysell.r.rating' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by - Invalid query: SELECT `s`.`id`, `s`.`user_id`, `s`.`service_location`, `s`.`service_title`, `s`.`service_amount`, `s`.`mobile_image`, `s`.`about`, `c`.`category_name`, `c`.`category_image`, `r`.`rating`, `sc`.`subcategory_name`, `s`.`currency_code`, `s`.`url`
+FROM `services` `s`
+LEFT JOIN `categories` `c` ON `c`.`id` = `s`.`category`
+LEFT JOIN `subcategories` `sc` ON `sc`.`id` = `s`.`subcategory`
+LEFT JOIN `rating_review` `r` ON `r`.`service_id` = `s`.`id`
+JOIN `subscription_details` as `sd` ON `sd`.`subscriber_id`=`s`.`user_id`
+WHERE `s`.`status` = 1
+AND `s`.`status` = 1
+GROUP BY `s`.`id`
+ORDER BY `s`.`total_views` DESC
+ LIMIT 10
+ERROR - 2023-01-27 03:45:47 --> Query error: Expression #10 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'truelysell.r.rating' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by - Invalid query: SELECT `s`.`id`, `s`.`user_id`, `s`.`service_location`, `s`.`service_title`, `s`.`service_amount`, `s`.`mobile_image`, `s`.`about`, `c`.`category_name`, `c`.`category_image`, `r`.`rating`, `sc`.`subcategory_name`, `s`.`currency_code`, `s`.`url`
+FROM `services` `s`
+LEFT JOIN `categories` `c` ON `c`.`id` = `s`.`category`
+LEFT JOIN `subcategories` `sc` ON `sc`.`id` = `s`.`subcategory`
+LEFT JOIN `rating_review` `r` ON `r`.`service_id` = `s`.`id`
+JOIN `subscription_details` as `sd` ON `sd`.`subscriber_id`=`s`.`user_id`
+WHERE `s`.`status` = 1
+AND `s`.`status` = 1
+GROUP BY `s`.`id`
+ORDER BY `s`.`total_views` DESC
+ LIMIT 10
+ERROR - 2023-01-27 03:46:53 --> Query error: Expression #10 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'truelysell.r.rating' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by - Invalid query: SELECT `s`.`id`, `s`.`user_id`, `s`.`service_location`, `s`.`service_title`, `s`.`service_amount`, `s`.`mobile_image`, `s`.`about`, `c`.`category_name`, `c`.`category_image`, `r`.`rating`, `sc`.`subcategory_name`, `s`.`currency_code`, `s`.`url`
+FROM `services` `s`
+LEFT JOIN `categories` `c` ON `c`.`id` = `s`.`category`
+LEFT JOIN `subcategories` `sc` ON `sc`.`id` = `s`.`subcategory`
+LEFT JOIN `rating_review` `r` ON `r`.`service_id` = `s`.`id`
+JOIN `subscription_details` as `sd` ON `sd`.`subscriber_id`=`s`.`user_id`
+WHERE `s`.`status` = 1
+AND `s`.`status` = 1
+GROUP BY `s`.`id`
+ORDER BY `s`.`total_views` DESC
+ LIMIT 10

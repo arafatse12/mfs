@@ -182,7 +182,11 @@ class Home extends CI_Controller {
 
         $this->data['module'] = 'services';
         $this->data['page'] = 'index';
-        $this->data['service'] = $this->home->get_all_service($conditions, $inputs);
+        $cat = $inputs['categories'];
+        $query1 = $this->db->query("select * from services  where category = '$cat'");
+
+        $this->data['service'] = $query1->result_array();
+        $totalRec = $query1->num_rows();
         $this->data['count'] = $totalRec;
         $this->data['category'] = $this->home->get_category();
 		if (!empty($this->uri->segment('2'))) {
