@@ -112,18 +112,22 @@ class Booking extends CI_Controller {
 
   public function delete_job_apply()
   {
-     
-    $id=$this->input->post('job_apply_id');
-
-   $this->db->where('id', $id);
-  $this->db->delete('apply_job');
-
-    $this->session->set_flashdata('success_message','Job deleted successfully');    
-    redirect(base_url()."job-apply");   
-    
-  
-    
+      $id= $this->input->get('job_apply_id', TRUE);
+      $query = $this->db->query("delete from apply_job where id=$id");
+      $this->session->set_flashdata('success_message','Job deleted successfully');    
   }
+
+  function file_download()
+    {
+        $file_name= $this->input->get('file_name');
+
+        $this->load->helper('download');
+        $data = file_get_contents($file_name);
+        $name = 'job_application.pdf'; // custom file name for your download
+
+        force_download($name, $data);
+        //force_download($file_name, NULL); will get the file name for you
+}
 
   /*pending report*/
   public function pending_bookings() 

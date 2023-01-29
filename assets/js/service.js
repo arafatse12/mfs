@@ -94,27 +94,27 @@
                         }
                       }
                     },
-                    country_id:           {
-                      validators:           {
-                        notEmpty:               {
-                          message: 'Please select Country'
-                        }
-                      }
-                    },
-                    state_id:           {
-                      validators:           {
-                        notEmpty:               {
-                          message: 'Please select State'
-                        }
-                      }
-                    },
-                    city_id:           {
-                      validators:           {
-                        notEmpty:               {
-                          message: 'Please select City'
-                        }
-                      }
-                    },
+                    // country_id:           {
+                    //   validators:           {
+                    //     notEmpty:               {
+                    //       message: 'Please select Country'
+                    //     }
+                    //   }
+                    // },
+                    // state_id:           {
+                    //   validators:           {
+                    //     notEmpty:               {
+                    //       message: 'Please select State'
+                    //     }
+                    //   }
+                    // },
+                    // city_id:           {
+                    //   validators:           {
+                    //     notEmpty:               {
+                    //       message: 'Please select City'
+                    //     }
+                    //   }
+                    // },
                 service_title: {
                     validators: {
                         remote: {

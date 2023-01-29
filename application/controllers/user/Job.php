@@ -179,6 +179,22 @@ class Job extends CI_Controller {
         $this->load->view($this->data['theme'] . '/'.$this->data['module'] . '/' . $this->data['page']);
     }
 
+      public function delete_job_apply()
+  {
+     
+    $id=$this->input->post('job_apply_id');
+    var_dump($id);
+
+      $this->db->where('id', $id);
+      $this->db->delete('apply_job');
+
+    $this->session->set_flashdata('success_message','Job deleted successfully');    
+    redirect(base_url()."job-apply");   
+    
+  
+    
+  }
+
     
    
 }

@@ -37,7 +37,7 @@
                                 <div class="form-group">
                                     <label
                                         class="required"><?php echo (!empty($user_language[$user_selected]['lg_Name'])) ? $user_language[$user_selected]['lg_Name'] : $default_language['en']['lg_Name']; ?>
-                                    </label>
+                                    <span>*</span></label>
                                     <input class="form-control" type="text" name="name" id="name" required>
                                 </div>
                             </div>

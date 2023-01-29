@@ -64,7 +64,8 @@ $route['admin/wallet-request-history'] = 'admin/wallet/wallet_request_history';
 /*booking report*/
 $route['admin/total-report'] = 'admin/Booking/total_bookings';
 $route['admin/job-apply'] = 'admin/Booking/job_apply';
-$route['delete-job-apply'] = 'admin/Booking/delete_job_apply';
+$route['admin/delete-job-apply'] = 'admin/Booking/delete_job_apply';
+$route['admin/file-download'] = 'admin/Booking/file_download';
 $route['admin/pending-report'] = 'admin/Booking/pending_bookings';
 $route['admin/inprogress-report'] = 'admin/Booking/inprogress_bookings';
 $route['admin/complete-report'] = 'admin/Booking/completed_bookings';

@@ -310,18 +310,15 @@ return false;
                     }
                   });
                 }
-              });
-            }
-
-             function delete_job_apply(val) {
+                function delete_job_apply(val) {
               bootbox.confirm("Are You Sure Want To Delete This Job Apply ?  ", function (result) {
                 if (result == true) {
-                  var url = BASE_URL + 'admin/job-apply/delete_category';
+                  var url = BASE_URL + 'admin/Booking/delete_job_apply';
                   var keyname="<?php echo $this->security->get_csrf_token_name(); ?>";
                   var keyvalue="<?php echo $this->security->get_csrf_hash(); ?>";
-                  var category_id = val;
+                  var job_apply_id = val;
                   var data = { 
-                    category_id: category_id
+                    job_apply_id: job_apply_id
             };
             data[keyname] = keyvalue;
                   $.ajax({
@@ -331,18 +328,21 @@ return false;
                     success: function (res) {
                       if (res == 1) {
                         $("#flash_success_message").show();
-                        window.location = BASE_URL + 'admin/categories';
+                        window.location = BASE_URL + 'admin/job-apply';
                       } else if(res == 2) {
                         $("#flash_error_message").show();
-                        window.location = BASE_URL + 'admin/categories';
+                        window.location = BASE_URL + 'admin/job-apply';
                       } else {
-                        window.location = BASE_URL + 'admin/categories';
+                        window.location = BASE_URL + 'admin/job-apply';
                       }
                     }
                   });
                 }
+                
               });
             }
+
+             
 
             function delete_roles(val) {
                 bootbox.confirm("Are you sure want to delete this role? ", function (result) {
@@ -464,17 +464,19 @@ return false;
                 });
             }
             
-            $(document).ready(function() {
-                      $(document).on("click",".delete_categories",function() {
-                  var id = $(this).attr('data-id');
-                  delete_categories(id);
-                });
+          
+                //       $(document).on("click",".delete_categories",function() {
+                //   var id = $(this).attr('data-id');
+                //   delete_categories(id);
+                // });
 
-                 $(document).ready(function() {
-                      $(document).on("click",".delete_job_apply",function() {
-                  var id = $(this).attr('data-id');
-                  delete_job_apply(id);
-                });
+                 
+                    $(document).on("click",".delete_job_apply",function() {
+                      var id = $(this).attr('data-id');
+                      alert(id);
+                      delete_job_apply(id);
+                    });
+               
 
                       $(document).on("click",".delete_blog_categories",function() {
                   var id = $(this).attr('data-id');

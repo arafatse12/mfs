@@ -41,7 +41,7 @@ $jobAplly = $this->db->get('apply_job')->result_array();
                                         
                                         <th>Date
                                         </th>
-                                        <th>Cv
+                                        <th>Download Cv
                                         </th>
                                         <th>Position
                                         </th>
@@ -64,11 +64,12 @@ $jobAplly = $this->db->get('apply_job')->result_array();
 										<td>'.$rows['phone'].'</td>
 										
 										<td>'.$rows['created_at'].'</td>
-										<td> <a href="'.base_url().$rows['upload_cv'].'" target="_blank" ><i class="fa fa-download"></i></a></td>
+										<td> <a href="'.base_url().$rows['upload_cv'].'" class="downloadable" style="padding:20%"><i class="fa fa-file-pdf fa-2x"></i></a></td>
 										<td>'.$rows['position'].'</td>
                                         <td class="text-right">
 									
-									<a href="javascript:;" class="on-default remove-row btn btn-sm bg-danger-light mr-2 delete_job_apply" id="Onremove_'.$rows['id'].'" data-id="'.$rows['id'].'"><i class="far fa-trash-alt mr-1"></i> '.$rows['lg_admin_delete'].'</a></td>
+									<a href="javascript:;" class="on-default remove-row btn btn-sm bg-danger-light mr-2 delete_job_apply1" id="'.$rows['id'].'"
+                                     data-id="'.$rows['id'].'"><i class="far fa-trash-alt mr-1"></i> '.$rows['lg_admin_delete'].'</a></td>
                                      </tr>';
 
                                     } ?>
@@ -83,3 +84,49 @@ $jobAplly = $this->db->get('apply_job')->result_array();
         </div>
     </div>
 </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
+    <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" />
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('.delete_job_apply1').click(function (e) {
+            e.preventDefault();
+
+            confirmDialog = confirm("Are you sure you want to delete?");
+            if(confirmDialog)
+            {
+                var id = $(this).attr('data-id');
+                 var data = { 
+                    job_apply_id: id
+                };
+                // alert(id);
+                $.ajax({
+                    type: "GET",
+                     data: data,
+                    url: "<?php echo base_url(); ?>/admin/delete-job-apply",
+                    success: function (response) {
+                       location.reload();
+                       
+                    }
+                });
+            }
+
+        });
+    });
+$(function(){
+  $('.downloadable').click(function(event){
+     event.preventDefault();
+     window.location.href = "<?php echo site_url('admin/file-download') ?>?file_name="+ $(this).attr('href');
+  });
+});
+</script>
+
+ 
+       
