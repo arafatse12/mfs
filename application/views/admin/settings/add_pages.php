@@ -22,12 +22,12 @@ $lang_test = $query->result_array();
                 <!-- /Page Header -->
                 <div class="card">
                     <div class="card-body">
-                        <form action="<?php echo base_url()?>admin/settings/add_pages" id="add_pages" method="post"
+                        <form action="<?php echo base_url()?>admin/settings/add_pages" id="image" method="post"
                             autocomplete="off" enctype="multipart/form-data">
                             <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>"
                                 value="<?php echo $this->security->get_csrf_hash(); ?>" />
                             <div class="form-group">
-                                <label><?php echo(!empty($pages['lg_admin_title']))?($pages['lg_admin_title']) : 'Titles';  ?></label>
+                                <label>Add Menu</label>
                                 <input class="form-control" type="text" name="title" id="title" required>
                             </div>
                             <div class="form-group">

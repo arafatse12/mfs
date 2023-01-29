@@ -837,7 +837,7 @@ $default_language = $lg['default_lang'];
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget footer-menu">
-                        <h2 class="footer-title">Categories</h2>
+                        <h2 class="footer-title"></h2>
 
 
                         <div class="footer-line">
@@ -1023,8 +1023,8 @@ $default_language = $lg['default_lang'];
 
             <div class="copyright">
                 <div class="row">
-                    <div class="col-md-6 col-lg-6">
-                        <div class="copyright-text">
+                    <div class="col-md-6 col-lg-6 pull-right">
+                        <div class="copyright-text" style="margin-left: 50%;">
                             <p class="mb-0"><?php echo $copyright->page_desc; ?></p>
                         </div>
                     </div>

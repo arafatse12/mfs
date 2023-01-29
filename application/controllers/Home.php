@@ -177,15 +177,21 @@ class Home extends CI_Controller {
         // Get records 
 
         $conditions = array(
-
+        'limit' => $this->perPage
         );
 
         $this->data['module'] = 'services';
         $this->data['page'] = 'index';
         $cat = $inputs['categories'];
+       
+         $this->home->get_all_service($conditions, $inputs);
       if($cat){
         $query1 = $this->db->query("select * from services  where category = '$cat'");
-      }else{
+      }elseif($inputs['common_search']){
+         $title=  $inputs['common_search'];
+         $query1 = $this->db->query("select * from services  where service_title = '$title'");
+      }
+      else{
          $query1 = $this->db->query("select * from services");
       }
         

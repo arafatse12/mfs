@@ -1,5 +1,6 @@
 <?php
-   $mainmodule_details = $this->db->select('parent')->group_by('parent')->where('status',1)->order_by('module_order')->get('admin_modules')->result_array();
+   $mainmodule_details = $this->db->query("select parent from admin_modules  where status = 1");
+   $mainmodule_details = $mainmodule_details->result_array();
    $adminuser = $language_content;
 
    $query = $this->db->query("select * from language WHERE status = '1'");
@@ -15,7 +16,7 @@
 				<div class="page-header">
 					<div class="row">
 						<div class="col">
-							<h3 class="page-title"><?=$title;?></h3>
+							<h3 class="page-title">Edit Admin User</h3>
 						</div>
 					</div>
 				</div>

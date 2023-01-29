@@ -9,7 +9,7 @@ $jobAplly = $this->db->get('apply_job')->result_array();
             <div class="row">
                 <div class="col">
                     <h3 class="page-title">
-                        Job Apply
+                        Job Application
                     </h3>
                 </div>
                 <div class="col-auto text-right">
@@ -38,11 +38,14 @@ $jobAplly = $this->db->get('apply_job')->result_array();
                                         </th>
                                         <th>Phone
                                         </th>
-                                        <th>Address
+                                        
+                                        <th>Date
                                         </th>
                                         <th>Cv
                                         </th>
-                                        <th>Message
+                                        <th>Position
+                                        </th>
+                                        <th>Action
                                         </th>
 
                                     </tr>
@@ -59,9 +62,13 @@ $jobAplly = $this->db->get('apply_job')->result_array();
 										<td>'.$rows['name'].'</td>
 										<td>'.$rows['email'].'</td>
 										<td>'.$rows['phone'].'</td>
-										<td>'.$rows['address'].'</td>
+										
+										<td>'.$rows['created_at'].'</td>
 										<td> <a href="'.base_url().$rows['upload_cv'].'" target="_blank" ><i class="fa fa-download"></i></a></td>
-										<td>'.$rows['message'].'</td>
+										<td>'.$rows['position'].'</td>
+                                        <td class="text-right">
+									
+									<a href="javascript:;" class="on-default remove-row btn btn-sm bg-danger-light mr-2 delete_job_apply" id="Onremove_'.$rows['id'].'" data-id="'.$rows['id'].'"><i class="far fa-trash-alt mr-1"></i> '.$rows['lg_admin_delete'].'</a></td>
                                      </tr>';
 
                                     } ?>

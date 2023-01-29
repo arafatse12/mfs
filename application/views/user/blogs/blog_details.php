@@ -18,7 +18,7 @@
                             <ul>
                                 <li>
                                     <div class="post-author1">
-                                        <a href="#"><img src="<?php echo  $base_url."/".$posts[0]['profile_img']; ?>" alt="<?php echo $posts[0]['full_name']; ?>"> <span>by <?php echo $posts[0]['full_name']; ?> </span></a>
+                                        <a href="#"><img src="<?php echo  $base_url.$posts[0]['profile_img']; ?>" alt="<?php echo $posts[0]['full_name']; ?>"> <span>by <?php echo $posts[0]['full_name']; ?> </span></a>
                                     </div>
                                 </li>
                                 <li><i class="feather-clock"></i><?php echo date('M d,Y',strtotime($posts[0]['createdAt'])); ?></li>

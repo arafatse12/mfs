@@ -63,7 +63,7 @@ $availability_details = json_decode($business_hours['availability'],true);
 			                        $subcat_name = $this->db->get('subcategories_lang')->row_array()
                                 ?>
 								<h2><?php echo $service_name['service_name']?></h2>
-								<address class="service-location"><i class="fas fa-location-arrow"></i> <?php echo $service_details['service_location']?></address>
+								<!-- <address class="service-location"><i class="fas fa-location-arrow"></i> <?php echo $service_details['service_location']?></address> -->
 								<div class="rating">
 									<?php 
 							for($x=1;$x<=$avg_rating;$x++) {

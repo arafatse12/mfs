@@ -93,7 +93,7 @@ class Settings extends CI_Controller {
     }
     
     public function aboutus($id) {
-
+       
 		$this->common_model->checkAdminUserPermission(24);
         $title = $this->input->post('page_title');
         $this->data['about_us'] = $this->admin->aboutussettings();
@@ -103,12 +103,50 @@ class Settings extends CI_Controller {
                 $query = $this->db->query("select * from language WHERE status = '1'");
                 $languages = $query->result();
                 foreach ($languages as $language) {
-                    $about_val = array(
+                   
+            if (isset($_FILES) && isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])) {
+            if(!is_dir('uploads/common')) {
+                mkdir('/uploads/common/', 0777, TRUE);
+            }
+            
+            $uploaded_file_name = $_FILES['image']['name'];
+             
+            $uploaded_file_name_arr = explode('.', $uploaded_file_name);
+            $filename = $uploaded_file_name;
+            $this->load->library('common');
+            $upload_sts = $this->common->global_file_upload('uploads/common/', 'image', time() . $filename);
+         
+            if (isset($upload_sts['success']) && $upload_sts['success'] == 'y') {
+                $uploaded_file_name = $upload_sts['data']['file_name'];
+
+                if (!empty($uploaded_file_name)) {
+                    $image_url = 'uploads/common/' . $uploaded_file_name;
+                    
+                    $imageVal = $image_url;
+                    // $input['image_small'] = $this->image_resize(50, 50, $image_url, 'thu_' . $uploaded_file_name);
+                    // $input['image_default'] = $this->image_resize(381, 286, $image_url, $uploaded_file_name);
+                }
+            }
+        }
+                  if($imageVal){
+                        $about_val = array(
                         'modules' => 'about_us',
+                        'default_image' => $imageVal,
                         'title' => $this->input->post('page_title_' . $language->id, true),
                         'content' => $this->input->post('page_content_' . $language->id, true),
                         'lang_type' => $language->language_value
-                    );
+                        );
+                  }else{
+                     $about_val = array(
+                        'modules' => 'about_us',
+                      
+                        'title' => $this->input->post('page_title_' . $language->id, true),
+                        'content' => $this->input->post('page_content_' . $language->id, true),
+                        'lang_type' => $language->language_value
+                        );
+                  }
+                 
+                    
                     $this->db->where('modules', 'about_us');
                     $this->db->where('lang_type', $language->language_value);
                     $row = $this->db->get('home_settings')->row();

@@ -6,11 +6,23 @@
 	$admin_id=$this->session->userdata('admin_id');
 
 	$sidebar = $language_content;
+     $query = $this->db->query("select * from system_settings WHERE status = 1");
+    $result = $query->result_array();
+    if(!empty($result)) {
+		foreach($result as $data){
+			if($data['key'] == 'website_name'){
+				$this->website_name ='To Admin Panel';
+			}
+			if($data['key'] == 'logo_front'){
+				$website_logo_front =  $data['value'];
+			}
+		}
+    }
  ?>
 <div class="sidebar" id="sidebar">
     <div class="sidebar-logo">
         <a href="<?php echo $base_url; ?>dashboard">
-            <img src="<?php echo $base_url.'/assets/mfs/img/logo.png'; ?>" alt="" class="img-fluid">
+            <img src="<?php echo $base_url.$website_logo_front; ?>" alt="" class="img-fluid">
         </a>
     </div>
     <div class="sidebar-inner slimscroll">

@@ -110,6 +110,21 @@ class Booking extends CI_Controller {
     
   }
 
+  public function delete_job_apply()
+  {
+     
+    $id=$this->input->post('job_apply_id');
+
+   $this->db->where('id', $id);
+  $this->db->delete('apply_job');
+
+    $this->session->set_flashdata('success_message','Job deleted successfully');    
+    redirect(base_url()."job-apply");   
+    
+  
+    
+  }
+
   /*pending report*/
   public function pending_bookings() 
   {

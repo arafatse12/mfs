@@ -109,6 +109,7 @@ class Job extends CI_Controller {
 		 $table_datas['email']=$this->input->post('email');
 		 $table_datas['address']=$this->input->post('address');
 		 $table_datas['phone']=$this->input->post('phone');
+		 $table_datas['position']=$this->input->post('position');
 		 $table_datas['message']=$this->input->post('message');
        
          if (isset($_FILES) && isset($_FILES['image_file']['name']) && !empty($_FILES['image_file']['name'])) {
@@ -140,7 +141,7 @@ class Job extends CI_Controller {
 		//  if ($result) {
         //     $this->data['user'] = $this->session->userdata();
 
-        //     $body = $this->load->view('user/email/contact_form', $table_datas, true);
+        //     $body = $this->load->view('user/email/oute', $table_datas, true);
         //     $phpmail_config = settingValue('mail_config');
         //     if (isset($phpmail_config) && !empty($phpmail_config)) {
         //         if ($phpmail_config == "phpmail") {

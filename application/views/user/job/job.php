@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col">
                 <div class="breadcrumb-title">
-                    <h2>Job Application</h2>
+                    <h2>Apply For Job Application</h2>
                 </div>
             </div>
             <div class="col-auto float-right ml-auto breadcrumb-menu">
@@ -33,7 +33,7 @@
                             value="<?php echo $this->security->get_csrf_hash(); ?>" />
 
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group">
                                     <label
                                         class="required"><?php echo (!empty($user_language[$user_selected]['lg_Name'])) ? $user_language[$user_selected]['lg_Name'] : $default_language['en']['lg_Name']; ?>
@@ -41,32 +41,38 @@
                                     <input class="form-control" type="text" name="name" id="name" required>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group">
                                     <label><?php echo (!empty($user_language[$user_selected]['lg_Email'])) ? $user_language[$user_selected]['lg_Email'] : $default_language['en']['lg_Email']; ?>
                                         <span>*</span></label>
                                     <input class="form-control" type="text" name="email" id="email" required>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>Position <span>*</span></label>
+                                    <input class="form-control" type="text" name="position" id="position" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Address <span>*</span></label>
                                     <input class="form-control" type="text" name="address" id="address" required>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Phone <span>*</span></label>
                                     <input class="form-control" type="number" name="phone" id="phone" required>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Upload CV <span>*</span></label>
                                     <input class="form-control" type="file" name="image_file" id="image_file" required>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group">
                                     <div class="text-center">
                                         <div id="load_div"></div>
@@ -78,7 +84,7 @@
                         </div>
                         <div class="submit-section">
                             <button class="btn btn-primary submit-btn submit_service_book" type="submit"
-                                id="submit"><?php echo (!empty($user_language[$user_selected]['lg_Submit'])) ? $user_language[$user_selected]['lg_Submit'] : $default_language['en']['lg_Submit']; ?></button>
+                                id="submit">Apply</button>
                         </div>
                     </form>
 

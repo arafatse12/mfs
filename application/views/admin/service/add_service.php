@@ -16,7 +16,7 @@ $lang_test = $query->result();
 			  <div class="page-header">
 					<div class="row">
 						<div class="col-sm-12">
-							<h3 class="page-title"><?php echo(!empty($add_service['lg_admin_add_service']))?($add_service['lg_admin_add_service']) : 'Admin Add Service';  ?></h3>
+							<h3 class="page-title"><?php echo(!empty($add_service['lg_admin_add_service']))?($add_service['lg_admin_add_service']) : 'Add Service';  ?></h3>
 						</div>
 					</div>
 				</div>
@@ -46,7 +46,7 @@ $lang_test = $query->result();
 								        $this->db->where('lang_type', $pro_lang);
 								        $pro_name = $this->db->get('users_lang')->row_array();
 									?>
-									<option value="<?=$providers['id']?>"><?php echo (!empty($pro_name['name']))?$pro_name['name']:$providers['name']?></option>
+									<option value="<?=$providers['id']?>">Mfs Technical Services</option>
 
 									<?php }?>
 								</select>
@@ -55,18 +55,18 @@ $lang_test = $query->result();
                             <div class="col-lg-12">
                                 <?php foreach ($lang_test as $langval) { ?>
                                 <div class="form-group">
-                                    <label><?php echo(!empty($add_service['lg_admin_service_title']))?($add_service['lg_admin_service_title']) : 'Service Titles';  ?>(<?php echo $langval->language; ?>) <span class="text-danger">*</span></label>
+                                    <label><?php echo(!empty($add_service['lg_admin_service_title']))?($add_service['lg_admin_service_title']) : 'Service Titles';  ?> (<?php echo $langval->language; ?>) <span class="text-danger">*</span></label>
                                     <input class="form-control" type="text" name="service_title_<?php echo $langval->id; ?>" id="service_title" required>
                                 </div>
                                 <?php } ?>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label><?php echo(!empty($add_service['lg_admin_service_amount']))?($add_service['lg_admin_service_amount']) : 'Service Amount';  ?> <span class="text-danger">*</span></label>
+                                    <label>Service Price <span class="text-danger">*</span></label>
                                     <input class="form-control" type="text" name="service_amount" id="service_amount" >
                                 </div>
                             </div>
-                           <?php if(settingValue('location_type') == 'live') { ?>
+                           <!-- <?php if(settingValue('location_type') == 'live') { ?>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label><?php echo(!empty($add_service['lg_admin_service_location']))?($add_service['lg_admin_service_location']) : 'Service Location';  ?> <span class="text-danger">*</span></label>
@@ -86,23 +86,23 @@ $lang_test = $query->result();
                                 <?php } ?>
                                 </select>
                                     </div>
-                                </div>
+                                </div> -->
 
-                                <div class="col-lg-6">
+                                <!-- <div class="col-lg-6">
                                     <div class="form-group">
                                         <label><?php echo(!empty($add_service['lg_admin_state']))?($add_service['lg_admin_state']) : 'State';  ?> <span class="text-danger">*</span></label>
                                        <select class="form-control" name="state_id" id="state_id" >
                                 </select>
                                     </div>
-                                </div>
+                                </div> -->
 
-                                <div class="col-lg-6">
+                                <!-- <div class="col-lg-6">
                                     <div class="form-group">
                                         <label><?php echo(!empty($add_service['lg_admin_city']))?($add_service['lg_admin_city']) : 'City';  ?> <span class="text-danger">*</span></label>
                                         <select class="form-control" name="city_id" id="city_id">
                                 </select>
                                     </div>
-                                </div>
+                                </div> -->
                             <?php } ?>
                         </div>
                     </div>

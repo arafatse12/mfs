@@ -20,7 +20,8 @@ $lang_test = $query->result();
 				<!-- /Page Header -->
 				<div class="card">
 					<div class="card-body">
-						<form class="form-horizontal"  method="POST" enctype="multipart/form-data" id="
+						<form class="form-horizontal"   method="post"
+                            autocomplete="off" method="POST" enctype="multipart/form-data" id="
 						">
 						<input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>"/>
 						<?php 
@@ -56,6 +57,12 @@ $lang_test = $query->result();
                     			} 
                         
                     	}?>
+						 <div class="form-group">
+                                <label>About Us Image</label>
+                                <div class="change-photo-btn">
+                                    <input type="file" name="image">
+                                </div>
+                            </div>
 								<div class="m-t-30 text-center">
 									<button name="form_submit" type="submit" class="btn btn-primary" value="true"><?php echo(!empty($admin_settings['lg_admin_save']))?($admin_settings['lg_admin_save']) : 'Save';  ?></button>
 									<a href="<?php echo base_url(); ?>admin/pages"  class="btn btn-cancel"><?php echo(!empty($admin_settings['lg_admin_back']))?($admin_settings['lg_admin_back']) : 'Back';  ?></a>

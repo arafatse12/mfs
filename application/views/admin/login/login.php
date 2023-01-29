@@ -12,7 +12,7 @@
     if(!empty($result)) {
 		foreach($result as $data){
 			if($data['key'] == 'website_name'){
-				$this->website_name =($lang_website_check)?$lang_website_check['cookie_name']:'Truelysell';
+				$this->website_name ='To Admin Panel';
 			}
 			if($data['key'] == 'logo_front'){
 				$website_logo_front =  $data['value'];

@@ -102,6 +102,7 @@ class Contact extends CI_Controller {
 		
 		 $table_datas['name']=$this->input->post('name');
 		 $table_datas['email']=$this->input->post('email');
+		 $table_datas['subject']=$this->input->post('subject');
 		 $table_datas['message']=$this->input->post('message');
 		 $result=$this->db->insert('contact_form_details', $table_datas);
 		 if ($result) {

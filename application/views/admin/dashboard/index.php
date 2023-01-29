@@ -341,26 +341,8 @@ $dashboard = $language_content;
 			</div>
 		</div>
 		
-		<div class="row">
-			<div class="col-md-12">
-				<div class="card provider-map">
-					<div class="card-header text-center">
-						<h4 class="card-title"><?php echo(!empty($dashboard['lg_admin_provider_map']))?($dashboard['lg_admin_provider_map']) : 'Provider in Map';  ?></h4>
-					</div>
-					<div class="card-body align-items-center">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="">
-								    <div id="map-container"><div id="map"></div></div>
-									<div id="world-map-markers"></div>
-								</div>                                                                     
-							</div>                              
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		
 	</div>          
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $map_key?>"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $map_key?>"></script> -->
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/markerclusterer.js"></script>

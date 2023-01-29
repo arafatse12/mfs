@@ -215,162 +215,6 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 
 <?php } ?>
 
-<?php  if(settingValue('featured_showhide') == 1) { ?>
-
-<section class="category-section">
-
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-lg-12">
-
-                <div class="row">
-
-                    <div class="col-md-6">
-
-                        <div class="heading">
-
-                            <?php foreach ($home_featured_language as $featured_language) { ?>
-                            <h2>Our professional expertise</h2>
-
-                            <span>What Do You Need To Find?</span>
-                            <?php } ?>
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-
-                        <div class="viewall">
-
-                            <span>Professional expertise</span>
-
-                            <!-- <h4><a href="<?php echo base_url(); ?>all-categories"><?php echo (!empty($user_language[$user_selected]['lg_View_All'])) ? $user_language[$user_selected]['lg_View_All'] : $default_language['en']['lg_View_All']; ?> <i class="fas fa-angle-right"></i></a></h4>
-
-                            <span><?php echo (!empty($user_language[$user_selected]['lg_Featured_Categories'])) ? $user_language[$user_selected]['lg_Featured_Categories'] : $default_language['en']['lg_Featured_Categories']; ?></span> -->
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="catsec">
-
-                    <div class="row">
-                        <?php
-
-                        if (!empty($featured_category)) {
-
-                            foreach ($featured_category as $crows) {
-
-                                ?>
-
-                        <div class="col-lg-4 col-md-6">
-                            <?php 
-                                $RemoveSpecialChar = $this->home->RemoveSpecialChar($crows['category_name']);
-                                $output =  preg_replace('/[^A-Za-z0-9-]+/', '-', $RemoveSpecialChar);
-
-                                $cat_slug = str_replace(" ","-",trim($output));
-
-                                $inputs['category_slug'] = strtolower($cat_slug);
-
-                                $cat_slug = ($crows['category_slug'])?$crows['category_slug']:$inputs['category_slug'];
-
-
-                                $data = array('category_slug'=>$cat_slug);
-
-                                if(empty($crows['category_slug'])) {
-
-                                    $this->db->update('categories', $data, array('id'=>$crows['id']));
-                                }
-
-                                ?>
-                            <a
-                                href="<?php echo base_url(); ?>search/<?php echo str_replace(' ', '-', strtolower($crows['category_slug'])); ?>">
-
-                                <div class="cate-widget">
-
-                                    <?php if ($crows['category_image'] != '' && (@getimagesize(base_url().$crows['category_image']))) { ?>
-
-                                    <img src="<?php echo base_url() . $crows['category_image']; ?>" alt="">
-
-                                    <?php } else { ?>
-
-                                    <img alt="Category Image"
-                                        src="<?php echo ($placholder_img)? base_url().$placholder_img:base_url().'uploads/placeholder_img/1641376256_banner.jpg'; ?>">
-
-                                    <?php } 
-                                        $cat_lang = ($this->session->userdata('user_select_language'))?$this->session->userdata('user_select_language'):'en';
-                                        $this->db->where('category_id', $crows['id']);
-                                        $this->db->where('lang_type', $cat_lang);
-                                        $cat_name = $this->db->get('categories_lang')->row();
-                                        ?>
-
-                                    <div class="cate-title">
-
-
-                                        <h3><span><i class="fas fa-circle"></i>
-                                                <?php echo $cat_name->category_name; ?></span></h3>
-
-                                    </div>
-
-                                    <!-- <div class="cate-count">
-
-                                                <i class="fas fa-clone"></i> <?php echo $crows['category_count']; ?>
-
-                                            </div> -->
-
-                                </div>
-
-                            </a>
-
-                        </div>
-
-                        <?php
-
-                            }
-
-                        } else { ?>
-
-
-
-                        <div class="col-lg-12">
-
-                            <div class="category">
-
-                                <h5 class="text-center">
-                                    <?php echo (!empty($user_language[$user_selected]['lg_no_categories_found'])) ? $user_language[$user_selected]['lg_no_categories_found'] : $default_language['en']['lg_no_categories_found'] ?>
-                                </h5>
-
-                            </div>
-
-                        </div>
-
-                        <?php
-
-                        }
-
-                        ?>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<?php } ?>
-
-
-
 <?php  if(settingValue('newest_ser_showhide') == 1) { ?>
 
 <section class="popular-services">
@@ -401,7 +245,7 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
                     <div class="col-md-6">
 
                         <div class="viewall">
-                            <span>Featured Services</span>
+                           
                             <!-- <h4><a href="<?php echo base_url(); ?>all-services"><?php echo (!empty($user_language[$user_selected]['lg_View_All'])) ? $user_language[$user_selected]['lg_View_All'] : $default_language['en']['lg_View_All']; ?> <i class="fas fa-angle-right"></i></a></h4>
 
                             <span><?php echo (!empty($user_language[$user_selected]['lg_newest_services'])) ? $user_language[$user_selected]['lg_newest_services'] : 'Newested Services'; ?></span> -->
@@ -685,6 +529,162 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
 </section>
 
 <?php  }  ?>
+
+
+<?php  if(settingValue('featured_showhide') == 1) { ?>
+
+<section class="category-section">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <div class="heading">
+
+                            <?php foreach ($home_featured_language as $featured_language) { ?>
+                            <h2>Our professional expertise</h2>
+
+                            <span>What Do You Need To Find?</span>
+                            <?php } ?>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="viewall">
+
+                           
+
+                            <!-- <h4><a href="<?php echo base_url(); ?>all-categories"><?php echo (!empty($user_language[$user_selected]['lg_View_All'])) ? $user_language[$user_selected]['lg_View_All'] : $default_language['en']['lg_View_All']; ?> <i class="fas fa-angle-right"></i></a></h4>
+
+                            <span><?php echo (!empty($user_language[$user_selected]['lg_Featured_Categories'])) ? $user_language[$user_selected]['lg_Featured_Categories'] : $default_language['en']['lg_Featured_Categories']; ?></span> -->
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="catsec">
+
+                    <div class="row">
+                        <?php
+
+                        if (!empty($featured_category)) {
+
+                            foreach ($featured_category as $crows) {
+
+                                ?>
+
+                        <div class="col-lg-4 col-md-6">
+                            <?php 
+                                $RemoveSpecialChar = $this->home->RemoveSpecialChar($crows['category_name']);
+                                $output =  preg_replace('/[^A-Za-z0-9-]+/', '-', $RemoveSpecialChar);
+
+                                $cat_slug = str_replace(" ","-",trim($output));
+
+                                $inputs['category_slug'] = strtolower($cat_slug);
+
+                                $cat_slug = ($crows['category_slug'])?$crows['category_slug']:$inputs['category_slug'];
+
+
+                                $data = array('category_slug'=>$cat_slug);
+
+                                if(empty($crows['category_slug'])) {
+
+                                    $this->db->update('categories', $data, array('id'=>$crows['id']));
+                                }
+
+                                ?>
+                            <a
+                                href="<?php echo base_url(); ?>search/<?php echo str_replace(' ', '-', strtolower($crows['category_slug'])); ?>">
+
+                                <div class="cate-widget">
+
+                                    <?php if ($crows['category_image'] != '' && (@getimagesize(base_url().$crows['category_image']))) { ?>
+
+                                    <img src="<?php echo base_url() . $crows['category_image']; ?>" alt="">
+
+                                    <?php } else { ?>
+
+                                    <img alt="Category Image"
+                                        src="<?php echo ($placholder_img)? base_url().$placholder_img:base_url().'uploads/placeholder_img/1641376256_banner.jpg'; ?>">
+
+                                    <?php } 
+                                        $cat_lang = ($this->session->userdata('user_select_language'))?$this->session->userdata('user_select_language'):'en';
+                                        $this->db->where('category_id', $crows['id']);
+                                        $this->db->where('lang_type', $cat_lang);
+                                        $cat_name = $this->db->get('categories_lang')->row();
+                                        ?>
+
+                                    <div class="cate-title">
+
+
+                                        <h3><span><i class="fas fa-circle"></i>
+                                                <?php echo $cat_name->category_name; ?></span></h3>
+
+                                    </div>
+
+                                    <!-- <div class="cate-count">
+
+                                                <i class="fas fa-clone"></i> <?php echo $crows['category_count']; ?>
+
+                                            </div> -->
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+                        <?php
+
+                            }
+
+                        } else { ?>
+
+
+
+                        <div class="col-lg-12">
+
+                            <div class="category">
+
+                                <h5 class="text-center">
+                                    <?php echo (!empty($user_language[$user_selected]['lg_no_categories_found'])) ? $user_language[$user_selected]['lg_no_categories_found'] : $default_language['en']['lg_no_categories_found'] ?>
+                                </h5>
+
+                            </div>
+
+                        </div>
+
+                        <?php
+
+                        }
+
+                        ?>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<?php } ?>
+
 
 
 
@@ -1047,7 +1047,7 @@ $howit_showhide = $this->db->get_where('system_settings',array('key'=> 'how_show
                         <div class="viewall aos" data-aos="fade-up">
                             <h4><a href="<?php echo $base_url; ?>all-blogs"><?php echo (!empty($user_language[$user_selected]['lg_View_All'])) ? $user_language[$user_selected]['lg_View_All'] : $default_language['en']['lg_View_All']; ?>
                                     <i class="fas fa-angle-right"></i></a></h4>
-                            <span>Blogs</span>
+                            
                         </div>
                     </div>
                 </div>

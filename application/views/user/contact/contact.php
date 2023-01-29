@@ -39,7 +39,12 @@
 								<input class="form-control" type="text" name="email" id="email">
 							</div>
 						</div>					
-
+						<div class="col-lg-12">
+							<div class="form-group">
+								<label>Subject</label>
+								<input class="form-control" type="text" name="subject" id="subject" required>
+							</div>
+						</div>	
 						<div class="col-lg-12">
 							<div class="form-group">
 								<div class="text-center">
@@ -51,7 +56,7 @@
 						</div>
 					</div>
 					<div class="submit-section">
-						<button class="btn btn-primary submit-btn submit_service_book"  type="submit" id="submit"><?php echo (!empty($user_language[$user_selected]['lg_Submit'])) ? $user_language[$user_selected]['lg_Submit'] : $default_language['en']['lg_Submit']; ?></button>
+						<button class="btn btn-primary submit-btn submit_service_book"  type="submit" id="submit">Send Message</button>
 					</div>
 				</form>					
 				</div>
