@@ -635,9 +635,8 @@ echo json_encode($output);
     $service_status=$this->db->from('book_service')->count_all_results();
     //end check
     if($service_status==0){
-        $inputs['status']= '0';
-        $WHERE =array('id' => $id);
-        $result=$this->service->update_service($inputs,$WHERE);
+       
+        $result = $this->db->query("DELETE FROM services WHERE id = $id");
         if($result) {
           $this->session->set_flashdata('success_message','Service deleted successfully');    
          echo 1;exit; 

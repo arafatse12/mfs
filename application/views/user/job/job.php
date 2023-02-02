@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col">
                 <div class="breadcrumb-title">
-                    <h2>Apply For Job Application</h2>
+                    <h2>Job Application</h2>
                 </div>
             </div>
             <div class="col-auto float-right ml-auto breadcrumb-menu">
@@ -50,7 +50,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label>Position <span>*</span></label>
+                                    <label>Your Skill <span>*</span></label>
                                     <input class="form-control" type="text" name="position" id="position" required>
                                 </div>
                             </div>

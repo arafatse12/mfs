@@ -93,7 +93,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\Var_;
         </div>
     </div>
 </div>
-<div class="content container">			
+<div class="content container" style="padding: 0!important;">			
     <div class="row justify-content-center">			
         <div class="col-lg-10 col-xl-9">			
             <!-- Blog Details-->
@@ -101,8 +101,8 @@ use phpDocumentor\Reflection\DocBlock\Tags\Var_;
                 <div class="blog-single-post">                       
                     <div class="blog-image">
                         
-                            <a href="javascript:void(0)">
-                                <img class="img-fluid" src="<?php  echo base_url();?><?php echo $aboutUs; ?>" alt="about image">
+                            <a href="javascript:void(0)" >
+                                <img class="img-fluid " style=" max-height: 400px;" src="<?php  echo base_url();?><?php echo $aboutUs; ?>" alt="about image">
                             </a>
                            
                     </div>
@@ -136,3 +136,12 @@ use phpDocumentor\Reflection\DocBlock\Tags\Var_;
         </div>
     </div>
 </div>
+<style>
+    .breadcrumb-bar{
+        padding: 0;
+    },
+    .content {
+    min-height: 200px;
+    padding:0 !important;
+}
+</style>

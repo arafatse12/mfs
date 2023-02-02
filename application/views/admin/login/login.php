@@ -30,7 +30,7 @@
 				<div class="account-header">
 					<div class="account-logo text-center mb-4">
 						<a href="<?php echo $base_url."admin"; ?>">
-							<img src="<?php echo $base_url.$website_logo_front; ?>" alt="" class="img-fluid">
+							<img src="<?php echo $base_url.'uploads/logo/logo.png'; ?>" alt="" class="img-fluid">
 						</a>
 					</div>
 				</div>

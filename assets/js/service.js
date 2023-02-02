@@ -147,13 +147,13 @@
                         }
                     }
                 },
-                subcategory: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Please select subcategory...'
-                        }
-                    }
-                },
+                // subcategory: {
+                //     validators: {
+                //         notEmpty: {
+                //             message: 'Please select subcategory...'
+                //         }
+                //     }
+                // },
                 service_location: {
                     validators: {
                         notEmpty: {
@@ -303,13 +303,13 @@
                         }
                     }
                 },
-                subcategory: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Please select subcategory...'
-                        }
-                    }
-                },
+                // subcategory: {
+                //     validators: {
+                //         notEmpty: {
+                //             message: 'Please select subcategory...'
+                //         }
+                //     }
+                // },
                 service_location: {
                     validators: {
                         notEmpty: {

@@ -1045,7 +1045,6 @@ class Service extends CI_Controller {
             } elseif ($day == '0') {
                 $weekday = '0';
             }
-
             foreach ($availability_details as $availability) {
                 if ($weekday == $availability['day'] && $availability['day'] != 0) {
                     $availability_day = $availability['day'];

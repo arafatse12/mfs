@@ -117,13 +117,13 @@ $lang_test = $query->result();
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label><?php echo(!empty($add_service['lg_admin_sub_category']))?($add_service['lg_admin_sub_category']) : 'Sub Category';  ?> <span class="text-danger">*</span></label>
+                                    <label><?php echo(!empty($add_service['lg_admin_sub_category']))?($add_service['lg_admin_sub_category']) : 'Sub Category';  ?></label>
                                     <select class="form-control select" title="Sub Category" name="subcategory" id="subcategory"  ></select>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="service-fields">
+                    <!-- <div class="service-fields">
                         <h3><?php echo(!empty($add_service['lg_admin_service_offer']))?($add_service['lg_admin_service_offer']) : 'Service Offer';  ?></h3>
 
                         <div class="membership-info">
@@ -139,7 +139,7 @@ $lang_test = $query->result();
                         <div class="add-more form-group">
                             <a href="javascript:void(0);" class="add-membership"><i class="fas fa-plus-circle mr-1"></i><?php echo(!empty($add_service['lg_admin_add_more']))?($add_service['lg_admin_add_more']) : 'Add More';  ?></a>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="service-fields">
                         <h3><?php echo(!empty($add_service['lg_admin_details_information']))?($add_service['lg_admin_details_information']) : 'Details Information';  ?></h3>
                         <div class="row">

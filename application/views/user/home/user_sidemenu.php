@@ -19,7 +19,7 @@
                             ?>
 							<h6 class="mb-0"><?php echo $lang_user['name']; ?></h6>
 
-							<p class="text-muted mb-0"><?php echo (!empty($user_language[$user_selected]['lg_Member_Since'])) ? $user_language[$user_selected]['lg_Member_Since'] : $default_language['en']['lg_Member_Since']; ?> <?php echo date('M Y',strtotime($user->created_at));?></p>
+							<p class="text-muted mb-0"><?php echo $user->name?></p>
 						</div>
 						
 					</div>

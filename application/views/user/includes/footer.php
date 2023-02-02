@@ -555,7 +555,7 @@ $default_language = $lg['default_lang'];
                     <div class="account-box">
                         <div class="login-right">
                             <div class="login-header">
-                                <h3><?php echo (!empty($user_language[$user_selected]['lg_join_as_user'])) ? $user_language[$user_selected]['lg_join_as_user'] : $default_language['en']['lg_join_as_user']; ?>
+                                <h3>JOIN AS A CUSTOMER
                                 </h3>
                                 <p class="text-muted">
                                     <?php echo (!empty($user_language[$user_selected]['lg_registration_customer'])) ? $user_language[$user_selected]['lg_registration_customer'] : $default_language['en']['lg_registration_customer']; ?>

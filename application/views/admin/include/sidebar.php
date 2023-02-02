@@ -22,7 +22,7 @@
 <div class="sidebar" id="sidebar">
     <div class="sidebar-logo">
         <a href="<?php echo $base_url; ?>dashboard">
-            <img src="<?php echo $base_url.$website_logo_front; ?>" alt="" class="img-fluid">
+            <img src="<?php echo $base_url.'uploads/logo/logo.png'; ?>" alt="" class="img-fluid">
         </a>
     </div>
     <div class="sidebar-inner slimscroll">
@@ -145,6 +145,12 @@
                     class="<?php echo ($active =='total-report' || $active =='pending-report' || $active == 'inprogress-report' || $active == 'complete-report' || $active == 'reject-report' || $active == 'cancel-report' ||$page == 'reject-payment')? 'active':''; ?>">
                     <a href="<?php echo $base_url; ?>admin/total-report"><i class="far fa-calendar-check"></i> <span>
                             <?php echo(!empty($sidebar['lg_admin_booking_list']))?($sidebar['lg_admin_booking_list']) : 'Booking List';  ?></span></a>
+                </li>
+                <?php } ?>
+                <?php if(in_array(17,$access_result_data_array)) { ?>
+                <li class="<?php echo ($active == 'contact' || $page == 'contact-details')?'active':''; ?>">
+                    <a href="<?php echo $base_url; ?>admin/contact"><i class="fas fa-paper-plane"></i> <span>
+                            <?php echo(!empty($sidebar['lg_admin_contact_messages']))?($sidebar['lg_admin_contact_messages']) : 'Contact Messages';  ?></span></a>
                 </li>
                 <?php } ?>
                 <?php if(in_array(45,$access_result_data_array) || in_array(46,$access_result_data_array) || in_array(10,$access_result_data_array)) { ?>
@@ -361,11 +367,7 @@
                     <a href="<?php echo $base_url; ?>admin/cache-settings"> <i class="fas fa-window-restore"></i>
                         <span><?php echo(!empty($sidebar['lg_admin_cache_settings']))?($sidebar['lg_admin_cache_settings']) : 'Cache System';  ?></span></a>
                 </li>
-                <?php } if(in_array(17,$access_result_data_array)) { ?>
-                <li class="<?php echo ($active == 'contact' || $page == 'contact-details')?'active':''; ?>">
-                    <a href="<?php echo $base_url; ?>admin/contact"><i class="fas fa-paper-plane"></i> <span>
-                            <?php echo(!empty($sidebar['lg_admin_contact_messages']))?($sidebar['lg_admin_contact_messages']) : 'Contact Messages';  ?></span></a>
-                </li>
+                
                 <?php } 
 						if(in_array(20,$access_result_data_array)) { ?>
                 <li class="<?php echo ($active == 'emailtemplate' || $page =='edit-emailtemplate')? 'active':''; ?>">

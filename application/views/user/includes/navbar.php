@@ -858,7 +858,7 @@ $google_analytics_code = $this->db->get_where('system_settings', array('key'=>'g
                                                 $lang_user = $this->db->get('users_lang')->row_array();
                                             ?>
                                             <h6><?php echo $lang_user['name']; ?></h6>
-                                            <p class="text-muted mb-0"><?php echo (!empty($user_language[$user_selected]['lg_User'])) ? $user_language[$user_selected]['lg_User'] : $default_language['en']['lg_User']; ?></p>
+                                            <p class="text-muted mb-0"><?php echo $user_details['name'];?></p>
                                         </div>
                                     </div>
                                     <a class="dropdown-item" href="<?php echo base_url(); ?>user-dashboard"><?php echo (!empty($user_language[$user_selected]['lg_Dashboard'])) ? $user_language[$user_selected]['lg_Dashboard'] : $default_language['en']['lg_Dashboard']; ?></a>

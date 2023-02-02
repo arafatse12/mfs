@@ -145,8 +145,8 @@ class Home extends CI_Controller {
 
             $subcategory = $this->home->get_subcategory_id($subcategory_name);
 
-            $inputs['subcategories'] = $subcategory;
-            $this->data['subcategory_id'] = $subcategory;
+            // $inputs['subcategories'] = $subcategory;
+            // $this->data['subcategory_id'] = $subcategory;
         }
 
         if (isset($_POST) && !empty($_POST)) { 
@@ -186,16 +186,17 @@ class Home extends CI_Controller {
        
          $this->home->get_all_service($conditions, $inputs);
       if($cat){
-        $query1 = $this->db->query("select * from services  where category = '$cat'");
+        $query1 = $this->db->query("select * from services WHERE category LIKE '%$cat%' ");
       }elseif($inputs['common_search']){
          $title=  $inputs['common_search'];
-         $query1 = $this->db->query("select * from services  where service_title = '$title'");
+         $query1 = $this->db->query("select * from services  WHERE service_title LIKE '%$title%'");
       }
       else{
          $query1 = $this->db->query("select * from services");
       }
-        
+      
         $this->data['service'] = $query1->result_array();
+    //    $this->data['service'] =  $this->home->get_all_service($conditions, $inputs);
         $totalRec = $query1->num_rows();
         $this->data['count'] = $totalRec;
         $this->data['category'] = $this->home->get_category();

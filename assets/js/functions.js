@@ -587,25 +587,25 @@
                             $('#from_time').find("option:eq(0)").html("Select time slot");
                             if (response != '') {
                                 var obj = jQuery.parseJSON(response);
-                                if (obj != '') {
+                                // if (obj != '') {
                                     $(obj).each(function() {
                                         var option = $('<option />');
                                         option.attr('value', this.start_time + ' - ' + this.end_time).text(this.start_time + '-' + this.end_time);
                                         $('#from_time').append(option);
                                     });
-                                } else if (obj == '') {
-                                    swal({
-                                        title: "Availability Not Found !",
-                                        text: "Please check and select avilable date...!",
-                                        icon: "warning",
-                                        button: "okay",
-                                        closeOnEsc: false,
-                                        closeOnClickOutside: false
-                                    });
-                                    var option = $('<option />');
-                                    option.attr('value', '').text("Availability not found.");
-                                    $('#from_time').append(option);
-                                }
+                                // } else if (obj == '') {
+                                //     swal({
+                                //         title: "Availability Not Found !",
+                                //         text: "Please check and select avilable date...!",
+                                //         icon: "warning",
+                                //         button: "okay",
+                                //         closeOnEsc: false,
+                                //         closeOnClickOutside: false
+                                //     });
+                                //     var option = $('<option />');
+                                //     option.attr('value', '').text("Availability not found.");
+                                //     $('#from_time').append(option);
+                                // }
 
                             }
                         }
