@@ -189,6 +189,7 @@ $booking = $language_content;
 			<li class="nav-item">
 				<a class="nav-link" href="<?php echo base_url().'admin/reject-report'; ?>"><?php echo(!empty($booking['lg_admin_rejected']))?($booking['lg_admin_rejected']) : 'Rejected';  ?> <span class="badge badge-primary"><?=$rejected;?></span></a>
 			</li>
+			
 			<li class="nav-item">
 				<a class="nav-link" href="<?php echo base_url().'admin/cancel-report'; ?>"><?php echo(!empty($booking['lg_admin_canceled']))?($booking['lg_admin_canceled']) : 'Canceled';  ?> <span class="badge badge-primary"><?=$cancelled;?></span></a>
 			</li>
@@ -310,6 +311,7 @@ $booking = $language_content;
 									if($rows['admin_update_status'] == 1) {
 										$badge = $badge." - by Admin";
 									}
+									
 									$statcheck = 0;
 									if($rows['status'] == 5 || $rows['status'] == 7){
 										if(!empty($rows['reject_paid_token'])){
@@ -350,6 +352,7 @@ $booking = $language_content;
 									$service_name_lang = (!empty($service_name['service_name'])) ? $service_name['service_name'] : $rows['service_title'];
                                     $user_name = (!empty($lang_user['name'])) ? $lang_user['name'] : $rows['user_name'];
                                     $pro_name = (!empty($lang_pro['name'])) ? $lang_pro['name'] : $rows['provider_name'];
+									
 									echo '<tr>
 										<td>'.$i++.'</td>
 										<td>'.$service_date.'</td>
@@ -381,7 +384,10 @@ $booking = $language_content;
 														foreach ($servie_staus as $pro) { 
 														echo '<option value="'.$pro['id'].'">'.$pro['value'].'</option>';
 														} 
-													echo '</select></td>';
+													echo '</select></td>'.'<td><a class="btn btn-success add_user" data-id="'.$rows['notes'].'">View <span class="badge badge-success"></span></a></td>'. '<td class="text-right">
+									
+									<a href="javascript:;" class="btn btn-danger delete_job_apply5" id="'.$rows['id'].'"
+                                     data-id="'.$rows['id'].'">Delete <span class="badge badge-danger"></span></a></td>';
 													
 											} else {
 												echo '<td class="text-center">-</td>';
@@ -396,7 +402,7 @@ $booking = $language_content;
 										}
 										echo '</tr>';
 									} 
-									} ?>
+									}  ?>
                                 </tbody>
                             </table>
 						</div> 
@@ -406,3 +412,7 @@ $booking = $language_content;
 		</div>
 	</div>
 </div>
+
+
+
+ 

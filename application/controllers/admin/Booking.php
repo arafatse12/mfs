@@ -116,6 +116,12 @@ class Booking extends CI_Controller {
       $query = $this->db->query("delete from apply_job where id=$id");
       $this->session->set_flashdata('success_message','Job deleted successfully');    
   }
+  public function delete_job_apply5()
+  {
+      $id= $this->input->get('job_apply_id', TRUE);
+      $query = $this->db->query("delete from book_service where id=$id");
+      $this->session->set_flashdata('success_message','Booking service deleted successfully');    
+  }
 
   function file_download()
     {

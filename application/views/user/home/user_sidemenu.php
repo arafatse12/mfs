@@ -50,12 +50,12 @@
 								<span><?php echo (!empty($user_language[$user_selected]['lg_Profile_Settings'])) ? $user_language[$user_selected]['lg_Profile_Settings'] : $default_language['en']['lg_Profile_Settings']; ?></span>
 							</a>
 						</li>
-						<li class="nav-item">
+						<!-- <li class="nav-item">
 							<a href="<?php echo base_url()?>user-wallet" class="nav-link <?= ($this->uri->segment(1)=="user-wallet")?'active':'';?>">
 								<i class="far fa-money-bill-alt"></i>
 								<span><?php echo (!empty($user_language[$user_selected]['lg_wallet'])) ? $user_language[$user_selected]['lg_wallet'] : $default_language['en']['lg_wallet']; ?></span>
 							</a>
-						</li>
+						</li> -->
 						<li class="nav-item">
 							<a href="<?php echo base_url()?>user-reviews" class="nav-link <?= ($this->uri->segment(1)=="user-reviews")?'active':'';?>">
 								<i class="far fa-star"></i>

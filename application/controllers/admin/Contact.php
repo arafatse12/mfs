@@ -94,8 +94,7 @@ public function contact_details($value='')
                         ->message($body)
                         ->send();
             }
-			
-            $message = 'Mail Sent Successfully';
+            $message = 'Sent Successfully';
             $this->session->set_flashdata('success_message', $message);
 			  echo 1;
         } else {

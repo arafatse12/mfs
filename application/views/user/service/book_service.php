@@ -77,17 +77,13 @@ if (is_nan($service_amount) || is_infinite($service_amount)) {
                                 <textarea class="form-control" name="notes" id="notes" rows="5"></textarea>
                             </div>
                         </div>
-						<div class="col-lg-12">
+						<div class="col-lg-12 d-none">
 							<div class="form-group">
-								<label>Payment Method</label>
+								<!-- <label>Payment Method</label> -->
 								<div>									
-									<label class="radio-inline"><input class="cod"  type="radio" name="cod" value="2" checked> <?php echo (!empty($user_language[$user_selected]['lg_wallet'])) ? $user_language[$user_selected]['lg_wallet'] : $default_language['en']['lg_wallet']; ?> </label>
-									<?php 
-                                    $get_cod_option_status = $this->db->where('key','cod_option')->get('system_settings')->row()->value;
-                                    $cod_option_status =($get_cod_option_status)?$get_cod_option_status:0;
-                                    if(!empty($cod_option_status)) { ?>
-                                    <label class="radio-inline"><input class="cod"  type="radio" name="cod" value="1"> <?php echo (!empty($user_language[$user_selected]['lg_cash_on_delivery'])) ? $user_language[$user_selected]['lg_cash_on_delivery'] : $default_language['en']['lg_cash_on_delivery']; ?> </label>
-                                    <?php } ?>
+									
+                                    <label class="radio-inline"><input class="cod"  type="radio" name="cod" value="1">  </label>
+                                   
 								</div>
 							</div>
 						</div>

@@ -56,7 +56,8 @@ $provider_list = $this->db->get('providers')->result_array();
                                     <select class="form-control" name="username">
                                     <option value=""><?php echo(!empty($add_service['lg_admin_select_provider_name']))?($add_service['lg_admin_select_provider_name']) : 'Select provider name';  ?></option>
                                    
-                                    <option value="<?=$providers['id']?>"<?php if($providers['id']==$services['user_id']) echo 'selected';?>><?php echo (!empty($pro_name['name']))?$pro_name['name']:$providers['name']?></option>
+                                    <!-- <option value="<?=$providers['id']?>"<?php if($providers['id']==$services['user_id']) echo 'selected';?>><?php echo (!empty($pro_name['name']))?$pro_name['name']:$providers['name']?></option> -->
+                                    <option value="<?=$providers['id']?>"<?php if($providers['id']==$services['user_id']) echo 'selected';?>><?php echo 'Mfs Technical Services';?></option>
                                     <?php } ?>
                                 </select>
                                 </div>

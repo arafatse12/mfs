@@ -2581,6 +2581,7 @@ html.menu-opened body {
 .navbar-brand.logo-small img {
     max-height: 40px;
     width: auto;
+    margin-right: 30%;
 }
 
 header.sticktop.dark {

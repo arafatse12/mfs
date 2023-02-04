@@ -476,6 +476,7 @@ return false;
                       alert(id);
                       delete_job_apply(id);
                     });
+                   
                
 
                       $(document).on("click",".delete_blog_categories",function() {
@@ -788,6 +789,82 @@ if($page == 'add-wep-keyword'){
             e.preventDefault();
         }
     }
+</script>
+<div id="ViewDeatilsOfServices" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Booking details</h4>
+      </div>
+      <div class="modal-body" id="showdata">
+		   <div id="newvaluesNotes">
+       </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+   $(document).on('click', '.add_user', function(){
+var id = $(this).attr("data-id");
+	$('#ViewDeatilsOfServices').modal('show');
+	$('#newvaluesNotes').html('<p>'+id+'<p>');
+    // var url = $(this).attr("href");
+
+    //     $.ajax({
+
+    //         url: url,
+    //         async: false,
+    //         data: url,
+    //         success: function(data) {
+
+    //         // Here's the part what I'm thinking is wrong
+
+    //         $("form#add_user_form").easyModal({
+    //             top: 80,
+    //             autoOpen: true,
+    //             overlayOpacity: 0.1,
+    //             overlayColor: "#000000",
+    //             overlayClose: true,
+    //             closeButtonClass: "span.close_form_button_add_user_form"
+    //         });
+    //     }           
+    //     });
+    // return false;
+});
+</script>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('.delete_job_apply5').click(function (e) {
+            e.preventDefault();
+
+            confirmDialog = confirm("Are you sure you want to delete?");
+            if(confirmDialog)
+            {
+                var id = $(this).attr('data-id');
+                 var data = { 
+                    job_apply_id: id
+                };
+                // alert(id);
+                $.ajax({
+                    type: "GET",
+                     data: data,
+                    url: "<?php echo base_url(); ?>/admin/delete-this-service",
+                    success: function (response) {
+                       location.reload();
+                       
+                    }
+                });
+            }
+
+        });
+    });
 </script>
 </body>
 </html>
