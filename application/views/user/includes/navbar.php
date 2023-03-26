@@ -64,6 +64,8 @@ $google_analytics_code = $this->db->get_where('system_settings', array('key'=>'g
                         </a>
                     </div>
                     <ul class="main-nav">
+                        
+                             <li ><a href="tel:+971-581329990">+971-581329990</a></li>
                                 <?php 
                                 
                                 if($header_settings->header_menu_option == 1 && !empty($header_settings->header_menus) )
@@ -101,11 +103,12 @@ $google_analytics_code = $this->db->get_where('system_settings', array('key'=>'g
                                             <li><a href="<?php echo $menu->link; ?>"><?php echo $menu->label; ?></a></li>
                                         <?php } }
                                     } ?>
+                                 
                                      <li><a href="<?php echo $base_url; ?>">Home</a></li>
                         <li><a href="<?php echo $base_url.'about-us' ?>">About Us</a></li>
                         <li><a href="<?php echo $base_url.'all-services' ?>">Services</a></li>
                         <li><a href="<?php echo $base_url.'job' ?>">Apply for Job</a></li>
-                        <li><a href="<?php echo $base_url.'contact' ?>">Contact</a></li>
+                        <!-- <li><a href="<?php echo $base_url.'contact' ?>">Book an Appointment</a></li> -->
                         <li><a href="<?php echo $base_url.'all-blogs' ?>">Blog</a></li> 
                                      <?php 
                                 $lang_val = ($this->session->userdata('user_select_language'))?$this->session->userdata('user_select_language'):'en';
@@ -255,7 +258,12 @@ $google_analytics_code = $this->db->get_where('system_settings', array('key'=>'g
                     </ul>		 
                 </div>		 
                 <ul class="nav header-navbar-rht">
+                    <li class="nav-item">
+                            <a class="nav-link header-login"  href="<?php echo $base_url.'contact' ?>"   style="background:#16b46b" onMouseOver="this.style.background='#f8c70e';"
+   onMouseOut="this.style.background='#16b46b'" ><?php echo 'Book an appointment' ?> </a>
+                        </li>
                     <?php if ($this->session->userdata('id') == '') { ?>
+                        
                         <li class="nav-item">
                             <a class="nav-link header-login" href="javascript:void(0);" data-toggle="modal" data-target="#tab_login_modal"><?php echo (!empty($user_language[$user_selected]['lg_login'])) ? $user_language[$user_selected]['lg_login'] : $default_language['en']['lg_login']; ?></a>
                         </li>
