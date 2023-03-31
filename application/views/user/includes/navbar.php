@@ -65,7 +65,7 @@ $google_analytics_code = $this->db->get_where('system_settings', array('key'=>'g
                     </div>
                     <ul class="main-nav">
                         
-                             <li ><a href="tel:+971-581329990">+971-581329990</a></li>
+                             <li ><i class="fab fa-whatsapp" style=""></i><a href="tel:+971-581329990">+971-581329990</a></li>
                                 <?php 
                                 
                                 if($header_settings->header_menu_option == 1 && !empty($header_settings->header_menus) )
@@ -260,7 +260,7 @@ $google_analytics_code = $this->db->get_where('system_settings', array('key'=>'g
                 <ul class="nav header-navbar-rht">
                     <li class="nav-item">
                             <a class="nav-link header-login"  href="<?php echo $base_url.'contact' ?>"   style="background:#16b46b" onMouseOver="this.style.background='#f8c70e';"
-   onMouseOut="this.style.background='#16b46b'" ><?php echo 'Book an appointment' ?> </a>
+   onMouseOut="this.style.background='#16b46b'" ><?php echo 'Book' ?> </a>
                         </li>
                     <?php if ($this->session->userdata('id') == '') { ?>
                         
